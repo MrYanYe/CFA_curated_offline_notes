@@ -1,0 +1,2227 @@
+<!DOCTYPE html>
+
+<html class="no-js" lang="en-US">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots"/>
+
+
+<!-- This site is optimized with the Yoast SEO plugin v28.1 - https://yoast.com/product/yoast-seo-wordpress/ -->
+<title>Pricing and Valuation of Interest Rates and Other Swaps - PrepNuggets</title><link as="style" href="../../fonts.googleapis.com/family-Roboto_Condensed_400,400i,700,700i_Oswald_400_Monoton_400_Ubuntu_500_su/style.css" rel="preload"/><link href="../../fonts.googleapis.com/family-Roboto_Condensed_400,400i,700,700i_Oswald_400_Monoton_400_Ubuntu_500_su/style.css" media="print" onload="this.media='all'" rel="stylesheet"/><noscript><link href="../../fonts.googleapis.com/family-Roboto_Condensed_400,400i,700,700i_Oswald_400_Monoton_400_Ubuntu_500_su/style.css" rel="stylesheet"/></noscript><link data-minify="1" href="../../wp-content/cache/min/1/996465b4e802382a74609d179d4755e6.css" media="all" rel="stylesheet"/>
+<link href="index.html" rel="canonical"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="article" property="og:type"/>
+<meta content="Pricing and Valuation of Interest Rates and Other Swaps - PrepNuggets" property="og:title"/>
+<meta content="Pricing and Valuation of Interest Rates and Other Swaps | CFA Level I Derivatives Understanding Swaps and Their Connection to Forwards Welcome back to our discussion on the pricing and valuation of swaps. Today, we’ll dive into the general principles of swap pricing and take a closer look at interest rate swaps. Swaps share some similarities with forwards, such as: ... Read More" property="og:description"/>
+<meta content="https://prepnuggets.com/cfa-level-1-study-notes/derivatives-study-notes/pricing-and-valuation-of-interest-rates-and-other-swaps/" property="og:url"/>
+<meta content="PrepNuggets" property="og:site_name"/>
+<meta content="2024-03-12T01:02:13+00:00" property="article:modified_time"/>
+<meta content="https://prepnuggets.com/wp-content/uploads/2020/01/Swap-contract-1024x324.jpg" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Est. reading time" name="twitter:label1"/>
+<meta content="5 minutes" name="twitter:data1"/>
+<script class="yoast-schema-graph" type="application/ld+json">{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebPage","@id":"https:\/\/prepnuggets.com\/cfa-level-1-study-notes\/derivatives-study-notes\/pricing-and-valuation-of-interest-rates-and-other-swaps\/","url":"https:\/\/prepnuggets.com\/cfa-level-1-study-notes\/derivatives-study-notes\/pricing-and-valuation-of-interest-rates-and-other-swaps\/","name":"Pricing and Valuation of Interest Rates and Other Swaps - PrepNuggets","isPartOf":{"@id":"https:\/\/prepnuggets.com\/#website"},"primaryImageOfPage":{"@id":"https:\/\/prepnuggets.com\/cfa-level-1-study-notes\/derivatives-study-notes\/pricing-and-valuation-of-interest-rates-and-other-swaps\/#primaryimage"},"image":{"@id":"https:\/\/prepnuggets.com\/cfa-level-1-study-notes\/derivatives-study-notes\/pricing-and-valuation-of-interest-rates-and-other-swaps\/#primaryimage"},"thumbnailUrl":"https:\/\/prepnuggets.com\/wp-content\/uploads\/2020\/01\/Swap-contract-1024x324.jpg","datePublished":"2023-04-14T05:47:44+00:00","dateModified":"2024-03-12T01:02:13+00:00","breadcrumb":{"@id":"https:\/\/prepnuggets.com\/cfa-level-1-study-notes\/derivatives-study-notes\/pricing-and-valuation-of-interest-rates-and-other-swaps\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/prepnuggets.com\/cfa-level-1-study-notes\/derivatives-study-notes\/pricing-and-valuation-of-interest-rates-and-other-swaps\/"]}]},{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/prepnuggets.com\/cfa-level-1-study-notes\/derivatives-study-notes\/pricing-and-valuation-of-interest-rates-and-other-swaps\/#primaryimage","url":"https:\/\/prepnuggets.com\/wp-content\/uploads\/2020\/01\/Swap-contract.jpg","contentUrl":"https:\/\/prepnuggets.com\/wp-content\/uploads\/2020\/01\/Swap-contract.jpg","width":1214,"height":384},{"@type":"BreadcrumbList","@id":"https:\/\/prepnuggets.com\/cfa-level-1-study-notes\/derivatives-study-notes\/pricing-and-valuation-of-interest-rates-and-other-swaps\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/prepnuggets.com\/"},{"@type":"ListItem","position":2,"name":"FREE Comprehensive Notes and Summary for All 10 Topics of the CFA Level I Exam","item":"https:\/\/prepnuggets.com\/cfa-level-1-study-notes\/"},{"@type":"ListItem","position":3,"name":"DERIVATIVES","item":"https:\/\/prepnuggets.com\/cfa-level-1-study-notes\/derivatives-study-notes\/"},{"@type":"ListItem","position":4,"name":"Pricing and Valuation of Interest Rates and Other Swaps"}]},{"@type":"WebSite","@id":"https:\/\/prepnuggets.com\/#website","url":"https:\/\/prepnuggets.com\/","name":"PrepNuggets","description":"Prep Smarter, Not Harder for CFA Success","publisher":{"@id":"https:\/\/prepnuggets.com\/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/prepnuggets.com\/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"},{"@type":"Organization","@id":"https:\/\/prepnuggets.com\/#organization","name":"Prep Nuggets","url":"https:\/\/prepnuggets.com\/","logo":{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/prepnuggets.com\/#\/schema\/logo\/image\/","url":"https:\/\/prepnuggets.com\/wp-content\/uploads\/2017\/01\/logo-nugget-square-152.png","contentUrl":"https:\/\/prepnuggets.com\/wp-content\/uploads\/2017\/01\/logo-nugget-square-152.png","width":153,"height":153,"caption":"Prep Nuggets"},"image":{"@id":"https:\/\/prepnuggets.com\/#\/schema\/logo\/image\/"}}]}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link href="https://prepnuggets.com/feed/" rel="alternate" title="PrepNuggets » Feed" type="application/rss+xml"/>
+<link href="https://prepnuggets.com/comments/feed/" rel="alternate" title="PrepNuggets » Comments Feed" type="application/rss+xml"/>
+<meta content="PrepNuggets" property="og:site_name"/><meta content="Pricing and Valuation of Interest Rates and Other Swaps" property="og:title"/><meta content="Pricing and Valuation of Interest Rates and Other Swaps | CFA Level I Derivatives Understanding Swaps and Their Connection to Forwards Welcome back to our discussion on the pricing and valuation of swaps. Today, we'll…" property="og:description"/><meta content="" property="og:image"/><meta content="https://prepnuggets.com/cfa-level-1-study-notes/derivatives-study-notes/pricing-and-valuation-of-interest-rates-and-other-swaps/" property="og:url"/><meta content="article" property="og:type"/><link href="../../wp-json/oembed/1.0/url-https___prepnuggets.com_cfa-level-1-study-notesderivatives-study-notes%2Fpricing-and-/index.html" rel="alternate" title="oEmbed (JSON)" type="application/json+oembed"/>
+<link href="../../wp-json/oembed/1.0/url-https___prepnuggets.com_cfa-level-1-study-notesderivatives-study-notes%2Fpricing-and-/index.html" rel="alternate" title="oEmbed (XML)" type="text/xml+oembed"/>
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="wp-block-library-inline-css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style*=border-color]){border-style:solid}html :where([style*=border-top-color]){border-top-style:solid}html :where([style*=border-right-color]){border-right-style:solid}html :where([style*=border-bottom-color]){border-bottom-style:solid}html :where([style*=border-left-color]){border-left-style:solid}html :where([style*=border-width]){border-style:solid}html :where([style*=border-top-width]){border-top-style:solid}html :where([style*=border-right-width]){border-right-style:solid}html :where([style*=border-bottom-width]){border-bottom-style:solid}html :where([style*=border-left-width]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=/wp-includes/css/dist/block-library/common.min.css */
+</style>
+<style id="wp-block-button-inline-css">
+.wp-block-button__link{align-content:center;box-sizing:border-box;cursor:pointer;display:inline-block;height:100%;text-align:center;word-break:break-word}.wp-block-button__link.aligncenter{text-align:center}.wp-block-button__link.alignright{text-align:right}:where(.wp-block-button__link){border-radius:9999px;box-shadow:none;padding:calc(.667em + 2px) calc(1.333em + 2px);text-decoration:none}.wp-block-button[style*=text-decoration] .wp-block-button__link{text-decoration:inherit}.wp-block-buttons>.wp-block-button.has-custom-width{max-width:none}.wp-block-buttons>.wp-block-button.has-custom-width .wp-block-button__link{width:100%}.wp-block-buttons>.wp-block-button.has-custom-font-size .wp-block-button__link{font-size:inherit}.wp-block-buttons>.wp-block-button.wp-block-button__width-25{width:calc(25% - var(--wp--style--block-gap, .5em)*.75)}.wp-block-buttons>.wp-block-button.wp-block-button__width-50{width:calc(50% - var(--wp--style--block-gap, .5em)*.5)}.wp-block-buttons>.wp-block-button.wp-block-button__width-75{width:calc(75% - var(--wp--style--block-gap, .5em)*.25)}.wp-block-buttons>.wp-block-button.wp-block-button__width-100{flex-basis:100%;width:100%}.wp-block-buttons.is-vertical>.wp-block-button.wp-block-button__width-25{width:25%}.wp-block-buttons.is-vertical>.wp-block-button.wp-block-button__width-50{width:50%}.wp-block-buttons.is-vertical>.wp-block-button.wp-block-button__width-75{width:75%}.wp-block-button.is-style-squared,.wp-block-button__link.wp-block-button.is-style-squared{border-radius:0}.wp-block-button.no-border-radius,.wp-block-button__link.no-border-radius{border-radius:0!important}:root :where(.wp-block-button .wp-block-button__link.is-style-outline),:root :where(.wp-block-button.is-style-outline>.wp-block-button__link){border:2px solid;padding:.667em 1.333em}:root :where(.wp-block-button .wp-block-button__link.is-style-outline:not(.has-text-color)),:root :where(.wp-block-button.is-style-outline>.wp-block-button__link:not(.has-text-color)){color:currentColor}:root :where(.wp-block-button .wp-block-button__link.is-style-outline:not(.has-background)),:root :where(.wp-block-button.is-style-outline>.wp-block-button__link:not(.has-background)){background-color:initial;background-image:none}
+/*# sourceURL=https://prepnuggets.com/wp-includes/blocks/button/style.min.css */
+</style>
+<style id="wp-block-image-inline-css">
+.wp-block-image>a,.wp-block-image>figure>a{display:inline-block}.wp-block-image img{box-sizing:border-box;height:auto;max-width:100%;vertical-align:bottom}@media not (prefers-reduced-motion){.wp-block-image img.hide{visibility:hidden}.wp-block-image img.show{animation:show-content-image .4s}}.wp-block-image[style*=border-radius] img,.wp-block-image[style*=border-radius]>a{border-radius:inherit}.wp-block-image.has-custom-border img{box-sizing:border-box}.wp-block-image.aligncenter{text-align:center}.wp-block-image.alignfull>a,.wp-block-image.alignwide>a{width:100%}.wp-block-image.alignfull img,.wp-block-image.alignwide img{height:auto;width:100%}.wp-block-image .aligncenter,.wp-block-image .alignleft,.wp-block-image .alignright,.wp-block-image.aligncenter,.wp-block-image.alignleft,.wp-block-image.alignright{display:table}.wp-block-image .aligncenter>figcaption,.wp-block-image .alignleft>figcaption,.wp-block-image .alignright>figcaption,.wp-block-image.aligncenter>figcaption,.wp-block-image.alignleft>figcaption,.wp-block-image.alignright>figcaption{caption-side:bottom;display:table-caption}.wp-block-image .alignleft{float:left;margin:.5em 1em .5em 0}.wp-block-image .alignright{float:right;margin:.5em 0 .5em 1em}.wp-block-image .aligncenter{margin-left:auto;margin-right:auto}.wp-block-image :where(figcaption){margin-bottom:1em;margin-top:.5em}.wp-block-image.is-style-circle-mask img{border-radius:9999px}@supports ((-webkit-mask-image:none) or (mask-image:none)) or (-webkit-mask-image:none){.wp-block-image.is-style-circle-mask img{border-radius:0;-webkit-mask-image:url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"/></svg>');mask-image:url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"/></svg>');mask-mode:alpha;-webkit-mask-position:center;mask-position:center;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:contain;mask-size:contain}}:root :where(.wp-block-image.is-style-rounded img,.wp-block-image .is-style-rounded img){border-radius:9999px}.wp-block-image figure{margin:0}.wp-lightbox-container{display:flex;flex-direction:column;position:relative}.wp-lightbox-container img{cursor:zoom-in}.wp-lightbox-container img:hover+button{opacity:1}.wp-lightbox-container button{align-items:center;backdrop-filter:blur(16px) saturate(180%);background-color:#5a5a5a40;border:none;border-radius:4px;cursor:zoom-in;display:flex;height:20px;justify-content:center;opacity:0;padding:0;position:absolute;right:16px;text-align:center;top:16px;width:20px;z-index:100}@media not (prefers-reduced-motion){.wp-lightbox-container button{transition:opacity .2s ease}}.wp-lightbox-container button:focus-visible{outline:3px auto #5a5a5a40;outline:3px auto -webkit-focus-ring-color;outline-offset:3px}.wp-lightbox-container button:hover{cursor:pointer;opacity:1}.wp-lightbox-container button:focus{opacity:1}.wp-lightbox-container button:focus,.wp-lightbox-container button:hover,.wp-lightbox-container button:not(:hover):not(:active):not(.has-background){background-color:#5a5a5a40;border:none}.wp-lightbox-overlay{box-sizing:border-box;cursor:zoom-out;height:100vh;left:0;overflow:hidden;position:fixed;top:0;visibility:hidden;width:100%;z-index:100000}.wp-lightbox-overlay .wp-lightbox-close-button{align-items:center;cursor:pointer;display:flex;font-family:inherit;gap:8px;justify-content:center;line-height:1;min-height:40px;min-width:40px;padding:0 4px;position:absolute;right:calc(env(safe-area-inset-right) + 16px);top:calc(env(safe-area-inset-top) + 16px);z-index:5000000}.wp-lightbox-overlay .wp-lightbox-close-button:focus,.wp-lightbox-overlay .wp-lightbox-close-button:hover,.wp-lightbox-overlay .wp-lightbox-close-button:not(:hover):not(:active):not(.has-background){background:none;border:none}.wp-lightbox-overlay .wp-lightbox-close-button:has(.wp-lightbox-close-text:not([hidden])) .wp-lightbox-close-icon svg{height:1em;width:1em}.wp-lightbox-overlay .wp-lightbox-close-icon svg{display:block}.wp-lightbox-overlay .wp-lightbox-navigation-button-next,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev{align-items:center;bottom:16px;cursor:pointer;display:flex;font-family:inherit;gap:4px;justify-content:center;line-height:1;min-height:40px;min-width:40px;padding:0 8px;position:absolute;z-index:2000002}.wp-lightbox-overlay .wp-lightbox-navigation-button-next[hidden],.wp-lightbox-overlay .wp-lightbox-navigation-button-prev[hidden]{display:none}@media (min-width:960px){.wp-lightbox-overlay .wp-lightbox-navigation-button-next,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev{bottom:50%;transform:translateY(-50%)}}.wp-lightbox-overlay .wp-lightbox-navigation-button-next:focus,.wp-lightbox-overlay .wp-lightbox-navigation-button-next:hover,.wp-lightbox-overlay .wp-lightbox-navigation-button-next:not(:hover):not(:active):not(.has-background),.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:focus,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:hover,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:not(:hover):not(:active):not(.has-background){background:none;border:none;padding:0 8px}.wp-lightbox-overlay .wp-lightbox-navigation-button-next:has(.wp-lightbox-navigation-text:not([hidden])) .wp-lightbox-navigation-icon svg,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:has(.wp-lightbox-navigation-text:not([hidden])) .wp-lightbox-navigation-icon svg{display:block;height:1.5em;width:1.5em}.wp-lightbox-overlay .wp-lightbox-navigation-button-prev{left:calc(env(safe-area-inset-left) + 16px)}.wp-lightbox-overlay .wp-lightbox-navigation-button-next{right:calc(env(safe-area-inset-right) + 16px)}.wp-lightbox-overlay .wp-lightbox-navigation-icon svg{vertical-align:middle}.wp-lightbox-overlay .lightbox-image-container{height:var(--wp--lightbox-container-height);left:50%;overflow:hidden;position:absolute;top:50%;transform:translate(-50%,-50%);transform-origin:top left;width:var(--wp--lightbox-container-width);z-index:2000001}.wp-lightbox-overlay .wp-block-image{align-items:center;box-sizing:border-box;display:flex;height:100%;justify-content:center;margin:0;position:relative;transform-origin:0 0;width:100%;z-index:3000000}.wp-lightbox-overlay .wp-block-image img{height:var(--wp--lightbox-image-height);min-height:var(--wp--lightbox-image-height);min-width:var(--wp--lightbox-image-width);width:var(--wp--lightbox-image-width)}.wp-lightbox-overlay .wp-block-image figcaption{display:none}.wp-lightbox-overlay button{background:none;border:none}.wp-lightbox-overlay .scrim{background-color:#fff;height:100%;opacity:.9;position:absolute;width:100%;z-index:2000000}.wp-lightbox-overlay.active{visibility:visible}@media not (prefers-reduced-motion){.wp-lightbox-overlay.active{animation:turn-on-visibility .25s both}.wp-lightbox-overlay.active img{animation:turn-on-visibility .35s both}.wp-lightbox-overlay.show-closing-animation:not(.active){animation:turn-off-visibility .35s both}.wp-lightbox-overlay.show-closing-animation:not(.active) img{animation:turn-off-visibility .25s both}.wp-lightbox-overlay.zoom.active{animation:none;opacity:1;visibility:visible}.wp-lightbox-overlay.zoom.active .lightbox-image-container{animation:lightbox-zoom-in .4s}.wp-lightbox-overlay.zoom.active .lightbox-image-container img{animation:none}.wp-lightbox-overlay.zoom.active .scrim{animation:turn-on-visibility .4s forwards}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active){animation:none}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .lightbox-image-container{animation:lightbox-zoom-out .4s}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .lightbox-image-container img{animation:none}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .scrim{animation:turn-off-visibility .4s forwards}}@keyframes show-content-image{0%{visibility:hidden}99%{visibility:hidden}to{visibility:visible}}@keyframes turn-on-visibility{0%{opacity:0}to{opacity:1}}@keyframes turn-off-visibility{0%{opacity:1;visibility:visible}99%{opacity:0;visibility:visible}to{opacity:0;visibility:hidden}}@keyframes lightbox-zoom-in{0%{transform:translate(calc((-100vw + var(--wp--lightbox-scrollbar-width))/2 + var(--wp--lightbox-initial-left-position)),calc(-50vh + var(--wp--lightbox-initial-top-position))) scale(var(--wp--lightbox-scale))}to{transform:translate(-50%,-50%) scale(1)}}@keyframes lightbox-zoom-out{0%{transform:translate(-50%,-50%) scale(1);visibility:visible}99%{visibility:visible}to{transform:translate(calc((-100vw + var(--wp--lightbox-scrollbar-width))/2 + var(--wp--lightbox-initial-left-position)),calc(-50vh + var(--wp--lightbox-initial-top-position))) scale(var(--wp--lightbox-scale));visibility:hidden}}
+/*# sourceURL=https://prepnuggets.com/wp-includes/blocks/image/style.min.css */
+</style>
+<style id="wp-block-image-theme-inline-css">
+:root :where(.wp-block-image figcaption){color:#555;font-size:13px;text-align:center}.is-dark-theme :root :where(.wp-block-image figcaption){color:#ffffffa6}.wp-block-image{margin:0 0 1em}
+/*# sourceURL=https://prepnuggets.com/wp-includes/blocks/image/theme.min.css */
+</style>
+<style id="wp-block-buttons-inline-css">
+.wp-block-buttons{box-sizing:border-box}.wp-block-buttons.is-vertical{flex-direction:column}.wp-block-buttons.is-vertical>.wp-block-button:last-child{margin-bottom:0}.wp-block-buttons>.wp-block-button{display:inline-block;margin:0}.wp-block-buttons.is-content-justification-left{justify-content:flex-start}.wp-block-buttons.is-content-justification-left.is-vertical{align-items:flex-start}.wp-block-buttons.is-content-justification-center{justify-content:center}.wp-block-buttons.is-content-justification-center.is-vertical{align-items:center}.wp-block-buttons.is-content-justification-right{justify-content:flex-end}.wp-block-buttons.is-content-justification-right.is-vertical{align-items:flex-end}.wp-block-buttons.is-content-justification-space-between{justify-content:space-between}.wp-block-buttons.aligncenter{text-align:center}.wp-block-buttons:not(.is-content-justification-space-between,.is-content-justification-right,.is-content-justification-left,.is-content-justification-center) .wp-block-button.aligncenter{margin-left:auto;margin-right:auto;width:100%}.wp-block-buttons[style*=text-decoration] .wp-block-button,.wp-block-buttons[style*=text-decoration] .wp-block-button__link{text-decoration:inherit}.wp-block-buttons.has-custom-font-size .wp-block-button__link{font-size:inherit}.wp-block-buttons .wp-block-button__link{width:100%}.wp-block-button.aligncenter{text-align:center}
+/*# sourceURL=https://prepnuggets.com/wp-includes/blocks/buttons/style.min.css */
+</style>
+<style id="wp-block-post-navigation-link-inline-css">
+.wp-block-post-navigation-link .wp-block-post-navigation-link__arrow-previous{display:inline-block;margin-right:1ch}.wp-block-post-navigation-link .wp-block-post-navigation-link__arrow-previous:not(.is-arrow-chevron){transform:scaleX(1)}.wp-block-post-navigation-link .wp-block-post-navigation-link__arrow-next{display:inline-block;margin-left:1ch}.wp-block-post-navigation-link .wp-block-post-navigation-link__arrow-next:not(.is-arrow-chevron){transform:scaleX(1)}.wp-block-post-navigation-link.has-text-align-left[style*="writing-mode: vertical-lr"],.wp-block-post-navigation-link.has-text-align-right[style*="writing-mode: vertical-rl"]{rotate:180deg}
+/*# sourceURL=https://prepnuggets.com/wp-includes/blocks/post-navigation-link/style.min.css */
+</style>
+<style id="wp-block-group-inline-css">
+.wp-block-group{box-sizing:border-box}:where(.wp-block-group.wp-block-group-is-layout-constrained){position:relative}
+/*# sourceURL=https://prepnuggets.com/wp-includes/blocks/group/style.min.css */
+</style>
+<style id="wp-block-group-theme-inline-css">
+:where(.wp-block-group.has-background){padding:1.25em 2.375em}
+/*# sourceURL=https://prepnuggets.com/wp-includes/blocks/group/theme.min.css */
+</style>
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+<link href="../../wp-content/themes/pro/framework/dist/css/site/stacks/integrity-light.css" id="x-stack-css" media="all" rel="stylesheet"/>
+<style id="learndash-front-inline-css">
+		.learndash-wrapper .ld-item-list .ld-item-list-item.ld-is-next,
+		.learndash-wrapper .wpProQuiz_content .wpProQuiz_questionListItem label:focus-within {
+			border-color: #0b9eb3;
+		}
+
+		/*
+		.learndash-wrapper a:not(.ld-button):not(#quiz_continue_link):not(.ld-focus-menu-link):not(.btn-blue):not(#quiz_continue_link):not(.ld-js-register-account):not(#ld-focus-mode-course-heading):not(#btn-join):not(.ld-item-name):not(.ld-table-list-item-preview):not(.ld-lesson-item-preview-heading),
+		 */
+
+		.learndash-wrapper .ld-breadcrumbs a,
+		.learndash-wrapper .ld-lesson-item.ld-is-current-lesson .ld-lesson-item-preview-heading,
+		.learndash-wrapper .ld-lesson-item.ld-is-current-lesson .ld-lesson-title,
+		.learndash-wrapper .ld-primary-color-hover:hover,
+		.learndash-wrapper .ld-primary-color,
+		.learndash-wrapper .ld-primary-color-hover:hover,
+		.learndash-wrapper .ld-primary-color,
+		.learndash-wrapper .ld-tabs .ld-tabs-navigation .ld-tab.ld-active,
+		.learndash-wrapper .ld-button.ld-button-transparent,
+		.learndash-wrapper .ld-button.ld-button-reverse,
+		.learndash-wrapper .ld-icon-certificate,
+		.learndash-wrapper .ld-login-modal .ld-login-modal-login .ld-modal-heading,
+		#wpProQuiz_user_content a,
+		.learndash-wrapper .ld-item-list .ld-item-list-item a.ld-item-name:hover,
+		.learndash-wrapper .ld-focus-comments__heading-actions .ld-expand-button,
+		.learndash-wrapper .ld-focus-comments__heading a,
+		.learndash-wrapper .ld-focus-comments .comment-respond a,
+		.learndash-wrapper .ld-focus-comment .ld-comment-reply a.comment-reply-link:hover,
+		.learndash-wrapper .ld-expand-button.ld-button-alternate {
+			color: #0b9eb3 !important;
+		}
+
+		.learndash-wrapper .ld-focus-comment.bypostauthor>.ld-comment-wrapper,
+		.learndash-wrapper .ld-focus-comment.role-group_leader>.ld-comment-wrapper,
+		.learndash-wrapper .ld-focus-comment.role-administrator>.ld-comment-wrapper {
+			background-color:rgba(11, 158, 179, 0.03) !important;
+		}
+
+
+		.learndash-wrapper .ld-primary-background,
+		.learndash-wrapper .ld-tabs .ld-tabs-navigation .ld-tab.ld-active:after {
+			background: #0b9eb3 !important;
+		}
+
+
+
+		.learndash-wrapper .ld-course-navigation .ld-lesson-item.ld-is-current-lesson .ld-status-incomplete,
+		.learndash-wrapper .ld-focus-comment.bypostauthor:not(.ptype-sfwd-assignment) >.ld-comment-wrapper>.ld-comment-avatar img,
+		.learndash-wrapper .ld-focus-comment.role-group_leader>.ld-comment-wrapper>.ld-comment-avatar img,
+		.learndash-wrapper .ld-focus-comment.role-administrator>.ld-comment-wrapper>.ld-comment-avatar img {
+			border-color: #0b9eb3 !important;
+		}
+
+
+
+		.learndash-wrapper .ld-loading::before {
+			border-top:3px solid #0b9eb3 !important;
+		}
+
+		.learndash-wrapper .ld-button:hover:not(.learndash-link-previous-incomplete):not(.ld-button-transparent):not(.ld--ignore-inline-css),
+		#learndash-tooltips .ld-tooltip:after,
+		#learndash-tooltips .ld-tooltip,
+		.learndash-wrapper .ld-primary-background,
+		.learndash-wrapper .btn-join:not(.ld--ignore-inline-css),
+		.learndash-wrapper #btn-join:not(.ld--ignore-inline-css),
+		.learndash-wrapper .ld-button:not(.ld-button-reverse):not(.learndash-link-previous-incomplete):not(.ld-button-transparent):not(.ld--ignore-inline-css),
+		.learndash-wrapper .ld-expand-button,
+		.learndash-wrapper .wpProQuiz_content .wpProQuiz_button:not(.wpProQuiz_button_reShowQuestion):not(.wpProQuiz_button_restartQuiz),
+		.learndash-wrapper .wpProQuiz_content .wpProQuiz_button2,
+		.learndash-wrapper .ld-focus .ld-focus-sidebar .ld-course-navigation-heading,
+		.learndash-wrapper .ld-focus .ld-focus-sidebar .ld-focus-sidebar-trigger,
+		.learndash-wrapper .ld-focus-comments .form-submit #submit,
+		.learndash-wrapper .ld-login-modal input[type='submit'],
+		.learndash-wrapper .ld-login-modal .ld-login-modal-register,
+		.learndash-wrapper .wpProQuiz_content .wpProQuiz_certificate a.btn-blue,
+		.learndash-wrapper .ld-focus .ld-focus-header .ld-user-menu .ld-user-menu-items a,
+		#wpProQuiz_user_content table.wp-list-table thead th,
+		#wpProQuiz_overlay_close,
+		.learndash-wrapper .ld-expand-button.ld-button-alternate .ld-icon {
+			background-color: #0b9eb3 !important;
+		}
+
+		.learndash-wrapper .ld-focus .ld-focus-header .ld-user-menu .ld-user-menu-items:before {
+			border-bottom-color: #0b9eb3 !important;
+		}
+
+		.learndash-wrapper .ld-button.ld-button-transparent:hover {
+			background: transparent !important;
+		}
+
+		.learndash-wrapper .ld-focus .ld-focus-header .sfwd-mark-complete .learndash_mark_complete_button,
+		.learndash-wrapper .ld-focus .ld-focus-header #sfwd-mark-complete #learndash_mark_complete_button,
+		.learndash-wrapper .ld-button.ld-button-transparent,
+		.learndash-wrapper .ld-button.ld-button-alternate,
+		.learndash-wrapper .ld-expand-button.ld-button-alternate {
+			background-color:transparent !important;
+		}
+
+		.learndash-wrapper .ld-focus-header .ld-user-menu .ld-user-menu-items a,
+		.learndash-wrapper .ld-button.ld-button-reverse:hover,
+		.learndash-wrapper .ld-alert-success .ld-alert-icon.ld-icon-certificate,
+		.learndash-wrapper .ld-alert-warning .ld-button:not(.learndash-link-previous-incomplete),
+		.learndash-wrapper .ld-primary-background.ld-status {
+			color:white !important;
+		}
+
+		.learndash-wrapper .ld-status.ld-status-unlocked {
+			background-color: rgba(11,158,179,0.2) !important;
+			color: #0b9eb3 !important;
+		}
+
+		.learndash-wrapper .wpProQuiz_content .wpProQuiz_addToplist {
+			background-color: rgba(11,158,179,0.1) !important;
+			border: 1px solid #0b9eb3 !important;
+		}
+
+		.learndash-wrapper .wpProQuiz_content .wpProQuiz_toplistTable th {
+			background: #0b9eb3 !important;
+		}
+
+		.learndash-wrapper .wpProQuiz_content .wpProQuiz_toplistTrOdd {
+			background-color: rgba(11,158,179,0.1) !important;
+		}
+
+		.learndash-wrapper .wpProQuiz_content .wpProQuiz_reviewDiv li.wpProQuiz_reviewQuestionTarget {
+			background-color: #0b9eb3 !important;
+		}
+		.learndash-wrapper .wpProQuiz_content .wpProQuiz_time_limit .wpProQuiz_progress {
+			background-color: #0b9eb3 !important;
+		}
+		
+		.learndash-wrapper #quiz_continue_link,
+		.learndash-wrapper .ld-secondary-background,
+		.learndash-wrapper .learndash_mark_complete_button,
+		.learndash-wrapper #learndash_mark_complete_button,
+		.learndash-wrapper .ld-status-complete,
+		.learndash-wrapper .ld-alert-success .ld-button,
+		.learndash-wrapper .ld-alert-success .ld-alert-icon {
+			background-color: #e6a825 !important;
+		}
+
+		.learndash-wrapper .wpProQuiz_content a#quiz_continue_link {
+			background-color: #e6a825 !important;
+		}
+
+		.learndash-wrapper .course_progress .sending_progress_bar {
+			background: #e6a825 !important;
+		}
+
+		.learndash-wrapper .wpProQuiz_content .wpProQuiz_button_reShowQuestion:hover, .learndash-wrapper .wpProQuiz_content .wpProQuiz_button_restartQuiz:hover {
+			background-color: #e6a825 !important;
+			opacity: 0.75;
+		}
+
+		.learndash-wrapper .ld-secondary-color-hover:hover,
+		.learndash-wrapper .ld-secondary-color,
+		.learndash-wrapper .ld-focus .ld-focus-header .sfwd-mark-complete .learndash_mark_complete_button,
+		.learndash-wrapper .ld-focus .ld-focus-header #sfwd-mark-complete #learndash_mark_complete_button,
+		.learndash-wrapper .ld-focus .ld-focus-header .sfwd-mark-complete:after {
+			color: #e6a825 !important;
+		}
+
+		.learndash-wrapper .ld-secondary-in-progress-icon {
+			border-left-color: #e6a825 !important;
+			border-top-color: #e6a825 !important;
+		}
+
+		.learndash-wrapper .ld-alert-success {
+			border-color: #e6a825;
+			background-color: transparent !important;
+			color: #e6a825;
+		}
+
+		.learndash-wrapper .wpProQuiz_content .wpProQuiz_reviewQuestion li.wpProQuiz_reviewQuestionSolved,
+		.learndash-wrapper .wpProQuiz_content .wpProQuiz_box li.wpProQuiz_reviewQuestionSolved {
+			background-color: #e6a825 !important;
+		}
+
+		.learndash-wrapper .wpProQuiz_content  .wpProQuiz_reviewLegend span.wpProQuiz_reviewColor_Answer {
+			background-color: #e6a825 !important;
+		}
+
+		
+		.learndash-wrapper .ld-alert-warning {
+			background-color:transparent;
+		}
+
+		.learndash-wrapper .ld-status-waiting,
+		.learndash-wrapper .ld-alert-warning .ld-alert-icon {
+			background-color: #b39f0b !important;
+		}
+
+		.learndash-wrapper .ld-tertiary-color-hover:hover,
+		.learndash-wrapper .ld-tertiary-color,
+		.learndash-wrapper .ld-alert-warning {
+			color: #b39f0b !important;
+		}
+
+		.learndash-wrapper .ld-tertiary-background {
+			background-color: #b39f0b !important;
+		}
+
+		.learndash-wrapper .ld-alert-warning {
+			border-color: #b39f0b !important;
+		}
+
+		.learndash-wrapper .ld-tertiary-background,
+		.learndash-wrapper .ld-alert-warning .ld-alert-icon {
+			color:white !important;
+		}
+
+		.learndash-wrapper .wpProQuiz_content .wpProQuiz_reviewQuestion li.wpProQuiz_reviewQuestionReview,
+		.learndash-wrapper .wpProQuiz_content .wpProQuiz_box li.wpProQuiz_reviewQuestionReview {
+			background-color: #b39f0b !important;
+		}
+
+		.learndash-wrapper .wpProQuiz_content  .wpProQuiz_reviewLegend span.wpProQuiz_reviewColor_Review {
+			background-color: #b39f0b !important;
+		}
+
+		
+/*# sourceURL=learndash-front-inline-css */
+</style>
+<style id="popup-maker-site-inline-css">
+/* Popup Google Fonts */
+
+
+/* Popup Theme 9664: Content Only - For use with page builders or block editor */
+.pum-theme-9664, .pum-theme-content-only { background-color: rgba( 0, 0, 0, 0.70 ) } 
+.pum-theme-9664 .pum-container, .pum-theme-content-only .pum-container { padding: 0px; border-radius: 0px; border: 1px none #000000; box-shadow: 0px 0px 0px 0px rgba( 2, 2, 2, 0.00 ) } 
+.pum-theme-9664 .pum-title, .pum-theme-content-only .pum-title { color: #000000; text-align: left; text-shadow: 0px 0px 0px rgba( 2, 2, 2, 0.23 ); font-family: inherit; font-weight: 400; font-size: 32px; line-height: 36px } 
+.pum-theme-9664 .pum-content, .pum-theme-content-only .pum-content { color: #8c8c8c; font-family: inherit; font-weight: 400 } 
+.pum-theme-9664 .pum-content + .pum-close, .pum-theme-content-only .pum-content + .pum-close { position: absolute; height: 18px; width: 18px; left: auto; right: 7px; bottom: auto; top: 7px; padding: 0px; color: #000000; font-family: inherit; font-weight: 700; font-size: 20px; line-height: 20px; border: 1px none #ffffff; border-radius: 15px; box-shadow: 0px 0px 0px 0px rgba( 2, 2, 2, 0.00 ); text-shadow: 0px 0px 0px rgba( 0, 0, 0, 0.00 ); background-color: rgba( 255, 255, 255, 0.00 ) } 
+
+/* Popup Theme 8732: Floating Bar - Soft Blue */
+.pum-theme-8732, .pum-theme-floating-bar { background-color: rgba( 255, 255, 255, 0.00 ) } 
+.pum-theme-8732 .pum-container, .pum-theme-floating-bar .pum-container { padding: 8px; border-radius: 0px; border: 1px none #000000; box-shadow: 1px 1px 3px 0px rgba( 2, 2, 2, 0.23 ); background-color: rgba( 238, 246, 252, 1.00 ) } 
+.pum-theme-8732 .pum-title, .pum-theme-floating-bar .pum-title { color: #505050; text-align: left; text-shadow: 0px 0px 0px rgba( 2, 2, 2, 0.23 ); font-family: inherit; font-weight: 400; font-size: 32px; line-height: 36px } 
+.pum-theme-8732 .pum-content, .pum-theme-floating-bar .pum-content { color: #505050; font-family: inherit; font-weight: 400 } 
+.pum-theme-8732 .pum-content + .pum-close, .pum-theme-floating-bar .pum-content + .pum-close { position: absolute; height: 18px; width: 18px; left: auto; right: 5px; bottom: auto; top: 50%; padding: 0px; color: #505050; font-family: Sans-Serif; font-weight: 700; font-size: 15px; line-height: 18px; border: 1px solid #505050; border-radius: 15px; box-shadow: 0px 0px 0px 0px rgba( 2, 2, 2, 0.00 ); text-shadow: 0px 0px 0px rgba( 0, 0, 0, 0.00 ); background-color: rgba( 255, 255, 255, 0.00 ); transform: translate(0, -50%) } 
+
+/* Popup Theme 415: Enterprise Blue */
+.pum-theme-415, .pum-theme-enterprise-blue { background-color: rgba( 0, 0, 0, 0.70 ) } 
+.pum-theme-415 .pum-container, .pum-theme-enterprise-blue .pum-container { padding: 28px; border-radius: 5px; border: 1px none #E5A825; box-shadow: 0px 10px 25px 4px rgba( 2, 2, 2, 0.50 ); background-color: rgba( 255, 255, 255, 1.00 ) } 
+.pum-theme-415 .pum-title, .pum-theme-enterprise-blue .pum-title { color: #E5A825; text-align: left; text-shadow: 0px 0px 0px rgba( 2, 2, 2, 0.23 ); font-family: inherit; font-size: 34px; line-height: 36px } 
+.pum-theme-415 .pum-content, .pum-theme-enterprise-blue .pum-content { color: #2d2d2d; font-family: inherit } 
+.pum-theme-415 .pum-content + .pum-close, .pum-theme-enterprise-blue .pum-content + .pum-close { position: absolute; height: 28px; width: 28px; left: auto; right: 8px; bottom: auto; top: 8px; padding: 4px; color: #ffffff; font-family: inherit; font-size: 20px; line-height: 20px; border: 1px none #E5A825; border-radius: 42px; box-shadow: 0px 0px 0px 0px rgba( 2, 2, 2, 0.23 ); text-shadow: 0px 0px 0px rgba( 0, 0, 0, 0.23 ); background-color: rgba( 229, 168, 37, 1.00 ) } 
+
+/* Popup Theme 414: Light Box */
+.pum-theme-414, .pum-theme-lightbox { background-color: rgba( 0, 0, 0, 0.60 ) } 
+.pum-theme-414 .pum-container, .pum-theme-lightbox .pum-container { padding: 18px; border-radius: 3px; border: 8px solid #000000; box-shadow: 0px 0px 30px 0px rgba( 2, 2, 2, 1.00 ); background-color: rgba( 255, 255, 255, 1.00 ) } 
+.pum-theme-414 .pum-title, .pum-theme-lightbox .pum-title { color: #000000; text-align: left; text-shadow: 0px 0px 0px rgba( 2, 2, 2, 0.23 ); font-family: inherit; font-size: 32px; line-height: 36px } 
+.pum-theme-414 .pum-content, .pum-theme-lightbox .pum-content { color: #000000; font-family: inherit } 
+.pum-theme-414 .pum-content + .pum-close, .pum-theme-lightbox .pum-content + .pum-close { position: absolute; height: 30px; width: 30px; left: auto; right: -24px; bottom: auto; top: -24px; padding: 0px; color: #ffffff; font-family: inherit; font-size: 24px; line-height: 26px; border: 2px solid #ffffff; border-radius: 30px; box-shadow: 0px 0px 15px 1px rgba( 2, 2, 2, 0.75 ); text-shadow: 0px 0px 0px rgba( 0, 0, 0, 0.23 ); background-color: rgba( 0, 0, 0, 1.00 ) } 
+
+/* Popup Theme 416: Hello Box */
+.pum-theme-416, .pum-theme-hello-box { background-color: rgba( 0, 0, 0, 0.75 ) } 
+.pum-theme-416 .pum-container, .pum-theme-hello-box .pum-container { padding: 30px; border-radius: 80px; border: 14px solid #81d742; box-shadow: 0px 0px 0px 0px rgba( 2, 2, 2, 0.00 ); background-color: rgba( 255, 255, 255, 1.00 ) } 
+.pum-theme-416 .pum-title, .pum-theme-hello-box .pum-title { color: #2d2d2d; text-align: left; text-shadow: 0px 0px 0px rgba( 2, 2, 2, 0.23 ); font-family: Montserrat; font-size: 32px; line-height: 36px } 
+.pum-theme-416 .pum-content, .pum-theme-hello-box .pum-content { color: #2d2d2d; font-family: inherit } 
+.pum-theme-416 .pum-content + .pum-close, .pum-theme-hello-box .pum-content + .pum-close { position: absolute; height: auto; width: auto; left: auto; right: -30px; bottom: auto; top: -30px; padding: 0px; color: #2d2d2d; font-family: inherit; font-size: 32px; line-height: 28px; border: 1px none #ffffff; border-radius: 28px; box-shadow: 0px 0px 0px 0px rgba( 2, 2, 2, 0.23 ); text-shadow: 0px 0px 0px rgba( 0, 0, 0, 0.23 ); background-color: rgba( 255, 255, 255, 1.00 ) } 
+
+/* Popup Theme 417: Cutting Edge */
+.pum-theme-417, .pum-theme-cutting-edge { background-color: rgba( 0, 0, 0, 0.50 ) } 
+.pum-theme-417 .pum-container, .pum-theme-cutting-edge .pum-container { padding: 18px; border-radius: 0px; border: 1px none #000000; box-shadow: 0px 10px 25px 0px rgba( 2, 2, 2, 0.50 ); background-color: rgba( 30, 115, 190, 1.00 ) } 
+.pum-theme-417 .pum-title, .pum-theme-cutting-edge .pum-title { color: #ffffff; text-align: left; text-shadow: 0px 0px 0px rgba( 2, 2, 2, 0.23 ); font-family: Sans-Serif; font-size: 26px; line-height: 28px } 
+.pum-theme-417 .pum-content, .pum-theme-cutting-edge .pum-content { color: #ffffff; font-family: inherit } 
+.pum-theme-417 .pum-content + .pum-close, .pum-theme-cutting-edge .pum-content + .pum-close { position: absolute; height: 24px; width: 24px; left: auto; right: 0px; bottom: auto; top: 0px; padding: 0px; color: #1e73be; font-family: inherit; font-size: 32px; line-height: 24px; border: 1px none #ffffff; border-radius: 0px; box-shadow: -1px 1px 1px 0px rgba( 2, 2, 2, 0.10 ); text-shadow: -1px 1px 1px rgba( 0, 0, 0, 0.10 ); background-color: rgba( 238, 238, 34, 1.00 ) } 
+
+/* Popup Theme 418: Framed Border */
+.pum-theme-418, .pum-theme-framed-border { background-color: rgba( 255, 255, 255, 0.50 ) } 
+.pum-theme-418 .pum-container, .pum-theme-framed-border .pum-container { padding: 18px; border-radius: 0px; border: 20px outset #dd3333; box-shadow: 1px 1px 3px 0px rgba( 2, 2, 2, 0.97 ) inset; background-color: rgba( 255, 251, 239, 1.00 ) } 
+.pum-theme-418 .pum-title, .pum-theme-framed-border .pum-title { color: #000000; text-align: left; text-shadow: 0px 0px 0px rgba( 2, 2, 2, 0.23 ); font-family: inherit; font-size: 32px; line-height: 36px } 
+.pum-theme-418 .pum-content, .pum-theme-framed-border .pum-content { color: #2d2d2d; font-family: inherit } 
+.pum-theme-418 .pum-content + .pum-close, .pum-theme-framed-border .pum-content + .pum-close { position: absolute; height: 20px; width: 20px; left: auto; right: -20px; bottom: auto; top: -20px; padding: 0px; color: #ffffff; font-family: Acme; font-size: 20px; line-height: 20px; border: 1px none #ffffff; border-radius: 0px; box-shadow: 0px 0px 0px 0px rgba( 2, 2, 2, 0.23 ); text-shadow: 0px 0px 0px rgba( 0, 0, 0, 0.23 ); background-color: rgba( 0, 0, 0, 0.55 ) } 
+
+/* Popup Theme 413: Default Theme */
+.pum-theme-413, .pum-theme-default-theme { background-color: rgba( 255, 255, 255, 1.00 ) } 
+.pum-theme-413 .pum-container, .pum-theme-default-theme .pum-container { padding: 18px; border-radius: 0px; border: 1px none #000000; box-shadow: 1px 1px 3px 0px rgba( 2, 2, 2, 0.23 ); background-color: rgba( 249, 249, 249, 1.00 ) } 
+.pum-theme-413 .pum-title, .pum-theme-default-theme .pum-title { color: #000000; text-align: left; text-shadow: 0px 0px 0px rgba( 2, 2, 2, 0.23 ); font-family: inherit; font-weight: inherit; font-size: 32px; font-style: normal; line-height: 36px } 
+.pum-theme-413 .pum-content, .pum-theme-default-theme .pum-content { color: #8c8c8c; font-family: inherit; font-weight: inherit; font-style: normal } 
+.pum-theme-413 .pum-content + .pum-close, .pum-theme-default-theme .pum-content + .pum-close { position: absolute; height: auto; width: auto; left: auto; right: 0px; bottom: auto; top: 0px; padding: 8px; color: #ffffff; font-family: inherit; font-weight: inherit; font-size: 12px; font-style: normal; line-height: 14px; border: 1px none #ffffff; border-radius: 0px; box-shadow: 0px 0px 0px 0px rgba( 2, 2, 2, 0.23 ); text-shadow: 0px 0px 0px rgba( 0, 0, 0, 0.23 ); background-color: rgba( 0, 183, 205, 1.00 ) } 
+
+#pum-4915 {z-index: 1999999999}
+#pum-16124 {z-index: 1999999999}
+
+/*# sourceURL=popup-maker-site-inline-css */
+</style>
+<style id="cs-inline-css">
+@media (min-width:1200px){.x-hide-xl{display:none !important;}}@media (min-width:979px) and (max-width:1199px){.x-hide-lg{display:none !important;}}@media (min-width:767px) and (max-width:978px){.x-hide-md{display:none !important;}}@media (min-width:480px) and (max-width:766px){.x-hide-sm{display:none !important;}}@media (max-width:479px){.x-hide-xs{display:none !important;}} a,h1 a:hover,h2 a:hover,h3 a:hover,h4 a:hover,h5 a:hover,h6 a:hover,.x-breadcrumb-wrap a:hover,.widget ul li a:hover,.widget ol li a:hover,.widget.widget_text ul li a,.widget.widget_text ol li a,.widget_nav_menu .current-menu-item > a,.x-accordion-heading .x-accordion-toggle:hover,.x-comment-author a:hover,.x-comment-time:hover,.x-recent-posts a:hover .h-recent-posts{color:rgb(11,158,179);}a:hover,.widget.widget_text ul li a:hover,.widget.widget_text ol li a:hover,.x-twitter-widget ul li a:hover{color:rgb(128,121,71);}.rev_slider_wrapper,a.x-img-thumbnail:hover,.x-slider-container.below,.page-template-template-blank-3-php .x-slider-container.above,.page-template-template-blank-6-php .x-slider-container.above{border-color:rgb(11,158,179);}.entry-thumb:before,.x-pagination span.current,.woocommerce-pagination span[aria-current],.flex-direction-nav a,.flex-control-nav a:hover,.flex-control-nav a.flex-active,.mejs-time-current,.x-dropcap,.x-skill-bar .bar,.x-pricing-column.featured h2,.h-comments-title small,.x-entry-share .x-share:hover,.x-highlight,.x-recent-posts .x-recent-posts-img:after{background-color:rgb(11,158,179);}.x-nav-tabs > .active > a,.x-nav-tabs > .active > a:hover{box-shadow:inset 0 3px 0 0 rgb(11,158,179);}.x-main{width:calc(80% - 2.463055%);}.x-sidebar{width:calc(100% - 2.463055% - 80%);}.x-comment-author,.x-comment-time,.comment-form-author label,.comment-form-email label,.comment-form-url label,.comment-form-rating label,.comment-form-comment label,.widget_calendar #wp-calendar caption,.widget.widget_rss li .rsswidget{font-family:"Oswald",sans-serif;font-weight:400;}.p-landmark-sub,.p-meta,input,button,select,textarea{font-family:"Roboto Condensed",sans-serif;}.widget ul li a,.widget ol li a,.x-comment-time{color:hsl(0,0%,35%);}.widget_text ol li a,.widget_text ul li a{color:rgb(11,158,179);}.widget_text ol li a:hover,.widget_text ul li a:hover{color:rgb(128,121,71);}.comment-form-author label,.comment-form-email label,.comment-form-url label,.comment-form-rating label,.comment-form-comment label,.widget_calendar #wp-calendar th,.p-landmark-sub strong,.widget_tag_cloud .tagcloud a:hover,.widget_tag_cloud .tagcloud a:active,.entry-footer a:hover,.entry-footer a:active,.x-breadcrumbs .current,.x-comment-author,.x-comment-author a{color:hsl(0,0%,26%);}.widget_calendar #wp-calendar th{border-color:hsl(0,0%,26%);}.h-feature-headline span i{background-color:hsl(0,0%,26%);}@media (max-width:978.98px){}html{font-size:14px;}@media (min-width:479px){html{font-size:14px;}}@media (min-width:766px){html{font-size:14px;}}@media (min-width:978px){html{font-size:14px;}}@media (min-width:1199px){html{font-size:14px;}}body{font-style:normal;font-weight:400;color:hsl(0,0%,35%);background-color:#ffffff;}.w-b{font-weight:400 !important;}h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6{font-family:"Oswald",sans-serif;font-style:normal;font-weight:400;}h1,.h1{letter-spacing:0.05em;}h2,.h2{letter-spacing:0.04em;}h3,.h3{letter-spacing:0.03em;}h4,.h4{letter-spacing:0.02em;}h5,.h5{letter-spacing:0.013em;}h6,.h6{letter-spacing:0.006em;}.w-h{font-weight:400 !important;}.x-container.width{width:95%;}.x-container.max{max-width:1400px;}.x-bar-content.x-container.width{flex-basis:95%;}.x-main.full{float:none;clear:both;display:block;width:auto;}@media (max-width:978.98px){.x-main.full,.x-main.left,.x-main.right,.x-sidebar.left,.x-sidebar.right{float:none;display:block;width:auto !important;}}.entry-header,.entry-content{font-size:1.2rem;}body,input,button,select,textarea{font-family:"Roboto Condensed",sans-serif;}h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6,h1 a,h2 a,h3 a,h4 a,h5 a,h6 a,.h1 a,.h2 a,.h3 a,.h4 a,.h5 a,.h6 a,blockquote{color:hsl(0,0%,26%);}.cfc-h-tx{color:hsl(0,0%,26%) !important;}.cfc-h-bd{border-color:hsl(0,0%,26%) !important;}.cfc-h-bg{background-color:hsl(0,0%,26%) !important;}.cfc-b-tx{color:hsl(0,0%,35%) !important;}.cfc-b-bd{border-color:hsl(0,0%,35%) !important;}.cfc-b-bg{background-color:hsl(0,0%,35%) !important;}.x-btn,.button,[type="submit"]{color:hsl(0,0%,100%);border-color:#e5a825;background-color:#e5a825;text-shadow:0 0.075em 0.075em rgba(0,0,0,0.5);border-radius:100em;}.x-btn:hover,.button:hover,[type="submit"]:hover{color:hsl(0,0%,100%);border-color:rgb(128,121,71);background-color:rgb(128,121,71);text-shadow:0 0.075em 0.075em rgba(0,0,0,0.5);}.x-btn.x-btn-real,.x-btn.x-btn-real:hover{margin-bottom:0.25em;text-shadow:0 0.075em 0.075em rgba(0,0,0,0.65);}.x-btn.x-btn-real{box-shadow:0 0.25em 0 0 #9e6901,0 4px 9px rgba(0,0,0,0.75);}.x-btn.x-btn-real:hover{box-shadow:0 0.25em 0 0 #a07801,0 4px 9px rgba(0,0,0,0.75);}.x-btn.x-btn-flat,.x-btn.x-btn-flat:hover{margin-bottom:0;text-shadow:0 0.075em 0.075em rgba(0,0,0,0.65);box-shadow:none;}.x-btn.x-btn-transparent,.x-btn.x-btn-transparent:hover{margin-bottom:0;border-width:3px;text-shadow:none;text-transform:uppercase;background-color:transparent;box-shadow:none;}.x-topbar .p-info a:hover,.x-widgetbar .widget ul li a:hover{color:rgb(11,158,179);}.x-topbar .p-info,.x-topbar .p-info a,.x-navbar .desktop .x-nav > li > a,.x-navbar .desktop .sub-menu a,.x-navbar .mobile .x-nav li > a,.x-breadcrumb-wrap a,.x-breadcrumbs .delimiter{color:rgb(57,42,10);}.x-navbar .desktop .x-nav > li > a:hover,.x-navbar .desktop .x-nav > .x-active > a,.x-navbar .desktop .x-nav > .current-menu-item > a,.x-navbar .desktop .sub-menu a:hover,.x-navbar .desktop .sub-menu .x-active > a,.x-navbar .desktop .sub-menu .current-menu-item > a,.x-navbar .desktop .x-nav .x-megamenu > .sub-menu > li > a,.x-navbar .mobile .x-nav li > a:hover,.x-navbar .mobile .x-nav .x-active > a,.x-navbar .mobile .x-nav .current-menu-item > a{color:rgb(11,158,179);}.x-navbar .desktop .x-nav > li > a:hover,.x-navbar .desktop .x-nav > .x-active > a,.x-navbar .desktop .x-nav > .current-menu-item > a{box-shadow:inset 0 4px 0 0 rgb(11,158,179);}.x-navbar .desktop .x-nav > li > a{height:80px;padding-top:31px;}.x-navbar .desktop .x-nav > li ul{top:calc(80px - 15px);}@media (max-width:979px){}.x-navbar-inner{min-height:80px;}.x-brand{margin-top:0px;font-family:"Monoton",display;font-size:54px;font-style:normal;font-weight:400;letter-spacing:0em;text-transform:uppercase;color:#272727;}.x-brand:hover,.x-brand:focus{color:#272727;}.x-brand img{width:calc(240px / 2);}.x-navbar .x-nav-wrap .x-nav > li > a{font-family:"Ubuntu",sans-serif;font-style:normal;font-weight:500;letter-spacing:0.083em;text-transform:uppercase;}.x-navbar .desktop .x-nav > li > a{font-size:14px;}.x-navbar .desktop .x-nav > li > a:not(.x-btn-navbar-woocommerce){padding-left:5px;padding-right:5px;}.x-navbar .desktop .x-nav > li > a > span{margin-right:-0.083em;}.x-btn-navbar{margin-top:26px;}.x-btn-navbar,.x-btn-navbar.collapsed{font-size:24px;}@media (max-width:979px){.x-widgetbar{left:0;right:0;}}.bg .mejs-container,.x-video .mejs-container{position:unset !important;} @font-face{font-family:'FontAwesomePro';font-style:normal;font-weight:900;font-display:block;src:url(../../wp-content/themes/pro/cornerstone/assets/fonts/fa-solid-900.woff2) format('woff2'),url(../../wp-content/themes/pro/cornerstone/assets/fonts/fa-solid-900.ttf) format('truetype');}[data-x-fa-pro-icon]{font-family:"FontAwesomePro" !important;}[data-x-fa-pro-icon]:before{content:attr(data-x-fa-pro-icon);}[data-x-icon],[data-x-icon-o],[data-x-icon-l],[data-x-icon-s],[data-x-icon-b],[data-x-icon-sr],[data-x-icon-ss],[data-x-icon-sl],[data-x-fa-pro-icon],[class*="cs-fa-"]{display:inline-flex;font-style:normal;font-weight:400;text-decoration:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}[data-x-icon].left,[data-x-icon-o].left,[data-x-icon-l].left,[data-x-icon-s].left,[data-x-icon-b].left,[data-x-icon-sr].left,[data-x-icon-ss].left,[data-x-icon-sl].left,[data-x-fa-pro-icon].left,[class*="cs-fa-"].left{margin-right:0.5em;}[data-x-icon].right,[data-x-icon-o].right,[data-x-icon-l].right,[data-x-icon-s].right,[data-x-icon-b].right,[data-x-icon-sr].right,[data-x-icon-ss].right,[data-x-icon-sl].right,[data-x-fa-pro-icon].right,[class*="cs-fa-"].right{margin-left:0.5em;}[data-x-icon]:before,[data-x-icon-o]:before,[data-x-icon-l]:before,[data-x-icon-s]:before,[data-x-icon-b]:before,[data-x-icon-sr]:before,[data-x-icon-ss]:before,[data-x-icon-sl]:before,[data-x-fa-pro-icon]:before,[class*="cs-fa-"]:before{line-height:1;}@font-face{font-family:'FontAwesome';font-style:normal;font-weight:900;font-display:block;src:url(../../wp-content/themes/pro/cornerstone/assets/fonts/fa-solid-900.woff2) format('woff2'),url(../../wp-content/themes/pro/cornerstone/assets/fonts/fa-solid-900.ttf) format('truetype');}[data-x-icon],[data-x-icon-s],[data-x-icon][class*="cs-fa-"]{font-family:"FontAwesome" !important;font-weight:900;}[data-x-icon]:before,[data-x-icon][class*="cs-fa-"]:before{content:attr(data-x-icon);}[data-x-icon-s]:before{content:attr(data-x-icon-s);}@font-face{font-family:'FontAwesomeRegular';font-style:normal;font-weight:400;font-display:block;src:url(../../wp-content/themes/pro/cornerstone/assets/fonts/fa-regular-400.woff2) format('woff2'),url(../../wp-content/themes/pro/cornerstone/assets/fonts/fa-regular-400.ttf) format('truetype');}@font-face{font-family:'FontAwesomePro';font-style:normal;font-weight:400;font-display:block;src:url(../../wp-content/themes/pro/cornerstone/assets/fonts/fa-regular-400.woff2) format('woff2'),url(../../wp-content/themes/pro/cornerstone/assets/fonts/fa-regular-400.ttf) format('truetype');}[data-x-icon-o]{font-family:"FontAwesomeRegular" !important;}[data-x-icon-o]:before{content:attr(data-x-icon-o);}@font-face{font-family:'FontAwesomeLight';font-style:normal;font-weight:300;font-display:block;src:url(../../wp-content/themes/pro/cornerstone/assets/fonts/fa-light-300.woff2) format('woff2'),url(../../wp-content/themes/pro/cornerstone/assets/fonts/fa-light-300.ttf) format('truetype');}@font-face{font-family:'FontAwesomePro';font-style:normal;font-weight:300;font-display:block;src:url(../../wp-content/themes/pro/cornerstone/assets/fonts/fa-light-300.woff2) format('woff2'),url(../../wp-content/themes/pro/cornerstone/assets/fonts/fa-light-300.ttf) format('truetype');}[data-x-icon-l]{font-family:"FontAwesomeLight" !important;font-weight:300;}[data-x-icon-l]:before{content:attr(data-x-icon-l);}@font-face{font-family:'FontAwesomeBrands';font-style:normal;font-weight:normal;font-display:block;src:url(../../wp-content/themes/pro/cornerstone/assets/fonts/fa-brands-400.woff2) format('woff2'),url(../../wp-content/themes/pro/cornerstone/assets/fonts/fa-brands-400.ttf) format('truetype');}[data-x-icon-b]{font-family:"FontAwesomeBrands" !important;}[data-x-icon-b]:before{content:attr(data-x-icon-b);}.widget.widget_rss li .rsswidget:before{content:"\f35d";padding-right:0.4em;font-family:"FontAwesome";} .x-sidebar{background-color:white;}.x-colophon.top{background-color:#DED4B9;}.x-colophon.bottom{background-color:#241E10;color:#DED4B9;}.entry-date{display:none;}h1,.h1{font-size:38px !important;}h2,.h2{font-size:34px !important;}h3,.h3{font-size:32px !important;}h4,.h4{font-size:30px !important;}h5,.h5{font-size:28px !important;}h6,.h6{font-size:26px !important;}.ld-entry-title,.entry-title{font-size:30px !important;}.grecaptcha-badge{visibility:collapse !important;}.glossary .entry-featured{display:block;margin-left:auto;margin-right:auto;max-width:640px;}.sfwd-courses .entry-featured{display:block;margin-left:auto;margin-right:auto;max-width:640px;}.container-iframe{position:relative;overflow:hidden;width:100%;padding-top:56.25%;}.responsive-iframe{position:absolute;top:0;left:0;bottom:0;right:0;width:100%;height:100%;}
+/*# sourceURL=cs-inline-css */
+</style>
+<script id="jquery-core-js" src="../../wp-includes/js/jquery/jquery.min.js"></script>
+<script id="jquery-migrate-js" src="../../wp-includes/js/jquery/jquery-migrate.min.js"></script>
+
+<script async="" data-minify="1" data-wp-strategy="async" id="ct_bot_detector-js" src="../../wp-content/cache/min/1/ct-bot-detector-wrapper.js"></script>
+<script id="simple-banner-script-js-before">
+const simpleBannerScriptParams = {"pro_version_enabled":"","debug_mode":"","id":20846,"version":"3.3.0","banner_params":[{"hide_simple_banner":"yes","simple_banner_prepend_element":"body","simple_banner_position":"","header_margin":"","header_padding":"","wp_body_open_enabled":"","wp_body_open":true,"simple_banner_z_index":"","simple_banner_text":"There appears to be video streaming problems right now from our streaming provider. We are working to resolve it. This interruption tends to be brief and may be resolved in an hour. Please check back again. We are sorry.","disabled_on_current_page":false,"disabled_pages_array":[],"is_current_page_a_post":false,"disabled_on_posts":"","simple_banner_disabled_page_paths":"","simple_banner_font_size":"","simple_banner_color":"#ff2600","simple_banner_text_color":"","simple_banner_link_color":"#E6A825","simple_banner_close_color":"","simple_banner_custom_css":"","simple_banner_scrolling_custom_css":"","simple_banner_text_custom_css":"","simple_banner_button_css":"","site_custom_css":"","keep_site_custom_css":"","site_custom_js":"","keep_site_custom_js":"","close_button_enabled":"","close_button_expiration":"","close_button_cookie_set":false,"current_date":{"date":"2026-08-01 16:55:30.448874","timezone_type":3,"timezone":"UTC"},"start_date":{"date":"2026-08-01 16:55:30.448889","timezone_type":3,"timezone":"UTC"},"end_date":{"date":"2026-08-01 16:55:30.448895","timezone_type":3,"timezone":"UTC"},"simple_banner_start_after_date":"","simple_banner_remove_after_date":"","simple_banner_insert_inside_element":""}]}
+//# sourceURL=simple-banner-script-js-before
+</script>
+<script data-minify="1" id="simple-banner-script-js" src="../../wp-content/cache/min/1/wp-content/plugins/simple-banner/simple-banner.js"></script>
+<script id="uncannyowl-learndash-toolkit-free-js-extra">
+var UncannyToolkit = {"ajax":{"url":"https://prepnuggets.com/wp-admin/admin-ajax.php","nonce":"7540eb2d7f"},"integrity":{"shouldPreventConcurrentLogin":false},"i18n":{"dismiss":"Dismiss","preventConcurrentLogin":"Your account has exceeded maximum concurrent login number.","error":{"generic":"Something went wrong. Please, try again"}},"modals":[]};
+//# sourceURL=uncannyowl-learndash-toolkit-free-js-extra
+</script>
+<script id="uncannyowl-learndash-toolkit-free-js" src="../../wp-content/plugins/uncanny-learndash-toolkit/src/assets/frontend/dist/bundle.min.js"></script>
+
+<!-- Google tag (gtag.js) snippet added by Site Kit -->
+<!-- Google Analytics snippet added by Site Kit -->
+<!-- Google Ads snippet added by Site Kit -->
+</script>
+<script id="google_gtagjs-js-after">
+window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}
+gtag("set","linker",{"domains":["prepnuggets.com"]});
+gtag("js", new Date());
+gtag("set", "developer_id.dZTNiMT", true);
+gtag("config", "G-XM4SLTFZ9D");
+gtag("config", "AW-11099286298");
+//# sourceURL=google_gtagjs-js-after
+</script>
+<link href="../../wp-json/index.html" rel="https://api.w.org/"/><link href="../../wp-json/wp/v2/pages/20846/index.html" rel="alternate" title="JSON" type="application/json"/><link href="../../index.html" rel="shortlink"/>
+<meta content="Site Kit by Google 1.184.0" name="generator"/><style id="pmpro_colors">:root {
+	--pmpro--color--base: #ffffff;
+	--pmpro--color--contrast: #222222;
+	--pmpro--color--accent: #0c3d54;
+	--pmpro--color--accent--variation: hsl( 199,75%,28.5% );
+	--pmpro--color--border--variation: hsl( 0,0%,91% );
+}</style><style id="simple-banner-hide" type="text/css">.simple-banner{display:none;}</style><style id="simple-banner-background-color" type="text/css">.simple-banner{background:#ff2600;}</style><style id="simple-banner-text-color" type="text/css">.simple-banner .simple-banner-text{color: #ffffff;}</style><style id="simple-banner-link-color" type="text/css">.simple-banner .simple-banner-text a{color:#E6A825;}</style><style id="simple-banner-z-index" type="text/css">.simple-banner{z-index: 99999;}</style><style id="simple-banner-site-custom-css-dummy" type="text/css"></style><script id="simple-banner-site-custom-js-dummy" type="text/javascript"></script> <style>
+			.learndash-paidmemberships-notice.warning {
+				background-color: #f5e942;
+				border: 2px solid #f5da42;
+				border-radius: 5px;
+				padding: 10px 15px;
+			}
+		</style>
+<style type="text/css">
+			#learndash_next_prev_link a,
+input.wpProQuiz_button,
+input.wpProQuiz_button2,
+#sfwd-mark-complete input.button,
+#sfwd-mark-complete input[type="submit"],
+#learndash_mark_complete_button {
+	background: #efefef;
+	padding: 15px 25px;
+	text-decoration: none;
+	color: #000;
+	border: 0px;
+}
+
+#learndash_next_prev_link a:hover,
+input.wpProQuiz_button:hover,
+input.wpProQuiz_button2:hover,
+#sfwd-mark-complete input.button:hover,
+#sfwd-mark-complete input[type="submit"]:hover,
+#learndash_mark_complete_button:hover {
+	opacity: 0.8;
+}
+
+div.learndash {
+	padding-bottom: 15px;
+}
+
+#learndash_uploaded_assignments + br + u {
+	display: block;
+	margin-bottom: 15px;
+}
+
+.learndash .notcompleted, #learndash_profile .notcompleted,
+.list_arrow.collapse.lesson_completed,
+.lesson_incomplete.list_arrow.expand,
+.learndash_navigation_lesson_topics_list .topic-completed span,
+.learndash_navigation_lesson_topics_list .topic-notcompleted span,
+.learndash_nevigation_lesson_topics_list .topic-completed span,
+.learndash_nevigation_lesson_topics_list .topic-notcompleted span,
+.lesson_incomplete.list_arrow.collapse,
+.list_arrow.expand.lesson_completed {
+	background: none;
+}
+
+.learndash_profile_quizzes .passed_icon,
+.list_arrow {
+	background: transparent !important;
+}
+
+small.notavailable_message {
+	padding-left: 15px;
+	margin: 0 0 10px 0;
+	font-size: 12px;
+	display: block;
+}
+
+.notavailable {
+	position: relative;
+}
+
+#lessons_list .notavailable::before,
+#courses_list .notavailable::before,
+#topics_list .notavailable::before,
+#quiz_list .notavailable::before {
+	position: absolute;
+	right: 0;
+	content: '\f073';
+	font-family: FontAwesome;
+	font-size: 32px;
+	margin: 10px 4px 15px 20px;
+}
+
+.lds-enhanced-meta {
+	display: block;
+	font-size: 12px;
+	margin-top: 5px;
+	opacity: 0.7;
+	font-weight: normal;
+}
+
+.lds-enhanced-meta b {
+	display: inline-block;
+	padding-right: 10px;
+	font-weight: normal;
+}
+.topic_item .lds-enhanced-meta b {
+	padding-right: 5px;
+}
+
+b.lds-enhanced-short-description {
+	font-weight: normal;
+	display: block;
+	font-style: italic;
+	font-size: 14px;
+	line-height: 1.65em;
+}
+
+.topic_item  .lds-enhanced-short-description {
+	font-size: 12px;
+}
+
+/**
+ * New Course Listing
+ */
+
+#course_list .list_arrow {
+	vertical-align: top;
+	padding-top: 25px;
+}
+
+#learndash_profile .course_progress {
+	margin-left: 10px !important;
+}
+
+#learndash_profile .learndash-course-status a {
+	line-height: 1em;
+	position: relative;
+}
+
+#learndash_profile .learndash-course-status a::before {
+	font-size: 22px !important;
+	top: 22px !important;
+	position: relative;
+	float: right;
+	text-indent: 0;
+}
+
+#learndash_lesson_topics_list.ldvc-enhanced-list__topic span a span {
+	font-size: 16px;
+}
+
+/**
+ * New Widgets
+ */
+
+.widget_ldcourseprogress .lds-course-progress {
+	margin: 0 15px;
+}
+
+/**
+ * Good sameritan
+ *
+ */
+
+.widget-title {
+	margin-top: 0 !important;
+}
+
+.learndash_profile_heading,
+#learndash_lessons {
+	margin-top: 15px;
+}
+
+#learndash_next_prev_link {
+	margin-top: 40px;
+}
+
+#learndash_profile,
+#learndash_course_status,
+#learndash_course_materials,
+#learndash_course_content {
+	margin: 30px 0;
+}
+
+#learndash_course_materials {
+    padding: 20px;
+    background: rgba(0,0,0,.25);
+}
+
+#course_navigation .learndash_topic_widget_list > ul {
+	margin-top: 10px;
+}
+
+#course_navigation ul li:last-child {
+	border-bottom: 0 !important;
+}
+
+a.completed,
+a.completed:hover,
+a.notcompleted,
+a.notcompleted:hover {
+	text-decoration: none;
+	box-shadow: none;
+	border: 0;
+}
+
+#learndash_lesson_topics_list ul {
+	margin-left: 0;
+	padding-left: 0;
+}
+
+
+#lessons_list .topic-completed span,
+#lessons_list .topic-notcompleted span {
+    font-size: 16px;
+}
+/*
+ *
+ * Modern Style for LearnDash
+ * v 1.0
+ *
+ */
+
+
+ /*
+  * Course Content List
+  * Background: #2f4050 Primary Color: #a7b1c2
+  */
+
+#lesson_heading,
+#quiz_heading,
+#learndash_lessons #lesson_heading,
+#learndash_profile .learndash_profile_heading,
+#learndash_quizzes #quiz_heading,
+#learndash_lesson_topics_list div > strong,
+table.notes-listing th,
+#learndash_enhanced_course_header {
+    border-radius: 0px;
+    padding: 20px;
+    background-color: #2f4050;
+	color: #a7b1c2;
+	border-bottom: 0px;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+.widget_ldcourseprogress,
+.widget_sfwd-lessons-widget,
+.widget_ldcoursenavigation,
+.widget_ldcourseprogress,
+.widget_sfwd-lessons-widget,
+.widget_ldcoursenavigation,
+.widget_ldcourseprogress,
+.widget_sfwd-lessons-widget,
+.widget_ldcoursenavigatio,
+.widget_sfwd-certificates-widget,
+.widget_ldcourseinfo,
+.widget_sfwd-courses-widget,
+.widget_sfwd-certificates-widget {
+    padding-top: 0;
+}
+
+#lesson_heading span,
+#quiz_heading span,
+#learndash_enhanced_course_header h2 {
+    color: #a7b1c2;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+#learndash_lessons .right,
+#learndash_profile .learndash_profile_heading .ld_profile_status,
+#learndash_quizzes .right {
+    width: auto;
+}
+
+#course_list > div h4,
+#learndash_lesson_topics_list ul > li > span.topic_item,
+#lessons_list > div h4, #quiz_list > div h4 {
+    padding: 20px 0;
+}
+
+b.lds-enhanced-meta {
+    border-top: 1px solid rgba(0,0,0,.1);
+    padding-top: 10px;
+    margin-top: 15px;
+    padding-left: 5px;
+}
+
+.topic_item b.lds-enhanced-meta {
+    border-top: 0;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.lds-enhanced-short-description {
+    margin: 5px 0 10px 0;
+    font-size: 12px;
+}
+
+#learndash_lessons > div > div::after,
+#learndash_quizzes > div > div::after {
+    content: '';
+    clear: both;
+    display: block;
+}
+
+#learndash_lessons, #learndash_quizzes, #learndash_profile, #learndash_lesson_topics_list > div {
+    border: 0px;
+}
+
+#learndash_course_content .expand_collapse {
+    top: -20px;
+    font-size: 14px;
+    color: #999;
+}
+
+#learndash_course_content .expand_collapse a:first-child {
+    padding-right: 5px;
+}
+
+#learndash_course_content .expand_collapse a:last-child {
+    padding-left: 5px;
+}
+
+/*
+ * Sub content list
+ *
+ */
+
+#learndash_course_content .learndash_topic_dots {
+	margin: 10px 75px 20px 20px;
+}
+
+#learndash_course_content .learndash_topic_dots ul > li:nth-of-type(2n+1) {
+	background: #fff;
+	border-bottom: 1px solid #ddd;
+}
+
+#learndash_course_content .learndash_topic_dots ul > li {
+	background: #fff;
+	border-bottom: 1px solid #ddd;
+	margin-right: 20px;
+}
+
+#learndash_course_content .learndash_topic_dots ul > li:hover {
+	background: #fff;
+	opacity: 0.7;
+}
+
+.learndash .learndash_topic_dots.type-list a > span {
+	width: 100%;
+}
+
+.learndash_topic_dots ul .topic-completed span, .learndash_topic_dots ul .topic-notcompleted span {
+	padding-left: 5px;
+}
+
+.learndash .topic-completed span {
+    background: none;
+}
+
+.learndash .topic-completed span:before {
+	color: #1ab394;
+}
+
+.learndash .topic-notcompleted span {
+	background: none;
+}
+
+#learndash_course_content .learndash_topic_dots ul > li:last-child {
+	border-bottom: 0px;
+}
+
+#lessons_list > div,
+#quiz_list > div {
+    background: #efeff1;
+}
+
+#lessons_list > div:nth-child(odd),
+#quiz_list > div:nth-child(odd) {
+    background: #f6f6f7;
+}
+
+#learndash_lessons h4 > a:hover,
+#learndash_quizzes  h4 > a:hover,
+#learndash_lesson_topics_list ul > li > span.topic_item:hover {
+	background-color: transparent;
+	opacity: 0.8;
+}
+
+#lessons_list > div h4, #course_list > div h4, #quiz_list > div h4, #learndash_lesson_topics_list ul > li > span.topic_item,
+#lessons_list > div > div, #course_list > div > div, #quiz_list > div > div, .single-sfwd-lessons #learndash_lesson_topics_list ul > li > span.sn, .singular-sfwd-lessons #learndash_lesson_topics_list ul > li > span.sn {
+    border: 0px;
+}
+
+#learndash_lessons, #learndash_quizzes, .expand_collapse, .notavailable_message, #learndash_lesson_topics_list div > strong, #learndash_lesson_topics_list div ul > li .sn, .learndash_profile_heading, #learndash_profile a, #learndash_profile div {
+    font-size: 14px;
+}
+
+small.notavailable_message {
+    padding-left: 25px;
+}
+
+#lessons_list div.list-count,
+#quiz_list div.list-count {
+    font-weight: 100;
+    font-size: 12px;
+    font-weight: bold;
+    padding-left: 15px;
+    display: none;
+}
+
+#lessons_list div.list-count::after,
+#quiz_list div.list-count::after {
+
+}
+
+#lessons_list h4 a,
+#quiz_list h4 a {
+    font-size: 16px;
+	line-height: 1.5em;
+    color: #2f4050;
+}
+
+#learndash_course_content_title {
+    margin-bottom: 15px;
+}
+
+.widget_sfwd-lessons-widget h4 {
+    font-size: 14px;
+}
+
+/* Widgets */
+
+.widget_ldcourseprogress ,
+.widget_sfwd-lessons-widget ,
+.widget_ldcoursenavigation ,
+.widget_sfwd-certificates-widget ,
+.widget_ldcourseinfo ,
+.widget_sfwd-courses-widget  {
+    border-radius: 0px;
+    padding: 15px 20px;
+    background-color: #2f4050;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #a7b1c2;
+    border: 0px;
+}
+
+.widget_ldcourseprogress,
+.widget_sfwd-lessons-widget,
+.widget_ldcoursenavigation {
+    background-color: #f5f5f6;
+    border: 0px;
+    box-shadow: none;
+    padding-bottom: 10px;
+    border-radius: 0px !important
+}
+
+.widget_sfwd-lessons-widget ul {
+	margin: 0 0 0 20px;
+}
+
+/*
+ * Course Navigation Widget
+ *
+ */
+
+.learndash_navigation_lesson_topics_list .topic_item span,
+.learndash_nevigation_lesson_topics_list .topic_item span {
+	padding-left: 0px;
+}
+
+.learndash_navigation_lesson_topics_list .topic-completed:before,
+.learndash_nevigation_lesson_topics_list .topic-completed:before {
+	color: #1ab394;
+}
+
+.widget_wpachievements_achievements_widget  {
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #2f4050;
+}
+
+/* Progress Bar */
+
+dd.course_progress {
+}
+
+dd.course_progress div.course_progress_blue {
+    background-color: #1ab394;
+    box-shadow: none !important;
+    border-radius: 0px !important;
+    height: 25px !important;
+}
+
+.course_progress {
+    border-radius: 0px !important;
+    background: #fff;
+    box-shadow: none !important;
+    margin-top: 15px !important;
+    height: 25px !important;
+	border: 0px !important;
+}
+
+.learndash a.completed:after,
+#learndash_profile a.completed:after {
+	color: #1ab394;
+}
+
+#leardash_profile a.topic-notcompleted:after
+.learndash a.topic-notcompleted:after {
+	color: #2f4050;
+}
+
+#course_list > div h4,
+#learndash_lesson_topics_list ul > li > span.topic_item,
+#lessons_list > div h4, #quiz_list > div h4 {
+    width: 100%;
+}
+
+#lessons_list > div h4 > a, #course_list > div h4 > a, #quiz_list > div h4 > a {
+	padding: 10px 75px 10px 20px !important;
+}
+
+.learndash a.completed::before,
+#learndash_profile a.completed::before,
+.learndash a.notcompleted::before,
+#learndash_profile a.notcompleted::before  {
+    right: 35px !important;
+    font-size: 34px !important;
+}
+
+.learndash .notcompleted,
+#learndash_profile .notcompleted,
+.learndash .completed,
+#learndash_profile .completed {
+	background-image: none;
+}
+
+/* Progress Dots */
+
+.learndash_topic_dots.type-dots {
+    display: block;
+    margin: 0 0 40px 0;
+    padding: 0 0 15px 0;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+}
+
+.learndash_topic_dots.type-dots .topic-completed span,
+.learndash_topic_dots.type-dots .topic-notcompleted span {
+    padding-left: 5px;
+}
+
+.learndash_topic_dots.type-dots .topic-completed span::before,
+.learndash_topic_dots.type-dots .topic-notcompleted span::before {
+    margin: 0 !important;
+}
+
+/* Buttons */
+
+.wpProQuiz_button,
+.wpProQuiz_button:hover,
+#uploadfile_btn {
+	border: 0px;
+	border-radius: 0px;
+	background: #23c6c8;
+	color: #fff;
+	cursor: pointer;
+	font-weight: bold;
+	text-transform: uppercase;
+	box-shadow: none;
+	font-size: 14px;
+	padding: 5px 15px;
+}
+
+.wpProQuiz_button:hover {
+	opacity: 0.8;
+}
+
+/* Pro Quiz */
+
+input.wpProQuiz_button2,
+input.wpProQuiz_button {
+	border: 0px !important;
+	border-radius: 0px !important;
+	background: #454545;
+	color: #fff;
+	font-weight: bold;
+	text-transform: uppercase;
+	box-shadow: none;
+	font-size: 14px;
+	padding: 5px 15px;
+	box-shadow: none !important;
+}
+
+.wpProQuiz_button2:hover,
+.wpProQuiz_button:hover {
+	background: #666 !important;
+	border: 0px !important;
+	border-radius: 0px !important;
+	box-shadow: none !important;
+}
+
+.wpProQuiz_time_limit {
+	font-size: 12px;
+	color: #666;
+}
+
+.wpProQuiz_time_limit .wpProQuiz_progress {
+	background: #23c6c8;
+}
+
+.wpProQuiz_reviewLegend {
+	padding-bottom: 30px;
+	font-size: 12px;
+}
+
+.wpProQuiz_reviewLegend li {
+	font-size: 12px;
+	padding-right: 20px;
+}
+
+.wpProQuiz_listItem {
+	position: relative;
+	margin-top: 30px;
+}
+
+.wpProQuiz_reviewColor {
+	border-radius: 100%;
+}
+
+.wpProQuiz_question_page {
+	font-size: 14px;
+	color: #444;
+	border-bottom: 1px solid #efefef;
+}
+
+.wpProQuiz_question {
+	padding: 30px 0;
+}
+
+/*
+ * Buttons
+ *
+ */
+
+.btn-join, #btn-join, a#quiz_continue_link {
+	background: #23c6c8;
+}
+
+#learndash_mark_complete_button {
+	background: #1ab394;
+}
+
+/*
+ * Profile
+ *
+ *
+ */
+
+#learndash_profile .profile_info {
+	background: #f9f9f9;
+}
+
+#learndash_profile .profile_info .profile_avatar img {
+	border-radius: 100%;
+	border: 5px solid #fff;
+	display: block;
+}
+
+#learndash_profile #course_list > div {
+	background: #f9f9f9;
+}
+
+#learndash_profile #course_list > div div.list_arrow,
+#learndash_profile #course_list > div h4 {
+	border-bottom: 1px solid #ddd;
+}
+
+
+#learndash_profile #course_list > div:last-child div.list_arrow,
+#learndash_profile #course_list > div:last-child h4 {
+	border-bottom: 0px;
+}
+
+#learndash_profile #course_list .flip {
+	margin: 20px;
+	background: #fff;
+}
+
+#learndash_profile #course_list .flip:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+#learndash_profile #course_list .learndash_profile_quiz_heading {
+	padding: 5px 20px;
+	background: #fff;
+}
+
+#learndash_profile #course_list .learndash_profile_quiz_heading > div {
+	padding: 5px 15px;
+	font-weight: bold;
+	border-top: 1px solid #ddd;
+}
+
+#learndash_profile #course_list .list_arrow {
+    vertical-align: top;
+    padding-top: 46px;
+}
+
+#learndash_profile a.completed::before,
+#learndash_profile a.notcompleted::before {
+    right: 10px !important;
+}
+
+
+
+/* =============== */
+/* = Upload Form = */
+/* =============== */
+
+/**
+ *
+ * Buttons
+ */
+
+#learndash_mark_complete_button {
+    padding: 15px 25px !important;
+}
+#learndash_mark_complete_button::after {
+    font-family: 'FontAwesome';
+    display: block;
+    content: '\f00c';
+    content: 'snakes';
+}
+/* ============================================ */
+/* = Custom Animation for the Learndash Skins = */
+/* ============================================ */
+
+/* =========== */
+/* = Fade In = */
+/* =========== */
+
+@keyframes fadein {
+    from { opacity: 0 }
+    to { opacity: 1 }
+}
+/* Firefox */
+@-moz-keyframes fadein {
+    from { opacity: 0 }
+    to { opacity: 1 }
+}
+/* Safari and Chrome */
+@-webkit-keyframes fadein {
+    from { opacity: 0 }
+    to { opacity: 1 }
+}
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0 }
+    to { opacity: 1 }
+}
+/* Opera */
+@-o-keyframes fadein {
+    from { opacity: 0 }
+    to { opacity: 1 }
+}
+
+@keyframes fadein {
+    from { opacity: 0 }
+    to { opacity: 1 }
+}
+
+/* Firefox */
+@-moz-keyframes width {
+    from { width: 0 !important; }
+    to { width: auto; }
+}
+/* Safari and Chrome */
+@-webkit-keyframes fadein {
+    from { width: 0 !important; }
+    to { width: auto; }
+}
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { width: 0 !important; }
+    to { width: auto; }
+}
+/* Opera */
+@-o-keyframes fadein {
+    from { width: 0 !important; }
+    to { width: auto; }
+}
+
+/*
+-webkit-animation: fadein 3s; 
+-moz-animation: fadein 3s; 
+-ms-animation: fadein 3s; 
+-o-animation: fadein 3s; 
+animation: fadein 3s;
+*/
+
+#learndash_course_content,
+#learndash_profile {
+	-webkit-animation: fadein 3s; 
+	-moz-animation: fadein 3s; 
+	-ms-animation: fadein 3s; 
+	-o-animation: fadein 3s; 
+	animation: fadein 3s;
+}
+
+.course_progress div.course_progress_blue { 
+	-webkit-animation: width 3s; 
+	-moz-animation: width 3s; 
+	-ms-animation: width 3s; 
+	-o-animation: width 3s; 
+	animation: width 3s;
+}/* ICON STYLE IS playful *//*
+ * LESSONS / PROFILE
+ */
+
+#shark {
+
+}
+
+ .learndash .notcompleted:before,
+ #learndash_profile .notcompleted:before,
+ .learndash a.completed:before,
+ #learndash_profile a.completed:before {
+ 	content: "\f164";
+    font-family: 'Font Awesome 5 Free' !important;
+ 	float: right;
+ 	font-size: 24px;
+ 	display: inline-block;
+ }
+
+ /*
+  * TOPICS
+  */
+
+.topic-competed span::before,
+.learndash .topic-completed span::before,
+#leardash_profile .topic-notcompleted span::before,
+.learndash .topic-notcompleted span::before {
+    content: "\f164";
+    font-family: 'Font Awesome 5 Free' !important;
+    float: right;
+    font-size: 24px;
+    display: inline-block;
+    margin: 0 0 20px 20px;
+}
+
+/*
+ * QUIZES
+ */
+
+#learndash_profile .passed_icon,
+.learndash_profile_quizzes .passed_icon,
+.learndash_profile_quizzes .failed_icon {
+    content: "\f164";
+    font-family: 'Font Awesome 5 Free' !important;
+    font-size: 24px;
+    display: inline-block;
+    opacity: 1;
+ }
+
+/*
+ * ARROWS & NAVIGATION
+ */
+
+#learndash_profile .list_arrow::before,
+.learndash_navigation_lesson_topics_list .list_arrow::before {
+    content: "\f063";
+  	font-size: 18px;
+    font-family: 'Font Awesome 5 Free' !important;
+}
+#learndash_profile .list_arrow.collapse::before,
+.learndash_navigation_lesson_topics_list .list_arrow.collapse::before {
+  	content: "\f061";
+	font-size: 18px;
+    font-family: 'Font Awesome 5 Free' !important;
+}
+
+.learndash_nevigation_lesson_topics_list .topic_item a::before {
+	content: "\f164";
+    font-family: 'Font Awesome 5 Free' !important;
+	font-size: 12px;
+	display: inline-block;
+	margin-right: 5px;
+}
+
+/* LD Navigation List: Topic Items */
+.learndash_navigation_lesson_topics_list .topic_item a::before {
+	content: "\f164";
+	font-family: 'Font Awesome 5 Free' !important;
+	font-weight: normal !important;
+	font-size: 12px;
+	left: 0;
+	top: 3px;
+	position: absolute;
+	display: inline-block;
+	margin-right: 5px;
+}
+/* RESET ALL ICON BACKGROUNDS */
+
+.learndash_navigation_lesson_topics_list .list_arrow.collapse,
+.learndash_nevigation_lesson_topics_list .list_arrow.collapse,
+.learndash .notcompleted,
+#learndash_profile .notcompleted,
+.list_arrow.expand.lesson_completed,
+.learndash_navigation_lesson_topics_list .topic-completed span,
+.learndash_nevigation_lesson_topics_list .topic-completed span,
+.lesson_incomplete.list_arrow.expand,
+.learndash_navigation_lesson_topics_list .topic-notcompleted span,
+.learndash_nevigation_lesson_topics_list .topic-notcompleted span,
+.learndash .completed,
+#learndash_profile .completed,
+.learndash .topic-notcompleted span,
+#learndash_profile .list_arrow,
+#learndash_profile .list_arrow.collapse,
+.list_arrow,
+.list_arrow.expand.lesson_completed,
+.list_arrow.collapse.lesson_completed,
+.learndash .topic-completed span,
+.notavailable {
+    background-image: none !important;
+    background: none !important;
+}
+
+.learndash .notcompleted::after,
+#learndash_profile .notcompleted::after,
+.learndash .completed::after,
+#learndash_profile .completed::after {
+    display: none;
+}
+
+/** Defaults **/
+
+.list_arrow,
+#learndash_profile .list_arrow {
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	font-style: normal;
+	font-variant: normal;
+	text-rendering: auto;
+	line-height: 1;
+    font-family: 'Font Awesome 5 Free' !important;
+}
+
+
+.learndash_navigation_lesson_topics_list .topic_item a,
+.learndash_nevigation_lesson_topics_list .topic_item a {
+	position: relative;
+	padding-left: 10px;
+	display: block;
+}
+
+.learndash_navigation_lesson_topics_list .topic_item a:before,
+.learndash_nevigation_lesson_topics_list .topic_item a:before {
+	font-size: 12px;
+	position: absolute;
+	left: 0;
+	top: 4px;
+}
+
+.lesson_incomplete.list_arrow.expand:before {
+	font-size: 18px;
+	display: inline-block;
+}
+
+.learndash .completed,
+.learndash .notcompleted {
+    position: relative;
+    padding-right: 55px !important;
+}
+
+.learndash .notcompleted::before,
+#learndash_profile .notcompleted::before,
+.learndash a.completed::before,
+#learndash_profile a.completed::before {
+	position: absolute;
+    right: 0;
+    top: 10px;
+	font-size: 32px;
+	display: inline-block;
+}
+
+#learndash_profile .notcompleted::before,
+#learndash_profile .completed::before {
+    right: 30px;
+}
+
+.learndash_profile_quizzes .passed_icon,
+.learndash_profile_quizzes .failed_icon {
+	font-size: 42px;
+	display: inline-block;
+	opacity: 1;
+}
+
+/* LIST ARROWS */
+
+.list_arrow.collapse,
+.list_arrow.expand {
+	position: relative;
+	padding-left: 20px;
+}
+
+.list_arrow.expand:before,
+#learndash_profile .list_arrow.expand::before {
+  left: 0;
+  font-size: 22px;
+  display:inline-block !important;
+  font-weight: 900;
+}
+
+.list_arrow.collapse::before,
+#learndash_profile .list_arrow.collapse::before {
+    font-size: 22px;
+    display:inline-block !important;
+    font-weight: 900;
+}
+
+.learndash .topic-completed span,
+.learndash .topic-notcompleted span {
+    position: relative;
+}
+
+.learndash .topic-completed span::before,
+#leardash_profile .topic-notcompleted span::before,
+.learndash .topic-notcompleted span::before {
+	float: right;
+	font-size: 24px;
+	display: inline-block;
+	margin-left: 10px;
+	margin-right: 20px;
+}
+
+.learndash_navigation_lesson_topics_list > div > div.list_arrow::before {
+    font-size: 14px;
+}
+
+.widget_ldcoursenavigation ul span.topic_item a {
+    padding-left: 15px;
+}
+
+
+.learndash_topic_dots.type-dots b {
+    float: left;
+}
+.learndash_topic_dots.type-dots .topic-completed,
+.learndash_topic_dots.type-dots .topic-notcompleted {
+    font-size: 14px;
+}
+.learndash_topic_dots.type-dots .topic-completed span::before,
+.learndash_topic_dots.type-dots .topic-notcompleted span::before {
+    position: static;
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+	/*
+	 * Global Styling for all styles
+	 *
+	 *
+	 */
+
+	 .widget_ldcourseprogress ul,
+	 .widget_sfwd-lessons-widget ul,
+	 .widget_ldcoursenavigation ul,
+	 .widget_ldcourseinfo ul,
+	 .widget_sfwd-certificates-widget ul,
+	 .widget_sfwd-courses-widget ul {
+	 	list-style: none;
+		margin: 0;
+		padding: 0 15px;
+	 }
+
+	 #ld_course_info,
+	 #course_navigation {
+	 	padding: 0 15px 15px;
+	 }
+
+	 .widget_ldcourseprogress *,
+	  .widget_sfwd-lessons-widget *,
+	  .widget_ldcoursenavigation *,
+	  .widget_ldcourseinfo *,
+	  .widget_sfwd-certificates-widget *,
+	  .widget_sfwd-courses-widget * {
+		font-size: defaultpx;
+	 }
+
+	 .widget_ldcourseprogress .widget-title,
+ 	.widget_sfwd-lessons-widget .widget-title,
+ 	.widget_ldcoursenavigation .widget-title,
+ 	.widget_ldcourseinfo .widget-title,
+ 	.widget_sfwd-certificates-widget .widget-title,
+ 	.widget_sfwd-courses-widget .widget-title {
+		font-size: defaultpx !important;
+	}
+
+	/*
+	 * Table Heading Backgrounds
+	 *
+	 */
+
+	#lesson_heading,
+	#quiz_heading,
+	#learndash_lessons #lesson_heading,
+	#learndash_profile .learndash_profile_heading,
+	#learndash_quizzes #quiz_heading,
+	#learndash_lesson_topics_list div > strong,
+	table.notes-listing th,
+	#learndash_enhanced_course_header {
+		background-color:#2f4050 !important;
+	}
+
+	/*
+	 * Heading Text
+	 *
+	 */
+
+	#lds-shortcode .lds-course-item-icon i.fa,
+	#lds-shortcode .course-item-icon a,
+	#lds-shortcode .lds-entry-title a,
+	#lesson_heading span,
+	#quiz_heading span,
+	#learndash_lesson_topics_list div > strong,
+	.learndash_profile_heading span,
+	.learndash_profile_heading,
+	table.notes-listing th,
+	#learndash_enhanced_course_header h2,
+	#learndash_enhanced_course_header li {
+		color: #a7b1c2 !important ;
+	}
+
+	/*
+     * Custom LearnDash element widgets
+	 */
+
+	#learndash_course_materials {
+		background-color:#2f4050 !important;
+	}
+
+	#lds-shortcode .m-lds-grid-title,
+	#lds-shortcode .m-lds-grid-title a,
+	#lds-shortcode .m-lds-toggle,
+	#lds-shortcode .m-lds-topic-item a,
+	#learndash_course_materials h1,
+ 	#learndash_course_materials h2,
+ 	#learndash_course_materials h3,
+ 	#learndash_course_materials h4,
+ 	#learndash_course_materials h5,
+ 	#learndash_course_materials li,
+ 	#learndash_course_materials td,
+ 	#learndash_course_materials p {
+ 	    position: relative;
+ 	    z-index: 5;
+		color: #a7b1c2 !important;
+ 	}
+
+	/*
+	 * Table Cells
+	 *
+	 */
+	#learndash_profile .profile_info,
+	#lessons_list > div,
+	#quiz_list > div,
+	#learndash_profile .course_progress,
+	#learndash_profile #course_list > div,
+	#learndash_lesson_topics_list ul > li,
+	#learndash_profile .profile_info a,
+	#learndash_profile #course_list a,
+	#learndash_profile #course_list a span,
+	#learndash_lessons a {
+	    background-color: #f6f6f7;
+		color: #2f4050	}
+
+	#lessons_list > div:nth-child(odd),
+	#quiz_list > div:nth-child(odd),
+	#learndash_lesson_topics_list ul > li.nth-of-type-odd
+	{
+	    background: #efeff1;
+		color: #2f4050	}
+
+	#learndash_lesson_topics_list a,
+	#lds-shortcode .lds-expanded-course-lesson-list li a,
+	#lessons_list h4 a,
+	#quiz_list h4 a {
+	    color: #2f4050 !important;
+	}
+
+	#learndash_lesson_topics_list a span {
+		color: #2f4050 !important;
+	}
+
+	/*
+	 * Buttons
+	 *
+	 */
+
+	/* Complete Button */
+
+	#sfwd-mark-complete input.button,
+	#sfwd-mark-complete input[type="submit"],
+	#learndash_mark_complete_button,
+	p.wpProQuiz_certificate a,
+	p.wpProQuiz_certificate a.btn-blue,
+	a#quiz_continue_link,
+	#learndash_course_certificate a.btn-blue {
+		background-color: #1ab394 !important;
+		color: #ffffff !important;
+	}
+
+	/* Standard Button */
+
+	#lds-shortcode .lds-button,
+	.btn-join,
+	#btn-join,
+	.wpProQuiz_button,
+	#uploadfile_btn,
+	#learndash_next_prev_link a {
+		background-color: #23c6c8 !important;
+		color: #ffffff !important;
+	}
+
+
+	/*
+	 * Visual Elements
+	 *
+	 */
+
+	.course_progress {
+		max-width: 90%;
+		margin-left: auto !important;
+		margin-right: auto !important;
+		display: block;
+	}
+
+	.lds-progress-bar span,
+	dd.course_progress div.course_progress_blue {
+		background-color: #1ab394 !important;
+	}
+
+
+	/*
+	 * Links
+	 *
+	 */
+
+	.widget_ldcourseprogress a,
+	.widget_sfwd-lessons-widget a,
+	.widget_ldcoursenavigation a,
+	.widget_ldcourseinfo a,
+	.widget_sfwd-certificates-widget a,
+	.widget_sfwd-courses-widget a {
+		color: #2f4050 !important;
+	}
+
+
+
+
+	/*
+	 * Widgets
+	 *
+	 */
+
+	.widget_ldcourseprogress,
+	#sfwd-certificates-widget-2,
+	#sfwd-courses-widget-2,
+	#ldcourseinfo-2,
+	.widget_sfwd-lessons-widget,
+	.widget_ldcoursenavigation,
+	.widget_ldcourseinfo,
+	.widget_sfwd-certificates-widget,
+	.widget_sfwd-courses-widget,
+	#lds-shortcode .lds-dialog {
+		background-color: #f5f5f6 !important;
+		color: #444444 !important;
+	}
+
+	#lds-shortcode .lds-dialog input[type="submit"],
+	#lds-shortcode .lds-dialog .btn {
+		background-color: #23c6c8;
+		color: #ffffff	}
+
+	#learndash_course_content .learndash_topic_dots ul > li:nth-of-type(2n+1) {
+		background: #ffffff;
+	}
+
+	#learndash_course_content .learndash_topic_dots ul > li {
+		background: #ffffff;
+	}
+
+	#learndash_course_content .learndash_topic_dots ul > li a span {
+		color: #2f4050 !important;
+	}
+
+	#learndash_course_content .learndash_topic_dots ul > li:hover {
+		background: #ffffff	}
+
+	#learndash_course_content .learndash_topic_dots ul > li:nth-of-type(2n+1) {
+		background: #ffffff;
+	}
+
+	.widget_ldcourseprogress ,
+	.widget_sfwd-lessons-widget ,
+	.widget_ldcoursenavigation ,
+	.widget_ldcourseinfo ,
+	.widget_sfwd-certificates-widget ,
+	.widget_sfwd-courses-widget ,
+	#lds-shortcode .lds-dialog hgroup.lds-dialog-title {
+		background-color: #2f4050 !important;
+					font-size: defaultpx;
+			}
+
+	#lds-shortcode .lds-dialog hgroup.lds-dialog-title h2 {
+				color: #a7b1c2 !important;
+					font-size: defaultpx !important;
+			}
+
+			.widget_ldcourseprogress,
+		.widget_ldcourseprogress li,
+		.widget_ldcourseprogress p,
+		.widget_sfwd-lessons-widget,
+		.widget_sfwd-lessons-widget li,
+		.widget_sfwd-lessons-widget p,
+		.widget_ldcoursenavigation,
+		.widget_ldcoursenavigation li,
+		.widget_ldcoursenavigation p,
+		.widget_ldcourseinfo,
+		.widget_ldcourseinfo li,
+		.widget_ldcourseinfo p,
+		.widget_sfwd-certificates-widget,
+		.widget_sfwd-certificates-widget li,
+		.widget_sfwd-certificates-widget p,
+		.widget_sfwd-courses-widget,
+		.widget_sfwd-courses-widget li,
+		.widget_sfwd-courses-widget p {
+			font-size: defaultpx;
+		}
+	
+	.widget_ldcourseprogress ,
+	.widget_sfwd-lessons-widget ,
+	.widget_ldcoursenavigation ,
+	.widget_ldcourseinfo ,
+	.widget_sfwd-certificates-widget ,
+	.widget_sfwd-courses-widget  {
+		color: #a7b1c2 !important;
+	}
+
+	#course_navigation a,
+	.widget_sfwd-lessons-widget ul li a {
+		color: #2f4050 !important;
+	}
+
+	#lds-shortcode .lds-expanded-course-item .lds-expanded-course-lesson-list ul li a.lds-content-status-completed span.lds-ec-icon {
+		background: #1ab394;
+	}
+	.lds-status-completed,
+	a.completed::before,
+	.learndash_profile_quizzes .passed_icon:before,
+	.learndash .completed:after,
+	#learndash_profile .completed:after,
+	.learndash .topic-completed span:after,
+	.learndash_navigation_lesson_topics_list .list_arrow.collapse.lesson_completed:before,
+	.learndash_nevigation_lesson_topics_list .list_arrow.collapse.lesson_completed:before,
+	.learndash a.completed::after, #learndash_profile a.completed:after,
+	#learndash_profile .list_arrow.collapse:before,
+	#learndash_profile .list_arrow.expand:before,
+	.learndash .topic-completed span::before,
+	.learndash_profile_quizzes .passed_icon
+	 {
+		color: #1ab394	}
+
+	.list_arrow.expand.lesson_completed:before,
+	.learndash_navigation_lesson_topics_list .topic-completed:before,
+	.learndash_nevigation_lesson_topics_list .topic-completed:before,
+	.list_arrow.expand.lesson_completed:before {
+		color: #1ab394	}
+
+	/**
+	 * Incomplete icons
+	 */
+
+	 #lds-shortcode .lds-expanded-course-item .lds-expanded-course-lesson-list ul li a.lds-content-status-notcompleted span.lds-ec-icon {
+ 		background: #2f4050;
+ 	}
+
+	.lds-status-notcompleted,
+	.learndash .notcompleted:after,
+	#learndash_profile .notcompleted:after,
+	#leardash_profile .topic-notcompleted span:before,
+	.learndash .topic-notcompleted span:before,
+	.learndash .notcompleted:before,
+	#learndash_profile .notcompleted:before,
+	#leardash_profile .topic-notcompleted span:before,
+	.learndash .topic-notcompleted span:before,
+	.learndash_navigation_lesson_topics_list .topic-notcompleted:before,
+	.learndash_nevigation_lesson_topics_list .topic-notcompleted:before,
+	.learndash_profile_quizzes .failed_icon,
+	.learndash .topic-notcompleted span:after {
+		color: #2f4050;
+	}
+
+	.learndash_navigation_lesson_topics_list .list_arrow.collapse:before,
+	.learndash_nevigation_lesson_topics_list .list_arrow.collapse:before,
+	.lesson_incomplete.list_arrow.expand::before
+	{
+		color: #2f4050	}
+
+	#learndash_profile .profile_info .profile_avatar img {
+		border-color: #23c6c8	}
+
+	
+	
+	
+	
+	
+	
+	
+			</style>
+<style type="text/css"></style>
+<style>
+.synved-social-resolution-single {
+display: inline-block;
+}
+.synved-social-resolution-normal {
+display: inline-block;
+}
+.synved-social-resolution-hidef {
+display: none;
+}
+
+@media only screen and (min--moz-device-pixel-ratio: 2),
+only screen and (-o-min-device-pixel-ratio: 2/1),
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (min-device-pixel-ratio: 2),
+only screen and (min-resolution: 2dppx),
+only screen and (min-resolution: 192dpi) {
+	.synved-social-resolution-normal {
+	display: none;
+	}
+	.synved-social-resolution-hidef {
+	display: inline-block;
+	}
+}
+</style><link href="../../wp-content/uploads/2017/01/cropped-logo-nugget-square-600-32x32.png" rel="icon" sizes="32x32"/>
+<link href="../../wp-content/uploads/2017/01/cropped-logo-nugget-square-600-192x192.png" rel="icon" sizes="192x192"/>
+<link href="../../wp-content/uploads/2017/01/cropped-logo-nugget-square-600-180x180.png" rel="apple-touch-icon"/>
+<meta content="https://prepnuggets.com/wp-content/uploads/2017/01/cropped-logo-nugget-square-600-270x270.png" name="msapplication-TileImage"/>
+<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript>
+<style id="core-block-supports-inline-css">
+.wp-container-core-buttons-is-layout-fe48e5de{justify-content:center;}.wp-container-core-group-is-layout-4fc3f8e1{flex-direction:column;align-items:flex-start;}
+/*# sourceURL=core-block-supports-inline-css */
+</style>
+</head>
+<body class="pmpro-variation_1 wp-singular page-template-default page page-id-20846 page-child parent-pageid-19516 wp-theme-pro wp-child-theme-pro-child pmpro-body-has-access x-integrity x-integrity-light x-child-theme-active x-full-width-layout-active x-content-sidebar-active x-navbar-static-active pro-v6_4_20">
+<div class="x-root" id="x-root">
+<div class="site" id="top">
+<header class="masthead masthead-inline" role="banner">
+<div class="x-navbar-wrap">
+<div class="x-navbar">
+<div class="x-navbar-inner">
+<div class="x-container max width">
+<a class="x-brand img" href="../../index.html">
+<img alt="PrepNuggets" src="../../wp-content/uploads/2017/01/logo-nuggetinv-wide-600.png"/><img alt="PrepNuggets" src="../../wp-content/uploads/2017/01/logo-nuggetinv-wide-600.png"/></a>
+<a aria-controls="x-nav-wrap-mobile" aria-expanded="false" class="x-btn-navbar collapsed" data-x-toggle="collapse-b" data-x-toggleable="x-nav-wrap-mobile" href="index.html" id="x-btn-navbar" role="button">
+<i aria-hidden="true" class="x-framework-icon x-icon-bars" data-x-icon-s=""></i> <span class="visually-hidden">Navigation</span>
+</a>
+<nav class="x-nav-wrap desktop" role="navigation">
+<ul class="x-nav" id="menu-header-menu"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-94" id="menu-item-94"><a href="../../index.html"><span>Home<i aria-hidden="true" class="x-icon x-framework-icon x-framework-icon-menu" data-x-icon-s=""></i></span></a></li>
+<li class="uo-login-logout-menu-item menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-146" id="menu-item-146"><a href="../../index.html"><span>Enrol<i aria-hidden="true" class="x-icon x-framework-icon x-framework-icon-menu" data-x-icon-s=""></i></span></a></li>
+<li class="ld-button menu-item menu-item-type-custom menu-item-object-custom menu-item-16603" id="menu-item-16603"><a href="index.html"><span>Login<i aria-hidden="true" class="x-icon x-framework-icon x-framework-icon-menu" data-x-icon-s=""></i></span></a></li>
+</ul></nav>
+<div aria-hidden="true" aria-labelledby="x-btn-navbar" class="x-nav-wrap mobile x-collapsed" data-x-toggle-collapse="1" data-x-toggleable="x-nav-wrap-mobile" id="x-nav-wrap-mobile">
+<ul class="x-nav" id="menu-header-menu-1"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-94"><a href="../../index.html"><span>Home<i aria-hidden="true" class="x-icon x-framework-icon x-framework-icon-menu" data-x-icon-s=""></i></span></a></li>
+<li class="uo-login-logout-menu-item menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-146"><a href="../../index.html"><span>Enrol<i aria-hidden="true" class="x-icon x-framework-icon x-framework-icon-menu" data-x-icon-s=""></i></span></a></li>
+<li class="ld-button menu-item menu-item-type-custom menu-item-object-custom menu-item-16603"><a href="index.html"><span>Login<i aria-hidden="true" class="x-icon x-framework-icon x-framework-icon-menu" data-x-icon-s=""></i></span></a></li>
+</ul></div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<div class="x-container max width offset">
+<div class="x-main left" role="main">
+<article class="post-20846 page type-page status-publish hentry category-cfa-notes pmpro-has-access no-post-thumbnail" id="post-20846">
+<div class="entry-wrap">
+<header class="entry-header">
+<h1 class="entry-title">Pricing and Valuation of Interest Rates and Other Swaps</h1>
+</header>
+<div class="entry-content content">
+<h1 class="wp-block-heading">Pricing and Valuation of Interest Rates and Other Swaps | CFA Level I Derivatives</h1>
+<h2 class="wp-block-heading">Understanding Swaps and Their Connection to Forwards</h2>
+<p class="wp-block-paragraph">Welcome back to our discussion on the pricing and valuation of swaps. Today, we’ll dive into the general principles of swap pricing and take a closer look at interest rate swaps.</p>
+<p class="wp-block-paragraph"><b>Swaps</b> share some similarities with <b>forwards</b>, such as: Typically requiring no payment by either party at initiation. Being custom instruments with non-standard contracts. Largely less regulated. Exposing both parties to counterparty risk.</p>
+<figure class="wp-block-image size-large"><img alt="" class="wp-image-6674" data-lazy- decoding="async" height="324" src="../../wp-content/uploads/2020/01/Swap-contract-1024x324.jpg" width="1024"srcset="../../wp-content/uploads/2020/01/Swap-contract-1024x324.jpg 1024w, ../../wp-content/uploads/2020/01/Swap-contract-300x95.jpg 300w, ../../wp-content/uploads/2020/01/Swap-contract-768x243.jpg 768w, ../../wp-content/uploads/2020/01/Swap-contract-100x32.jpg 100w, ../../wp-content/uploads/2020/01/Swap-contract-1184x375.jpg 1184w, ../../wp-content/uploads/2020/01/Swap-contract.jpg 1214w" /><img alt="" class="wp-image-6674" decoding="async" height="324" sizes="(max-width: 1024px) 100vw, 1024px" src="../../wp-content/uploads/2020/01/Swap-contract-1024x324.jpg"srcset="../../wp-content/uploads/2020/01/Swap-contract-1024x324.jpg 1024w, ../../wp-content/uploads/2020/01/Swap-contract-300x95.jpg 300w, ../../wp-content/uploads/2020/01/Swap-contract-768x243.jpg 768w, ../../wp-content/uploads/2020/01/Swap-contract-100x32.jpg 100w, ../../wp-content/uploads/2020/01/Swap-contract-1184x375.jpg 1184w, ../../wp-content/uploads/2020/01/Swap-contract.jpg 1214w" width="1024"/></figure>
+<p class="wp-block-paragraph">Swaps can also be viewed as a series of forwards. For example, two parties can enter into a single swap agreement where they exchange payments at multiple settlement dates instead of initiating separate forward contracts.</p>
+<h2 class="wp-block-heading">Swaps as a Series of Forwards</h2>
+<p class="wp-block-paragraph">To understand the principles behind the pricing and valuation of swap contracts, it’s helpful to view swaps as a series of forwards.</p>
+<p class="wp-block-paragraph">For example, one party agrees to buy an underlying asset at a fixed price at the end of every year for the next 3 years. The other party agrees to sell this underlying asset at the end of every year for this period. Instead of a single contract, the two parties can enter into 3 separate forward contracts, each with the same settlement price, expiring in 1, 2, and 3 years. The price of each forward is equal to the swap fixed rate.</p>
+<p class="wp-block-paragraph">However, the <b>principle of no arbitrage</b> states that the forward price at initiation should be a function of the length of the forward contract. For no arbitrage to hold, all these 3 contracts should have different pricing.</p>
+<figure class="wp-block-image size-full"><img alt="" class="wp-image-20847" data-lazy- decoding="async" height="471" src="../../wp-content/uploads/2023/04/Swap-as-series-of-forwards.jpg" width="929"srcset="../../wp-content/uploads/2023/04/Swap-as-series-of-forwards.jpg 929w, ../../wp-content/uploads/2023/04/Swap-as-series-of-forwards-300x152.jpg 300w, ../../wp-content/uploads/2023/04/Swap-as-series-of-forwards-768x389.jpg 768w, ../../wp-content/uploads/2023/04/Swap-as-series-of-forwards-100x51.jpg 100w" /><img alt="" class="wp-image-20847" decoding="async" height="471" sizes="(max-width: 929px) 100vw, 929px" src="../../wp-content/uploads/2023/04/Swap-as-series-of-forwards.jpg"srcset="../../wp-content/uploads/2023/04/Swap-as-series-of-forwards.jpg 929w, ../../wp-content/uploads/2023/04/Swap-as-series-of-forwards-300x152.jpg 300w, ../../wp-content/uploads/2023/04/Swap-as-series-of-forwards-768x389.jpg 768w, ../../wp-content/uploads/2023/04/Swap-as-series-of-forwards-100x51.jpg 100w" width="929"/></figure>
+<p class="wp-block-paragraph">But for a swap, all the fixed payments are equal. So, how can we equate a swap to a series of forward contracts? It turns out that we can, but we have to violate an important principle about forward pricing.</p>
+<h2 class="wp-block-heading">Off-Market Forwards and Swap Pricing</h2>
+<p class="wp-block-paragraph">A forward contract that starts with a nonzero value is called an <b>off-market forward</b>. A swap, with a fixed swap price for every settlement, can be decomposed into a series of off-market forwards initiated at time 0 with the same settlement price, equal to the swap price.</p>
+<figure class="wp-block-image size-large"><img alt="" class="wp-image-6806" data-lazy- decoding="async" height="480" src="../../wp-content/uploads/2020/01/off-market-forward-contract-1024x480.jpg" width="1024"srcset="../../wp-content/uploads/2020/01/off-market-forward-contract-1024x480.jpg 1024w, ../../wp-content/uploads/2020/01/off-market-forward-contract-300x141.jpg 300w, ../../wp-content/uploads/2020/01/off-market-forward-contract-768x360.jpg 768w, ../../wp-content/uploads/2020/01/off-market-forward-contract-100x47.jpg 100w, ../../wp-content/uploads/2020/01/off-market-forward-contract-1184x555.jpg 1184w, ../../wp-content/uploads/2020/01/off-market-forward-contract.jpg 1488w" /><img alt="" class="wp-image-6806" decoding="async" height="480" sizes="(max-width: 1024px) 100vw, 1024px" src="../../wp-content/uploads/2020/01/off-market-forward-contract-1024x480.jpg"srcset="../../wp-content/uploads/2020/01/off-market-forward-contract-1024x480.jpg 1024w, ../../wp-content/uploads/2020/01/off-market-forward-contract-300x141.jpg 300w, ../../wp-content/uploads/2020/01/off-market-forward-contract-768x360.jpg 768w, ../../wp-content/uploads/2020/01/off-market-forward-contract-100x47.jpg 100w, ../../wp-content/uploads/2020/01/off-market-forward-contract-1184x555.jpg 1184w, ../../wp-content/uploads/2020/01/off-market-forward-contract.jpg 1488w" width="1024"/></figure>
+<p class="wp-block-paragraph">Such an arrangement means that some of the forward contracts would have positive values, and some would have negative values, at initiation. However, to adhere to the principles of no-arbitrage, their combined values would equal zero. This also means that the value of the swap is 0 to both parties at initiation.</p>
+<h2 class="wp-block-heading">Pricing Interest Rate Swaps</h2>
+<p class="wp-block-paragraph">For the Level 1 curriculum, we’ll only focus on <b>interest rate swaps</b>. The pricing and valuation of other types of swaps are covered in Level 2.</p>
+<p class="wp-block-paragraph">In essence, pricing a swap is to determine the equilibrium price where the values of all the forwards sum to zero. We’ll use the concept of <b>replication</b> to help guide us to this price.</p>
+<p class="wp-block-paragraph">Under the principle of no-arbitrage, a position in a derivative can be replicated by buying the underlying asset and having a short position in a risk-free asset.</p>
+<figure class="wp-block-image size-full"><img alt="" class="wp-image-20848" data-lazy- decoding="async" height="450" src="../../wp-content/uploads/2023/04/Replication-method-to-price-swaps.jpg" width="968"srcset="../../wp-content/uploads/2023/04/Replication-method-to-price-swaps.jpg 968w, ../../wp-content/uploads/2023/04/Replication-method-to-price-swaps-300x139.jpg 300w, ../../wp-content/uploads/2023/04/Replication-method-to-price-swaps-768x357.jpg 768w, ../../wp-content/uploads/2023/04/Replication-method-to-price-swaps-100x46.jpg 100w" /><img alt="" class="wp-image-20848" decoding="async" height="450" sizes="(max-width: 968px) 100vw, 968px" src="../../wp-content/uploads/2023/04/Replication-method-to-price-swaps.jpg"srcset="../../wp-content/uploads/2023/04/Replication-method-to-price-swaps.jpg 968w, ../../wp-content/uploads/2023/04/Replication-method-to-price-swaps-300x139.jpg 300w, ../../wp-content/uploads/2023/04/Replication-method-to-price-swaps-768x357.jpg 768w, ../../wp-content/uploads/2023/04/Replication-method-to-price-swaps-100x46.jpg 100w" width="968"/></figure>
+<p class="wp-block-paragraph">A plain vanilla interest rate swap can generally be replicated in the same manner. The long promises to pay a fixed rate and receives the floating rate from the short.</p>
+<p class="wp-block-paragraph">The cash flows can be replicated by borrowing at a fixed interest rate and using the proceeds to buy a bond that provides the floating rate payments. We denote the payment on the fixed-rate loan as <b>F</b>, and the interest received on the floating rate bond is <b>MRR</b> (Market Reference Rate). These are the forward rates that correspond to the preceding period of each cash flow.</p>
+<p class="wp-block-paragraph">Implied forward rates can be calculated based on the current spot rates. So, let’s say we have a 3-year swap with annual settlements and these are the current 1-year, 2-year, and 3-year spot rates. By now, you should be familiar with calculating implied forward rates based on spot rates using a specific equation.</p>
+<figure class="wp-block-image size-full"><img alt="" class="wp-image-20849" data-lazy- decoding="async" height="499" src="../../wp-content/uploads/2023/04/Pricing-swap-based-on-spot-rates.jpg" width="1016"srcset="../../wp-content/uploads/2023/04/Pricing-swap-based-on-spot-rates.jpg 1016w, ../../wp-content/uploads/2023/04/Pricing-swap-based-on-spot-rates-300x147.jpg 300w, ../../wp-content/uploads/2023/04/Pricing-swap-based-on-spot-rates-768x377.jpg 768w, ../../wp-content/uploads/2023/04/Pricing-swap-based-on-spot-rates-100x49.jpg 100w" /><img alt="" class="wp-image-20849" decoding="async" height="499" sizes="(max-width: 1016px) 100vw, 1016px" src="../../wp-content/uploads/2023/04/Pricing-swap-based-on-spot-rates.jpg"srcset="../../wp-content/uploads/2023/04/Pricing-swap-based-on-spot-rates.jpg 1016w, ../../wp-content/uploads/2023/04/Pricing-swap-based-on-spot-rates-300x147.jpg 300w, ../../wp-content/uploads/2023/04/Pricing-swap-based-on-spot-rates-768x377.jpg 768w, ../../wp-content/uploads/2023/04/Pricing-swap-based-on-spot-rates-100x49.jpg 100w" width="1016"/></figure>
+<p class="wp-block-paragraph">For the swap to be of zero value at initiation, the present value (PV) of all fixed-rate cash flows must equal the PV of all floating-rate cash flows. When we solve for F, we get 3.97%, which is the no-arbitrage fixed rate, also known as the <b>par swap rate</b>.</p>
+<p class="wp-block-paragraph">It’s unlikely you’ll be asked to make calculations like this in the exam. Instead, understanding the concept of interest rate swap pricing should suffice for the Level 1 curriculum.</p>
+<h2 class="wp-block-heading">Conclusion</h2>
+<p class="wp-block-paragraph">And that concludes our lesson on the pricing and valuation of swaps. In the next lesson, we’ll move on to options.</p>
+<div class="post-navigation-link-next has-text-align-right wp-block-post-navigation-link"><a href="../pricing-and-valuation-of-options/index.html" rel="next">Next</a></div>
+<div style="font-family: sans-serif; text-align: center; padding: 5px; border-top: 2px solid #807947;">
+<h2 style="color: #807947;">✨ Visual Learning Unleashed! ✨ [Premium]</h2>
+<p>Elevate your learning with our captivating animation video—exclusive to Premium members! Watch this lesson in much more detail with vivid visuals that enhance understanding and make lessons truly come alive. 🎬</p>
+<p>Unlock the power of visual learning—upgrade to Premium and click the link NOW! 🌟</p>
+</div>
+<div class="wp-block-buttons has-custom-font-size has-medium-font-size is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-fe48e5de wp-block-buttons-is-layout-flex">
+<div class="wp-block-button"><a class="wp-block-button__link has-black-color has-text-color has-background wp-element-button" href="https://prepnuggets.com/courses/level-i-cfa-prep-derivatives/readings/derivatives-level-i/nugget/pricing-and-valuation-of-interest-rates-and-other-swaps/" rel="noreferrer noopener" style="background-color:#e6a825" target="_blank">Watch the animated lesson 🎦</a></div>
+</div>
+</div>
+</div>
+</article>
+</div>
+<aside class="x-sidebar right" role="complementary">
+<div class="widget widget_block" id="block-2">
+<h3 class="wp-block-heading">Notes Navigation</h3>
+</div><div class="widget widget_nav_menu" id="nav_menu-2"><div class="menu-sidebar-navi-menu-container"><ul class="menu" id="menu-sidebar-navi-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page current-page-ancestor menu-item-21603" id="menu-item-21603"><a href="../../index.html"><i aria-hidden="true" class="x-framework-icon x-framework-icon-initial" data-x-icon-l=""></i>CFA LEVEL I NOTES INDEX<i aria-hidden="true" class="x-framework-icon x-framework-icon-menu" data-x-icon-s=""></i></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21604" id="menu-item-21604"><a href="../../quantitative-methods-study-notes/index.html"><i aria-hidden="true" class="x-framework-icon x-framework-icon-initial" data-x-icon-l=""></i>QUANTITATIVE METHODS<i aria-hidden="true" class="x-framework-icon x-framework-icon-menu" data-x-icon-s=""></i></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21605" id="menu-item-21605"><a href="../../economics-study-notes/index.html"><i aria-hidden="true" class="x-framework-icon x-framework-icon-initial" data-x-icon-l=""></i>ECONOMICS<i aria-hidden="true" class="x-framework-icon x-framework-icon-menu" data-x-icon-s=""></i></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21606" id="menu-item-21606"><a href="../../financial-statement-analysis-fsa-study-notes/index.html"><i aria-hidden="true" class="x-framework-icon x-framework-icon-initial" data-x-icon-l=""></i>FINANCIAL STATEMENT ANALYSIS (FSA)<i aria-hidden="true" class="x-framework-icon x-framework-icon-menu" data-x-icon-s=""></i></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21607" id="menu-item-21607"><a href="../../fixed-income-study-notes/index.html"><i aria-hidden="true" class="x-framework-icon x-framework-icon-initial" data-x-icon-l=""></i>FIXED INCOME<i aria-hidden="true" class="x-framework-icon x-framework-icon-menu" data-x-icon-s=""></i></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page current-page-ancestor menu-item-21608" id="menu-item-21608"><a href="../index.html"><i aria-hidden="true" class="x-framework-icon x-framework-icon-initial" data-x-icon-l=""></i>DERIVATIVES<i aria-hidden="true" class="x-framework-icon x-framework-icon-menu" data-x-icon-s=""></i></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21609" id="menu-item-21609"><a href="../../alternative-investments-study-notes/index.html"><i aria-hidden="true" class="x-framework-icon x-framework-icon-initial" data-x-icon-l=""></i>ALTERNATIVE INVESTMENTS<i aria-hidden="true" class="x-framework-icon x-framework-icon-menu" data-x-icon-s=""></i></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21610" id="menu-item-21610"><a href="../../equity-investments-study-notes/index.html"><i aria-hidden="true" class="x-framework-icon x-framework-icon-initial" data-x-icon-l=""></i>EQUITY INVESTMENTS<i aria-hidden="true" class="x-framework-icon x-framework-icon-menu" data-x-icon-s=""></i></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21611" id="menu-item-21611"><a href="../../corporate-issuers-study-notes/index.html"><i aria-hidden="true" class="x-framework-icon x-framework-icon-initial" data-x-icon-l=""></i>CORPORATE ISSUERS<i aria-hidden="true" class="x-framework-icon x-framework-icon-menu" data-x-icon-s=""></i></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21612" id="menu-item-21612"><a href="../../portfolio-management-study-notes/index.html"><i aria-hidden="true" class="x-framework-icon x-framework-icon-initial" data-x-icon-l=""></i>PORTFOLIO MANAGEMENT<i aria-hidden="true" class="x-framework-icon x-framework-icon-menu" data-x-icon-s=""></i></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21613" id="menu-item-21613"><a href="../../ethics-study-notes/index.html"><i aria-hidden="true" class="x-framework-icon x-framework-icon-initial" data-x-icon-l=""></i>ETHICAL AND PROFESSIONAL STANDARDS<i aria-hidden="true" class="x-framework-icon x-framework-icon-menu" data-x-icon-s=""></i></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-38939" id="menu-item-38939"><a href="https://prepnuggets.com/ai-tutor-for-cfa/"><i aria-hidden="true" class="x-framework-icon x-framework-icon-initial" data-x-icon-l=""></i>AI Tutor<i aria-hidden="true" class="x-framework-icon x-framework-icon-menu" data-x-icon-s=""></i></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-39085" id="menu-item-39085"><a href="https://prepnuggets.com/cfa-level-i/"><i aria-hidden="true" class="x-framework-icon x-framework-icon-initial" data-x-icon-l=""></i>CFA® Level I<i aria-hidden="true" class="x-framework-icon x-framework-icon-menu" data-x-icon-s=""></i></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-39235" id="menu-item-39235"><a href="https://prepnuggets.com/cfa-level-ii/"><i aria-hidden="true" class="x-framework-icon x-framework-icon-initial" data-x-icon-l=""></i>CFA® Level II<i aria-hidden="true" class="x-framework-icon x-framework-icon-menu" data-x-icon-s=""></i></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-39266" id="menu-item-39266"><a href="https://prepnuggets.com/cfa-level-i-level-ii-combo/"><i aria-hidden="true" class="x-framework-icon x-framework-icon-initial" data-x-icon-l=""></i>CFA® L1+L2 COMBO<i aria-hidden="true" class="x-framework-icon x-framework-icon-menu" data-x-icon-s=""></i></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-51225" id="menu-item-51225"><a href="https://prepnuggets.com/2027-cfa-level-i-updates/"><i aria-hidden="true" class="x-framework-icon x-framework-icon-initial" data-x-icon-l=""></i>2027 CFA Level I Updates<i aria-hidden="true" class="x-framework-icon x-framework-icon-menu" data-x-icon-s=""></i></a></li>
+</ul></div></div><div class="widget widget_block" id="block-3">
+<div class="wp-block-group is-vertical is-layout-flex wp-container-core-group-is-layout-4fc3f8e1 wp-block-group-is-layout-flex"><p><ul class="list-pages-shortcode sibling-pages"><li class="page_item page-item-20812"><a href="../derivative-instrument-and-derivative-market-features/index.html">Derivative Instrument and Derivative Market Features</a></li>
+<li class="page_item page-item-20819"><a href="../forward-commitment-and-contingent-claim-features-and-instruments/index.html">Forward Commitment and Contingent Claim Features and Instruments</a></li>
+<li class="page_item page-item-20825"><a href="../derivative-benefits-risks-and-issuer-and-investor-uses/index.html">Derivative Benefits, Risks, and Issuer and Investor Uses</a></li>
+<li class="page_item page-item-20830"><a href="../arbitrage-replication-and-the-cost-of-carry-in-pricing-derivatives/index.html">Arbitrage, Replication, and the Cost of Carry in Pricing Derivatives</a></li>
+<li class="page_item page-item-20835"><a href="../pricing-and-valuation-of-forward-contracts/index.html">Pricing and Valuation of Forward Contracts</a></li>
+<li class="page_item page-item-20840"><a href="../pricing-and-valuation-of-futures-contracts/index.html">Pricing and Valuation of Futures Contracts</a></li>
+<li class="page_item page-item-20846 current_page_item"><a href="index.html">Pricing and Valuation of Interest Rates and Other Swaps</a></li>
+<li class="page_item page-item-20854"><a href="../pricing-and-valuation-of-options/index.html">Pricing and Valuation of Options</a></li>
+<li class="page_item page-item-20861"><a href="../option-replication-using-put-call-parity/index.html">Option Replication Using Put–Call Parity</a></li>
+<li class="page_item page-item-20864"><a href="../valuing-a-derivative-using-a-one-period-binomial-model/index.html">Valuing a Derivative Using a One-Period Binomial Model</a></li>
+</ul></p>
+</div>
+</div> </aside>
+</div>
+<footer class="x-colophon top">
+<div class="x-container max width">
+<div class="x-column x-md x-1-3"><div class="widget widget_block" id="block-7"><h4 class="h-feature-headline h3"><span><i class="x-icon-info x-framework-icon" data-x-icon-s=""></i>About Us</span></h4>
+<p></p>
+<p>PrepNuggets is a creator of CFA® program study materials to aid candidates who are looking for more concise materials for their exam preparation. All materials are crafted in-house by founder and chief instructor Keith Tan. Keith has passed all 3 levels of the CFA® exam on his first attempts.<br/>
+</p>
+<p>Click <a class="founder-msg" href="index.html">here</a> to read more about his motivation in founding PrepNuggets.</p>
+<p></p></div></div><div class="x-column x-md x-1-3"><div class="widget widget_block" id="block-10"><h4 class="h-feature-headline h3"><span><i class="x-icon-compass x-framework-icon" data-x-icon-s=""></i>Vision and Mission</span></h4>
+<p></p>
+<p><strong>Our vision</strong> is to revolutionise learning by harnessing technology and catering to the modern attention span.</p>
+<p></p>
+<p><strong>Our mission</strong> is to produce effective learning materials and to present them in a way that is suitable for busy professionals to consume in their pockets of time.</p></div><div class="widget widget_synved_social_follow" id="synved_social_follow-5"><h4 class="h-widget">Follow Us</h4><div><a class="synved-social-button synved-social-button-follow synved-social-size-64 synved-social-resolution-single synved-social-provider-facebook nolightbox" data-provider="facebook" href="https://www.facebook.com/PrepNuggets" rel="nofollow" style="font-size: 0px;width:64px;height:64px;margin:0;margin-bottom:5px;margin-right:5px" target="_blank" title="Follow us on Facebook"><img alt="Facebook" class="synved-share-image synved-social-image synved-social-image-follow" height="64" src="../../wp-content/plugins/social-media-feather/synved-social/image/social/regular/128x128/facebook.png" style="display: inline;width:64px;height:64px;margin: 0;padding: 0;border: none;box-shadow: none" title="Follow us on Facebook" width="64"/><img alt="Facebook" class="synved-share-image synved-social-image synved-social-image-follow" height="64" src="../../wp-content/plugins/social-media-feather/synved-social/image/social/regular/128x128/facebook.png" style="display: inline;width:64px;height:64px;margin: 0;padding: 0;border: none;box-shadow: none" title="Follow us on Facebook" width="64"/></a><a class="synved-social-button synved-social-button-follow synved-social-size-64 synved-social-resolution-single synved-social-provider-youtube nolightbox" data-provider="youtube" href="https://www.youtube.com/prepnuggets" rel="nofollow" style="font-size: 0px;width:64px;height:64px;margin:0;margin-bottom:5px" target="_blank" title="Find us on YouTube"><img alt="youtube" class="synved-share-image synved-social-image synved-social-image-follow" height="64" src="../../wp-content/plugins/social-media-feather/synved-social/image/social/regular/128x128/youtube.png" style="display: inline;width:64px;height:64px;margin: 0;padding: 0;border: none;box-shadow: none" title="Find us on YouTube" width="64"/><img alt="youtube" class="synved-share-image synved-social-image synved-social-image-follow" height="64" src="../../wp-content/plugins/social-media-feather/synved-social/image/social/regular/128x128/youtube.png" style="display: inline;width:64px;height:64px;margin: 0;padding: 0;border: none;box-shadow: none" title="Find us on YouTube" width="64"/></a></div></div></div><div class="x-column x-md x-1-3 last"><div class="widget widget_block" id="block-6">
+<h4 class="h-feature-headline h3"><span><i class="x-icon-envelope x-framework-icon" data-x-icon-s=""></i>Enquiries</span></h4>
+<div display="none" id="my-content">
+<p> Thank you for your interest! If you have any questions related to enrolment and our offerings, click on the <b>chat button</b> at the lower right corner to chat with our consultant.</p>
+</div>
+</div><div class="widget widget_block" id="block-9">
+<h4 class="h-feature-headline h3"><span><i class="x-icon-tools x-framework-icon" data-x-icon-s=""></i>Support</span></h4>
+For members, you are welcome to contact us:
+
+<a class="x-btn x-btn-square x-btn-regular alignleft" data-options="thumbnail: ''" href="https://prepnuggets.com/technical-support-faq" rel="" target="_blank">Technical Support</a><br/>
+</div></div>
+</div>
+</footer>
+<footer class="x-colophon bottom" role="contentinfo">
+<div class="x-container max width">
+<ul class="x-nav" id="menu-footer-menu"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-509" id="menu-item-509"><a href="../../index.html">Home</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page current-page-ancestor menu-item-21602" id="menu-item-21602"><a href="../../index.html">Free Summary Notes</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-4911" id="menu-item-4911"><a href="https://prepnuggets.com/privacy-policy/" rel="privacy-policy">Privacy Policy</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-506" id="menu-item-506"><a href="https://prepnuggets.com/terms-of-service/">Terms of Service</a></li>
+</ul>
+<div class="x-social-global"><a class="facebook" href="https://www.facebook.com/PrepNuggets" rel="" target="_blank" title="Facebook"><i aria-hidden="true" class="x-framework-icon x-icon-facebook-square" data-x-icon-b=""></i></a><a class="youtube" href="https://www.youtube.com/prepnuggets" rel="" target="_blank" title="YouTube"><i aria-hidden="true" class="x-framework-icon x-icon-youtube-square" data-x-icon-b=""></i></a></div>
+<div class="x-colophon-content">
+<p style="text-transform: none;">&amp;copy2026 PrepNuggets.com<br/>
+PrepNuggets LLP is a Singapore-registered partnership (UEN: T22LL1122G)<br/>
+<br/>REQUIRED DISCLAIMER:<br/>CFA Institute does not endorse, promote or warrant the accuracy or quality of PrepNuggets. CFA® and Chartered Financial Analyst® are registered trademarks owned by CFA Institute..</p> </div>
+</div>
+</footer>
+</div> <!-- END .x-site -->
+<a class="x-scroll-top right fade" data-rvt-scroll-top="" title="Back to Top">
+<i aria-hidden="true" class="x-framework-icon x-icon-angle-up" data-x-icon-s=""></i> </a>
+</div> <!-- END .x-root -->
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/pro-child/*","/wp-content/themes/pro/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<!-- Memberships powered by Paid Memberships Pro v3.3.2. -->
+<div class="simple-banner simple-banner-text" style="display:none !important"></div><div aria-modal="false" class="pum pum-overlay pum-theme-414 pum-theme-lightbox popmake-overlay pum-click-to-close click_open" data-popmake='{"id":16124,"slug":"study-sequence","theme_id":414,"cookies":[],"triggers":[{"type":"click_open","settings":{"extra_selectors":".study-sequence"}}],"mobile_disabled":null,"tablet_disabled":null,"meta":{"display":{"stackable":false,"overlay_disabled":false,"scrollable_content":false,"disable_reposition":false,"size":"normal","responsive_min_width":"0%","responsive_min_width_unit":false,"responsive_max_width":"100%","responsive_max_width_unit":false,"custom_width":"640px","custom_width_unit":false,"custom_height":"380px","custom_height_unit":false,"custom_height_auto":false,"location":"center top","position_from_trigger":false,"position_top":"100","position_left":"0","position_bottom":"0","position_right":"0","position_fixed":false,"animation_type":"fade","animation_speed":"350","animation_origin":"center top","overlay_zindex":false,"zindex":"1999999999"},"close":{"text":"","button_delay":"0","overlay_click":"1","esc_press":false,"f4_press":false},"click_open":[]}}' id="pum-16124" role="dialog">
+<div class="pum-container popmake theme-414 pum-responsive pum-responsive-normal responsive size-normal" id="popmake-16124">
+<div class="pum-content popmake-content" tabindex="0">
+<div class="x-resp-embed x-is-video x-is-vimeo"></iframe></div>
+</div>
+<button aria-label="Close" class="pum-close popmake-close" type="button">
+			×			</button>
+</div>
+</div>
+<div aria-modal="false" class="pum pum-overlay pum-theme-413 pum-theme-default-theme popmake-overlay click_open" data-popmake='{"id":10462,"slug":"refund-fee","theme_id":413,"cookies":[],"triggers":[{"type":"click_open","settings":{"extra_selectors":"","cookie_name":null}}],"mobile_disabled":null,"tablet_disabled":null,"meta":{"display":{"stackable":false,"overlay_disabled":false,"scrollable_content":false,"disable_reposition":false,"size":false,"responsive_min_width":false,"responsive_min_width_unit":false,"responsive_max_width":false,"responsive_max_width_unit":false,"custom_width":false,"custom_width_unit":false,"custom_height":false,"custom_height_unit":false,"custom_height_auto":false,"location":false,"position_from_trigger":false,"position_top":false,"position_left":false,"position_bottom":false,"position_right":false,"position_fixed":false,"animation_type":false,"animation_speed":false,"animation_origin":false,"overlay_zindex":false,"zindex":false},"close":{"text":false,"button_delay":false,"overlay_click":false,"esc_press":false,"f4_press":false},"click_open":[]}}' id="pum-10462" role="dialog">
+<div class="pum-container popmake theme-413 pum-responsive pum-responsive-medium responsive size-medium" id="popmake-10462">
+<div class="pum-content popmake-content" tabindex="0">
+<p>Please note that while we offer a full refund, a small <strong>5% processing fee</strong> is applied to cover non-refundable transaction fees initially absorbed by us to facilitate your purchase.</p>
+</div>
+<button aria-label="Close" class="pum-close popmake-close" type="button">
+			×			</button>
+</div>
+</div>
+<div aria-modal="false" class="pum pum-overlay pum-theme-413 pum-theme-default-theme popmake-overlay click_open" data-popmake='{"id":10246,"slug":"udemy-student-upgrade-offer","theme_id":413,"cookies":[],"triggers":[{"type":"click_open","settings":{"extra_selectors":"","cookie_name":null}}],"mobile_disabled":null,"tablet_disabled":null,"meta":{"display":{"stackable":false,"overlay_disabled":false,"scrollable_content":false,"disable_reposition":false,"size":false,"responsive_min_width":false,"responsive_min_width_unit":false,"responsive_max_width":false,"responsive_max_width_unit":false,"custom_width":false,"custom_width_unit":false,"custom_height":false,"custom_height_unit":false,"custom_height_auto":false,"location":false,"position_from_trigger":false,"position_top":false,"position_left":false,"position_bottom":false,"position_right":false,"position_fixed":false,"animation_type":false,"animation_speed":false,"animation_origin":false,"overlay_zindex":false,"zindex":false},"close":{"text":false,"button_delay":false,"overlay_click":false,"esc_press":false,"f4_press":false},"click_open":[]}}' id="pum-10246" role="dialog">
+<div class="pum-container popmake theme-413 pum-responsive pum-responsive-medium responsive size-medium" id="popmake-10246">
+<div class="pum-content popmake-content" tabindex="0">
+<p><img alt="" class="alignnone size-full wp-image-1382" data-lazy- decoding="async" fetchpriority="high" height="398" src="../../wp-content/uploads/2018/04/Udemy-Students-Go-Further_m.jpg" width="800"srcset="../../wp-content/uploads/2018/04/Udemy-Students-Go-Further_m.jpg 800w, ../../wp-content/uploads/2018/04/Udemy-Students-Go-Further_m-300x149.jpg 300w, ../../wp-content/uploads/2018/04/Udemy-Students-Go-Further_m-768x382.jpg 768w, ../../wp-content/uploads/2018/04/Udemy-Students-Go-Further_m-100x50.jpg 100w" /><img alt="" class="alignnone size-full wp-image-1382" decoding="async" fetchpriority="high" height="398" sizes="(max-width: 800px) 100vw, 800px" src="../../wp-content/uploads/2018/04/Udemy-Students-Go-Further_m.jpg"srcset="../../wp-content/uploads/2018/04/Udemy-Students-Go-Further_m.jpg 800w, ../../wp-content/uploads/2018/04/Udemy-Students-Go-Further_m-300x149.jpg 300w, ../../wp-content/uploads/2018/04/Udemy-Students-Go-Further_m-768x382.jpg 768w, ../../wp-content/uploads/2018/04/Udemy-Students-Go-Further_m-100x50.jpg 100w" width="800"/></p>
+<p>Thank you for purchasing one of our courses on Udemy! Now that you have experienced the PrepNuggets way of learning, are you ready to take your exam prep to the next level with us?</p>
+<p>We have an <strong>irresistible offer</strong> for you to upgrade to our Level I Premium Membership, where you will gain full access to <strong>ALL 10 topical courses</strong> under the CFA Level I curriculum.</p>
+<p>Simply log in to any of our courses on Udemy, and head to the<strong> last lecture</strong> titled ‘<em><strong>BONUS</strong>: Continue Your Exam Prep With Us!</em>‘. You will find the exclusive link to sign up for this offer!</p>
+<p><img alt="" class="alignnone size-full wp-image-10257" data-lazy- decoding="async" height="823" src="../../wp-content/uploads/2021/02/Udemy-BONUS-1.jpg" width="1200"srcset="../../wp-content/uploads/2021/02/Udemy-BONUS-1.jpg 1200w, ../../wp-content/uploads/2021/02/Udemy-BONUS-1-300x206.jpg 300w, ../../wp-content/uploads/2021/02/Udemy-BONUS-1-1024x702.jpg 1024w, ../../wp-content/uploads/2021/02/Udemy-BONUS-1-768x527.jpg 768w, ../../wp-content/uploads/2021/02/Udemy-BONUS-1-100x69.jpg 100w, ../../wp-content/uploads/2021/02/Udemy-BONUS-1-1184x812.jpg 1184w" /><img alt="" class="alignnone size-full wp-image-10257" decoding="async" height="823" sizes="(max-width: 1200px) 100vw, 1200px" src="../../wp-content/uploads/2021/02/Udemy-BONUS-1.jpg"srcset="../../wp-content/uploads/2021/02/Udemy-BONUS-1.jpg 1200w, ../../wp-content/uploads/2021/02/Udemy-BONUS-1-300x206.jpg 300w, ../../wp-content/uploads/2021/02/Udemy-BONUS-1-1024x702.jpg 1024w, ../../wp-content/uploads/2021/02/Udemy-BONUS-1-768x527.jpg 768w, ../../wp-content/uploads/2021/02/Udemy-BONUS-1-100x69.jpg 100w, ../../wp-content/uploads/2021/02/Udemy-BONUS-1-1184x812.jpg 1184w" width="1200"/></p>
+</div>
+<button aria-label="Close" class="pum-close popmake-close" type="button">
+			×			</button>
+</div>
+</div>
+<div aria-modal="false" class="pum pum-overlay pum-theme-413 pum-theme-default-theme popmake-overlay click_open" data-popmake='{"id":6922,"slug":"glossary-promo","theme_id":413,"cookies":[],"triggers":[{"type":"click_open","settings":{"extra_selectors":"","cookie_name":null}}],"mobile_disabled":null,"tablet_disabled":null,"meta":{"display":{"stackable":false,"overlay_disabled":false,"scrollable_content":false,"disable_reposition":false,"size":false,"responsive_min_width":false,"responsive_min_width_unit":false,"responsive_max_width":false,"responsive_max_width_unit":false,"custom_width":false,"custom_width_unit":false,"custom_height":false,"custom_height_unit":false,"custom_height_auto":false,"location":false,"position_from_trigger":false,"position_top":false,"position_left":false,"position_bottom":false,"position_right":false,"position_fixed":false,"animation_type":false,"animation_speed":false,"animation_origin":false,"overlay_zindex":false,"zindex":false},"close":{"text":false,"button_delay":false,"overlay_click":false,"esc_press":false,"f4_press":false},"click_open":[]}}' id="pum-6922" role="dialog">
+<div class="pum-container popmake theme-413 pum-responsive pum-responsive-medium responsive size-medium" id="popmake-6922">
+<div class="pum-content popmake-content" tabindex="0">
+<p><img alt="" class="alignnone size-full wp-image-6923" data-lazy- decoding="async" height="768" src="../../wp-content/uploads/2020/01/Glossary.001.jpeg" width="1024"srcset="../../wp-content/uploads/2020/01/Glossary.001.jpeg 1024w, ../../wp-content/uploads/2020/01/Glossary.001-300x225.jpeg 300w, ../../wp-content/uploads/2020/01/Glossary.001-768x576.jpeg 768w, ../../wp-content/uploads/2020/01/Glossary.001-100x75.jpeg 100w" /><img alt="" class="alignnone size-full wp-image-6923" decoding="async" height="768" sizes="(max-width: 1024px) 100vw, 1024px" src="../../wp-content/uploads/2020/01/Glossary.001.jpeg"srcset="../../wp-content/uploads/2020/01/Glossary.001.jpeg 1024w, ../../wp-content/uploads/2020/01/Glossary.001-300x225.jpeg 300w, ../../wp-content/uploads/2020/01/Glossary.001-768x576.jpeg 768w, ../../wp-content/uploads/2020/01/Glossary.001-100x75.jpeg 100w" width="1024"/></p>
+<p>Have you ever gotten stuck in your study because you can’t remember a formula, or what a specific term means? Now, say goodbye to scanning through all the videos and ploughing through pages and pages just to find what you are looking for. All the important formulas, definitions and diagrams you need for the exam are now at your fingertips at <a href="https://prepnuggets.com/glossary" rel="noopener noreferrer" target="_blank"><strong>prepnuggets.com/glossary</strong></a>.</p>
+<p><img alt="" class="alignnone size-full wp-image-6925" data-lazy- decoding="async" height="991" src="../../wp-content/uploads/2020/01/Glossary-integration.jpg" width="1280"srcset="../../wp-content/uploads/2020/01/Glossary-integration.jpg 1280w, ../../wp-content/uploads/2020/01/Glossary-integration-300x232.jpg 300w, ../../wp-content/uploads/2020/01/Glossary-integration-1024x793.jpg 1024w, ../../wp-content/uploads/2020/01/Glossary-integration-768x595.jpg 768w, ../../wp-content/uploads/2020/01/Glossary-integration-100x77.jpg 100w, ../../wp-content/uploads/2020/01/Glossary-integration-1184x917.jpg 1184w" /><img alt="" class="alignnone size-full wp-image-6925" decoding="async" height="991" sizes="(max-width: 1280px) 100vw, 1280px" src="../../wp-content/uploads/2020/01/Glossary-integration.jpg"srcset="../../wp-content/uploads/2020/01/Glossary-integration.jpg 1280w, ../../wp-content/uploads/2020/01/Glossary-integration-300x232.jpg 300w, ../../wp-content/uploads/2020/01/Glossary-integration-1024x793.jpg 1024w, ../../wp-content/uploads/2020/01/Glossary-integration-768x595.jpg 768w, ../../wp-content/uploads/2020/01/Glossary-integration-100x77.jpg 100w, ../../wp-content/uploads/2020/01/Glossary-integration-1184x917.jpg 1184w" width="1280"/></p>
+<p>What’s more, these quick references are <strong>deeply integrated</strong> in our lessons, so you get a good idea of what the lesson covers even before watching the video. The references also point you to specific video lessons where it is covered, so you can quickly access the corresponding video to learn more about the term.</p>
+<p>Available now for all Level I topics<em>, </em>this service is exclusive for our Premium and Pro members only. We will progressively add the rest of the topic areas over the next few months.</p>
+<p>We think this is a game-changer for your CFA success!</p>
+</div>
+<button aria-label="Close" class="pum-close popmake-close" type="button">
+			×			</button>
+</div>
+</div>
+<div aria-modal="false" class="pum pum-overlay pum-theme-414 pum-theme-lightbox popmake-overlay pum-click-to-close click_open" data-popmake='{"id":4915,"slug":"watch-trailer","theme_id":414,"cookies":[],"triggers":[{"type":"click_open","settings":{"extra_selectors":".trailer"}}],"mobile_disabled":null,"tablet_disabled":null,"meta":{"display":{"stackable":false,"overlay_disabled":false,"scrollable_content":false,"disable_reposition":false,"size":"normal","responsive_min_width":"0%","responsive_min_width_unit":false,"responsive_max_width":"100%","responsive_max_width_unit":false,"custom_width":"640px","custom_width_unit":false,"custom_height":"380px","custom_height_unit":false,"custom_height_auto":false,"location":"center top","position_from_trigger":false,"position_top":"100","position_left":"0","position_bottom":"0","position_right":"0","position_fixed":false,"animation_type":"fade","animation_speed":"350","animation_origin":"center top","overlay_zindex":false,"zindex":"1999999999"},"close":{"text":"","button_delay":"0","overlay_click":"1","esc_press":false,"f4_press":false},"click_open":[]}}' id="pum-4915" role="dialog">
+<div class="pum-container popmake theme-414 pum-responsive pum-responsive-normal responsive size-normal" id="popmake-4915">
+<div class="pum-content popmake-content" tabindex="0">
+<div class="x-resp-embed x-is-video x-is-vimeo"></iframe></div>
+</div>
+<button aria-label="Close" class="pum-close popmake-close" type="button">
+			×			</button>
+</div>
+</div>
+<div aria-modal="false" class="pum pum-overlay pum-theme-413 pum-theme-default-theme popmake-overlay click_open" data-popmake='{"id":1375,"slug":"udemy-best-seller","theme_id":413,"cookies":[],"triggers":[{"type":"click_open","settings":{"extra_selectors":"","cookie_name":null}}],"mobile_disabled":null,"tablet_disabled":null,"meta":{"display":{"stackable":false,"overlay_disabled":false,"scrollable_content":false,"disable_reposition":false,"size":false,"responsive_min_width":false,"responsive_min_width_unit":false,"responsive_max_width":false,"responsive_max_width_unit":false,"custom_width":false,"custom_width_unit":false,"custom_height":false,"custom_height_unit":false,"custom_height_auto":false,"location":false,"position_from_trigger":false,"position_top":false,"position_left":false,"position_bottom":false,"position_right":false,"position_fixed":false,"animation_type":false,"animation_speed":false,"animation_origin":false,"overlay_zindex":false,"zindex":false},"close":{"text":false,"button_delay":false,"overlay_click":false,"esc_press":false,"f4_press":false},"click_open":[]}}' id="pum-1375" role="dialog">
+<div class="pum-container popmake theme-413 pum-responsive pum-responsive-medium responsive size-medium" id="popmake-1375">
+<div class="pum-content popmake-content" tabindex="0">
+<p><img alt="" class="alignnone size-large wp-image-1346" data-lazy- decoding="async" height="271" src="../../wp-content/uploads/2018/04/Best-Seller-on-Udemy-1024x271.jpg" width="1024"srcset="../../wp-content/uploads/2018/04/Best-Seller-on-Udemy-1024x271.jpg 1024w, ../../wp-content/uploads/2018/04/Best-Seller-on-Udemy-300x79.jpg 300w, ../../wp-content/uploads/2018/04/Best-Seller-on-Udemy-768x203.jpg 768w, ../../wp-content/uploads/2018/04/Best-Seller-on-Udemy-100x26.jpg 100w, ../../wp-content/uploads/2018/04/Best-Seller-on-Udemy-1184x314.jpg 1184w, ../../wp-content/uploads/2018/04/Best-Seller-on-Udemy.jpg 1911w" /><img alt="" class="alignnone size-large wp-image-1346" decoding="async" height="271" sizes="(max-width: 1024px) 100vw, 1024px" src="../../wp-content/uploads/2018/04/Best-Seller-on-Udemy-1024x271.jpg"srcset="../../wp-content/uploads/2018/04/Best-Seller-on-Udemy-1024x271.jpg 1024w, ../../wp-content/uploads/2018/04/Best-Seller-on-Udemy-300x79.jpg 300w, ../../wp-content/uploads/2018/04/Best-Seller-on-Udemy-768x203.jpg 768w, ../../wp-content/uploads/2018/04/Best-Seller-on-Udemy-100x26.jpg 100w, ../../wp-content/uploads/2018/04/Best-Seller-on-Udemy-1184x314.jpg 1184w, ../../wp-content/uploads/2018/04/Best-Seller-on-Udemy.jpg 1911w" width="1024"/></p>
+<p>On the 1st of March 2018, we took a bold step of faith to put our Financial Reporting and Analysis (FRA) course on Udemy.</p>
+<p>For those of you who are new to Udemy, it is the world’s largest marketplace for online courses. Think of it like the EBay of online courses.</p>
+<p>So imagine our trepidation in pitting our course in this highly competitive platform, against the many CFA prep providers already entrenched on the platform.</p>
+<p><em> Overwhelming.</em></p>
+<p>Yes, that’s the word that aptly describes the response to our course from the Udemy community.</p>
+<h3>“Best Seller” Tag</h3>
+<p><img alt="" class="alignnone size-full wp-image-1363" data-lazy- decoding="async" height="694" src="../../wp-content/uploads/2018/04/Best-Seller-Tag.jpg" width="482"srcset="../../wp-content/uploads/2018/04/Best-Seller-Tag.jpg 482w, ../../wp-content/uploads/2018/04/Best-Seller-Tag-208x300.jpg 208w, ../../wp-content/uploads/2018/04/Best-Seller-Tag-100x144.jpg 100w" /><img alt="" class="alignnone size-full wp-image-1363" decoding="async" height="694" sizes="(max-width: 482px) 100vw, 482px" src="../../wp-content/uploads/2018/04/Best-Seller-Tag.jpg"srcset="../../wp-content/uploads/2018/04/Best-Seller-Tag.jpg 482w, ../../wp-content/uploads/2018/04/Best-Seller-Tag-208x300.jpg 208w, ../../wp-content/uploads/2018/04/Best-Seller-Tag-100x144.jpg 100w" width="482"/></p>
+<p>The “Best Seller” tag from Udemy is attached to only one best selling course in its category. In just 1 month, our FRA course became the best selling CFA course on the platform. If you do a search for ‘CFA Level 1’, our course comes out on top in the search rankings.</p>
+<h3>Global Reach</h3>
+<p><img alt="" class="alignnone size-full wp-image-1362" data-lazy- decoding="async" height="176" src="../../wp-content/uploads/2018/04/Global-Reach.png" width="800"srcset="../../wp-content/uploads/2018/04/Global-Reach.png 800w, ../../wp-content/uploads/2018/04/Global-Reach-300x66.png 300w, ../../wp-content/uploads/2018/04/Global-Reach-768x169.png 768w, ../../wp-content/uploads/2018/04/Global-Reach-100x22.png 100w" /><img alt="" class="alignnone size-full wp-image-1362" decoding="async" height="176" sizes="(max-width: 800px) 100vw, 800px" src="../../wp-content/uploads/2018/04/Global-Reach.png"srcset="../../wp-content/uploads/2018/04/Global-Reach.png 800w, ../../wp-content/uploads/2018/04/Global-Reach-300x66.png 300w, ../../wp-content/uploads/2018/04/Global-Reach-768x169.png 768w, ../../wp-content/uploads/2018/04/Global-Reach-100x22.png 100w" width="800"/></p>
+<p>Since the launch on 1 March, we have had more than 250 paid enrolments. While we are heartened by this figure, nothing beats knowing that our course has reached <strong>50 countries</strong> around the world! It was simply heartwarming to receive messages from students from countries we barely know about, telling us how much they love the course and their wish that we would produce more of such courses. This certainly spurs us on to produce more materials to ease the burden of CFA candidates worldwide.</p>
+<h3>Awesome Ratings</h3>
+<p><img alt="" class="alignnone size-full wp-image-1371" data-lazy- decoding="async" height="791" src="../../wp-content/uploads/2018/04/High-Ratings.jpg" width="800"srcset="../../wp-content/uploads/2018/04/High-Ratings.jpg 800w, ../../wp-content/uploads/2018/04/High-Ratings-300x297.jpg 300w, ../../wp-content/uploads/2018/04/High-Ratings-768x759.jpg 768w, ../../wp-content/uploads/2018/04/High-Ratings-100x99.jpg 100w" /><img alt="" class="alignnone size-full wp-image-1371" decoding="async" height="791" sizes="(max-width: 800px) 100vw, 800px" src="../../wp-content/uploads/2018/04/High-Ratings.jpg"srcset="../../wp-content/uploads/2018/04/High-Ratings.jpg 800w, ../../wp-content/uploads/2018/04/High-Ratings-300x297.jpg 300w, ../../wp-content/uploads/2018/04/High-Ratings-768x759.jpg 768w, ../../wp-content/uploads/2018/04/High-Ratings-100x99.jpg 100w" width="800"/><br/>
+As of today, our course has a high average rating of 4.8 out of 5.0. 74% of the reviewers gave us 5 stars! We take this as endorsement that we are doing things right, and will continue in using the Pareto principle approach for our course materials. There are, of course, constructive feedback as well, and we aim to incorporate some of the feedback in producing the upcoming courses.</p>
+<h3>Moving Forward</h3>
+<p>We are working hard to bring more of our courses to Udemy! We realise some candidates prefer to purchase courses as they need individually, so we endeavour to give more options to our potential students.  Check out our <a href="https://prepnuggets.com/udemy-courses/">Udemy Courses Page</a> to find out which of our courses are available on Udemy for your purchase.</p>
+<div class="x-callout center-text"><h2 class="h-callout">Special Offer for Udemy Students</h2><p class="p-callout">If you have purchased our course on Udemy and would like to continue with the PrepNuggets study approach for other topics, we have an<strong> awesome upgrade offer to Premium membership for you</strong>!</p><div class="x-btn-circle-wrap mbn"><a class="x-btn x-btn-x-large" href="https://prepnuggets.com/udemy" title="Check out the offer"><i class="x-icon-check mvn mln mrs" data-x-icon-s=""></i>Check out the offer</a></div></div>
+</div>
+<button aria-label="Close" class="pum-close popmake-close" type="button">
+			×			</button>
+</div>
+</div>
+<div aria-labelledby="pum_popup_title_631" aria-modal="false" class="pum pum-overlay pum-theme-413 pum-theme-default-theme popmake-overlay click_open" data-popmake='{"id":631,"slug":"founder-message","theme_id":413,"cookies":[],"triggers":[{"type":"click_open","settings":{"extra_selectors":"","cookie_name":null}}],"mobile_disabled":null,"tablet_disabled":null,"meta":{"display":{"responsive_min_width":false,"responsive_max_width":false,"stackable":false,"overlay_disabled":false,"scrollable_content":false,"disable_reposition":false,"size":false,"responsive_min_width_unit":false,"responsive_max_width_unit":false,"custom_width":false,"custom_width_unit":false,"custom_height":false,"custom_height_unit":false,"custom_height_auto":false,"location":false,"position_from_trigger":false,"position_top":false,"position_left":false,"position_bottom":false,"position_right":false,"position_fixed":false,"animation_type":false,"animation_speed":false,"animation_origin":false,"overlay_zindex":false,"zindex":false},"close":{"text":false,"button_delay":false,"overlay_click":false,"esc_press":false,"f4_press":false},"click_open":[]}}' id="pum-631" role="dialog">
+<div class="pum-container popmake theme-413 pum-responsive pum-responsive-medium responsive size-medium" id="popmake-631">
+<div class="pum-title popmake-title" id="pum_popup_title_631">
+				Welcome to PrepNuggets			</div>
+<div class="pum-content popmake-content" tabindex="0">
+<h3>Hey Future CFA Charterholder,</h3>
+<p>Many years ago, I was exactly where you are today—a CFA Level I candidate juggling a demanding full-time career with the daunting CFA curriculum. Coming from a Computer Engineering background, finance was entirely new territory for me. And yes, it was tough!</p>
+<p>I struggled with dense textbooks, late-night cramming, and the frustration of concepts that seemed impossible after a long workday. But after passing Level I (barely), I realized something had to change.</p>
+<h3>Studying Smarter, Not Harder</h3>
+<p>Using the Pareto Principle (80/20 rule), I distilled the vast CFA syllabus into essential, easy-to-understand nuggets. I leaned into visual summaries and bite-sized learning sessions that worked around my busy schedule. This smarter approach helped me clear Levels II and III on my first attempts with significantly less stress.</p>
+<h3>Why PrepNuggets?</h3>
+<p>I founded PrepNuggets to share the streamlined strategies and innovative learning methods that transformed my CFA journey. Our mission is simple: leverage technology to make CFA prep more effective, accessible, and enjoyable.</p>
+<p>Join the PrepNuggets community today—sign up for your free account, and let our thoughtfully crafted materials propel you toward CFA success without unnecessary overwhelm.</p>
+<p>Here’s to your CFA journey!</p>
+<p>Keith Tan, CFA<br/>
+Founder &amp; Chief Instructor, PrepNuggets</p>
+<div class="x-author-box cf"><h6 class="h-about-the-author">About the Author</h6><noscript></noscript><div class="x-author-info"><h4 class="h-author mtn">PrepNuggets</h4><p class="p-author mbn">Keith is the founder and chief instructor of PrepNuggets. He has a wide range of interests in all things related to tech, from web development to e-learning, gadgets to apps. Keith loves exploring different cultures and the untouched gems around the world. He currently lives in Singapore but frequently travels to share his knowledge and expertise with others.</p></div></div>
+</div>
+<button aria-label="Close" class="pum-close popmake-close" type="button">
+			×			</button>
+</div>
+</div>
+<div aria-modal="false" class="pum pum-overlay pum-theme-413 pum-theme-default-theme popmake-overlay click_open" data-popmake='{"id":611,"slug":"login-popup","theme_id":413,"cookies":[],"triggers":[{"type":"click_open","settings":{"extra_selectors":"","cookie_name":null}}],"mobile_disabled":null,"tablet_disabled":null,"meta":{"display":{"responsive_min_width":false,"responsive_max_width":false,"stackable":false,"overlay_disabled":false,"scrollable_content":false,"disable_reposition":false,"size":false,"responsive_min_width_unit":false,"responsive_max_width_unit":false,"custom_width":false,"custom_width_unit":false,"custom_height":false,"custom_height_unit":false,"custom_height_auto":false,"location":false,"position_from_trigger":false,"position_top":false,"position_left":false,"position_bottom":false,"position_right":false,"position_fixed":false,"animation_type":false,"animation_speed":false,"animation_origin":false,"overlay_zindex":false,"zindex":false},"close":{"text":false,"button_delay":false,"overlay_click":false,"esc_press":false,"f4_press":false},"click_open":[]}}' id="pum-611" role="dialog">
+<div class="pum-container popmake theme-413 pum-responsive pum-responsive-medium responsive size-medium" id="popmake-611">
+<div class="pum-content popmake-content" tabindex="0">
+<p>[theme-my-login show_reg_link=”0″]</p>
+</div>
+<button aria-label="Close" class="pum-close popmake-close" type="button">
+			×			</button>
+</div>
+</div>
+<div aria-labelledby="pum_popup_title_419" aria-modal="false" class="pum pum-overlay pum-theme-413 pum-theme-default-theme popmake-overlay click_open" data-popmake='{"id":419,"slug":"register-popup","theme_id":413,"cookies":[],"triggers":[{"type":"click_open","settings":{"extra_selectors":"","cookie_name":null}}],"mobile_disabled":null,"tablet_disabled":null,"meta":{"display":{"responsive_min_width":false,"responsive_max_width":false,"stackable":false,"overlay_disabled":false,"scrollable_content":false,"disable_reposition":false,"size":false,"responsive_min_width_unit":false,"responsive_max_width_unit":false,"custom_width":false,"custom_width_unit":false,"custom_height":false,"custom_height_unit":false,"custom_height_auto":false,"location":false,"position_from_trigger":false,"position_top":false,"position_left":false,"position_bottom":false,"position_right":false,"position_fixed":false,"animation_type":false,"animation_speed":false,"animation_origin":false,"overlay_zindex":false,"zindex":false},"close":{"text":false,"button_delay":false,"overlay_click":false,"esc_press":false,"f4_press":false},"click_open":[]}}' id="pum-419" role="dialog">
+<div class="pum-container popmake theme-413 pum-responsive pum-responsive-medium responsive size-medium" id="popmake-419">
+<div class="pum-title popmake-title" id="pum_popup_title_419">
+				Register for your FREE Student Account			</div>
+<div class="pum-content popmake-content" tabindex="0">
+<p>[theme-my-login  default_action=”register” show_title=”false”]</p>
+</div>
+<button aria-label="Close" class="pum-close popmake-close" type="button">
+			×			</button>
+</div>
+</div>
+<div class="learndash-wrapper learndash-wrapper-login-modal ld-modal-closed">
+<div class="ld-modal ld-login-modal ld-can-register">
+<span class="ld-modal-closer ld-icon ld-icon-delete"></span>
+<div class="ld-login-modal-login">
+<div class="ld-login-modal-wrapper">
+<div class="ld-modal-heading">
+				Login			</div>
+<div class="ld-login-modal-form">
+<form action="//prepnuggets.com/wp-login.php" id="loginform" method="post" name="loginform"><input id="learndash-login-form" name="learndash-login-form" type="hidden" value="a6b19ca40e"/><p class="login-username">
+<label for="user_login">Username or Email Address</label>
+<input autocomplete="username" class="input" id="user_login" name="log" size="20" type="text" value=""/>
+</p><p class="login-password">
+<label for="user_pass">Password</label>
+<input autocomplete="current-password" class="input" id="user_pass" name="pwd" size="20" spellcheck="false" type="password" value=""/>
+</p><p class="login-remember"><label><input id="rememberme" name="rememberme" type="checkbox" value="forever"/> Remember Me</label></p><p class="login-submit">
+<input class="button button-primary" id="wp-submit" name="wp-submit" type="submit" value="Log In"/>
+<input name="redirect_to" type="hidden" value="/cfa-level-1-study-notes/derivatives-study-notes/pricing-and-valuation-of-interest-rates-and-other-swaps/"/>
+</p></form> <a class="ld-forgot-password-link" href="https://prepnuggets.com/wp-login.php?action=lostpassword&amp;redirect_to=https%3A%2F%2Fprepnuggets.com%2Fcfa-level-1-study-notes%2Fderivatives-study-notes%2Fpricing-and-valuation-of-interest-rates-and-other-swaps%2F%3Fld-resetpw%3Dtrue%23login">Lost Your Password?</a>
+<div class="ld-login-modal-branding">
+<img alt="" src="../../wp-content/uploads/2017/03/PrepNuggets-Logo-200.png"/><img alt="" src="../../wp-content/uploads/2017/03/PrepNuggets-Logo-200.png"/>
+</div>
+</div> <!--/.ld-login-modal-form-->
+</div> <!--/.ld-login-modal-wrapper-->
+</div> <!--/.ld-login-modal-login-->
+<div class="ld-login-modal-register">
+<div class="ld-login-modal-wrapper">
+<div class="ld-content">
+<div class="ld-modal-heading">
+						Register					</div>
+<div class="ld-modal-text">Don't have an account? Register one!</div>
+<a class="ld-button ld-button-reverse" href="https://prepnuggets.com/register/">Register an Account</a>
+</div> <!--/.ld-content-->
+</div> <!--/.ld-login-modal-wrapper-->
+</div> <!--/.ld-login-modal-register-->
+</div> <!--/.ld-modal-->
+</div><script id="cs-js-extra">
+var csJsData = {"linkSelector":"#x-root a[href*=\"#\"]","bp":{"base":4,"ranges":[0,480,767,979,1200],"count":4}};
+//# sourceURL=cs-js-extra
+</script>
+<script id="cs-js" src="../../wp-content/themes/pro/cornerstone/assets/js/site/cs-classic.7.4.20.js"></script>
+<script data-minify="1" id="pn-aichat-katex-js" src="../../wp-content/cache/min/1/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script data-minify="1" id="pn-aichat-katex-auto-render-js" src="../../wp-content/cache/min/1/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script data-minify="1" id="pn-aichat-marked-js" src="../../wp-content/cache/min/1/npm/marked@12.0.2/marked.min.js"></script>
+<script data-minify="1" id="pn-aichat-dompurify-js" src="../../wp-content/cache/min/1/npm/dompurify@3.0.9/dist/purify.min.js"></script>
+<script id="pn-aichat-js-js-extra">
+var pnAiChat = {"restUrl":"https://prepnuggets.com/wp-json/pn-aichat/v1/message","restStreamUrl":"https://prepnuggets.com/wp-json/pn-aichat/v1/message_stream","nonceUrl":"https://prepnuggets.com/wp-json/pn-aichat/v1/nonce","titleUrl":"https://prepnuggets.com/wp-json/pn-aichat/v1/title"};
+//# sourceURL=pn-aichat-js-js-extra
+</script>
+<script data-minify="1" id="pn-aichat-js-js" src="../../wp-content/cache/min/1/wp-content/plugins/prepnuggets-ai-chatbot/assets/chatbot.js"></script>
+<script id="x-site-js-extra">
+var xJsData = {"scrollTop":"0.8","icons":{"down":"\u003Ci class='x-framework-icon x-icon-angle-double-down' data-x-icon-s='&#xf103;' aria-hidden=true\u003E\u003C/i\u003E","subindicator":"\u003Ci class=\"x-icon x-framework-icon x-icon-angle-double-down\" aria-hidden=\"true\" data-x-icon-s=\"&#xf103;\"\u003E\u003C/i\u003E","previous":"\u003Ci class='x-framework-icon x-icon-previous' data-x-icon-s='&#xf053;' aria-hidden=true\u003E\u003C/i\u003E","next":"\u003Ci class='x-framework-icon x-icon-next' data-x-icon-s='&#xf054;' aria-hidden=true\u003E\u003C/i\u003E","star":"\u003Ci class='x-framework-icon x-icon-star' data-x-icon-s='&#xf005;' aria-hidden=true\u003E\u003C/i\u003E"}};
+//# sourceURL=x-site-js-extra
+</script>
+<script id="x-site-js" src="../../wp-content/themes/pro/framework/dist/js/site/x.js"></script>
+<script async="" data-wp-strategy="async" fetchpriority="low" id="comment-reply-js" src="../../wp-includes/js/comment-reply.min.js"></script>
+<script id="learndash-front-js-extra">
+var ldVars = {"postID":"20846","videoReqMsg":"You must watch the video before accessing this content","ajaxurl":"https://prepnuggets.com/wp-admin/admin-ajax.php"};
+var ldVars = {"postID":"20846","videoReqMsg":"You must watch the video before accessing this content","ajaxurl":"https://prepnuggets.com/wp-admin/admin-ajax.php"};
+var ldVars = {"postID":"20846","videoReqMsg":"You must watch the video before accessing this content","ajaxurl":"https://prepnuggets.com/wp-admin/admin-ajax.php"};
+//# sourceURL=learndash-front-js-extra
+</script>
+<script data-minify="1" id="learndash-front-js" src="../../wp-content/cache/min/1/wp-content/plugins/sfwd-lms/themes/ld30/assets/js/learndash.js"></script>
+<script id="jquery-ui-core-js" src="../../wp-includes/js/jquery/ui/core.min.js"></script>
+<script id="popup-maker-site-js-extra">
+var pum_vars = {"version":"1.23.0","pm_dir_url":"https://prepnuggets.com/wp-content/plugins/popup-maker/","ajaxurl":"https://prepnuggets.com/wp-admin/admin-ajax.php","restapi":"https://prepnuggets.com/wp-json/pum/v1","rest_nonce":null,"default_theme":"413","debug_mode":"","disable_tracking":"","disable_url_params":"","home_url":"/","message_position":"top","core_sub_forms_enabled":"1","popups":[],"cookie_domain":"","paramNames":{"popup_id":"pid","cta":"cta","notrack":"notrack"},"analytics_enabled":"1","analytics_route":"analytics","analytics_api":"https://prepnuggets.com/wp-json/pum/v1"};
+var pum_sub_vars = {"ajaxurl":"https://prepnuggets.com/wp-admin/admin-ajax.php","message_position":"top"};
+var pum_popups = {"pum-16124":{"triggers":[{"type":"click_open","settings":{"extra_selectors":".study-sequence"}}],"cookies":[],"disable_on_mobile":false,"disable_on_tablet":false,"atc_promotion":null,"explain":null,"type_section":null,"theme_id":"414","size":"normal","responsive_min_width":"0%","responsive_max_width":"100%","custom_width":"640px","custom_height_auto":false,"custom_height":"380px","scrollable_content":false,"animation_type":"fade","animation_speed":"350","animation_origin":"center top","open_sound":"none","custom_sound":"","location":"center top","position_top":"100","position_bottom":"0","position_left":"0","position_right":"0","position_from_trigger":false,"position_fixed":false,"overlay_disabled":false,"stackable":false,"disable_reposition":false,"zindex":"1999999999","close_button_delay":"0","fi_promotion":null,"close_on_form_submission":false,"close_on_form_submission_delay":"0","close_on_overlay_click":true,"close_on_esc_press":false,"close_on_f4_press":false,"disable_form_reopen":false,"disable_accessibility":false,"theme_slug":"lightbox","id":16124,"slug":"study-sequence"},"pum-10462":{"triggers":[],"cookies":[],"disable_on_mobile":false,"disable_on_tablet":false,"atc_promotion":null,"explain":null,"type_section":null,"theme_id":413,"size":"medium","responsive_min_width":"0%","responsive_max_width":"100%","custom_width":"640px","custom_height_auto":false,"custom_height":"380px","scrollable_content":false,"animation_type":"fade","animation_speed":350,"animation_origin":"center top","open_sound":"none","custom_sound":"","location":"center top","position_top":100,"position_bottom":0,"position_left":0,"position_right":0,"position_from_trigger":false,"position_fixed":false,"overlay_disabled":false,"stackable":false,"disable_reposition":false,"zindex":1999999999,"close_button_delay":0,"fi_promotion":null,"close_on_form_submission":false,"close_on_form_submission_delay":0,"close_on_overlay_click":false,"close_on_esc_press":false,"close_on_f4_press":false,"disable_form_reopen":false,"disable_accessibility":false,"theme_slug":"default-theme","id":10462,"slug":"refund-fee"},"pum-10246":{"triggers":[],"cookies":[],"disable_on_mobile":false,"disable_on_tablet":false,"atc_promotion":null,"explain":null,"type_section":null,"theme_id":413,"size":"medium","responsive_min_width":"0%","responsive_max_width":"100%","custom_width":"640px","custom_height_auto":false,"custom_height":"380px","scrollable_content":false,"animation_type":"fade","animation_speed":350,"animation_origin":"center top","open_sound":"none","custom_sound":"","location":"center top","position_top":100,"position_bottom":0,"position_left":0,"position_right":0,"position_from_trigger":false,"position_fixed":false,"overlay_disabled":false,"stackable":false,"disable_reposition":false,"zindex":1999999999,"close_button_delay":0,"fi_promotion":null,"close_on_form_submission":false,"close_on_form_submission_delay":0,"close_on_overlay_click":false,"close_on_esc_press":false,"close_on_f4_press":false,"disable_form_reopen":false,"disable_accessibility":false,"theme_slug":"default-theme","id":10246,"slug":"udemy-student-upgrade-offer"},"pum-6922":{"triggers":[],"cookies":[],"disable_on_mobile":false,"disable_on_tablet":false,"atc_promotion":null,"explain":null,"type_section":null,"theme_id":413,"size":"medium","responsive_min_width":"0%","responsive_max_width":"100%","custom_width":"640px","custom_height_auto":false,"custom_height":"380px","scrollable_content":false,"animation_type":"fade","animation_speed":350,"animation_origin":"center top","open_sound":"none","custom_sound":"","location":"center top","position_top":100,"position_bottom":0,"position_left":0,"position_right":0,"position_from_trigger":false,"position_fixed":false,"overlay_disabled":false,"stackable":false,"disable_reposition":false,"zindex":1999999999,"close_button_delay":0,"fi_promotion":null,"close_on_form_submission":false,"close_on_form_submission_delay":0,"close_on_overlay_click":false,"close_on_esc_press":false,"close_on_f4_press":false,"disable_form_reopen":false,"disable_accessibility":false,"theme_slug":"default-theme","id":6922,"slug":"glossary-promo"},"pum-4915":{"triggers":[{"type":"click_open","settings":{"extra_selectors":".trailer"}}],"cookies":[],"disable_on_mobile":false,"disable_on_tablet":false,"atc_promotion":null,"explain":null,"type_section":null,"theme_id":"414","size":"normal","responsive_min_width":"0%","responsive_max_width":"100%","custom_width":"640px","custom_height_auto":false,"custom_height":"380px","scrollable_content":false,"animation_type":"fade","animation_speed":"350","animation_origin":"center top","open_sound":"none","custom_sound":"","location":"center top","position_top":"100","position_bottom":"0","position_left":"0","position_right":"0","position_from_trigger":false,"position_fixed":false,"overlay_disabled":false,"stackable":false,"disable_reposition":false,"zindex":"1999999999","close_button_delay":"0","fi_promotion":null,"close_on_form_submission":false,"close_on_form_submission_delay":"0","close_on_overlay_click":true,"close_on_esc_press":false,"close_on_f4_press":false,"disable_form_reopen":false,"disable_accessibility":false,"theme_slug":"lightbox","id":4915,"slug":"watch-trailer"},"pum-1375":{"triggers":[],"cookies":[],"disable_on_mobile":false,"disable_on_tablet":false,"atc_promotion":null,"explain":null,"type_section":null,"theme_id":413,"size":"medium","responsive_min_width":"0%","responsive_max_width":"100%","custom_width":"640px","custom_height_auto":false,"custom_height":"380px","scrollable_content":false,"animation_type":"fade","animation_speed":350,"animation_origin":"center top","open_sound":"none","custom_sound":"","location":"center top","position_top":100,"position_bottom":0,"position_left":0,"position_right":0,"position_from_trigger":false,"position_fixed":false,"overlay_disabled":false,"stackable":false,"disable_reposition":false,"zindex":1999999999,"close_button_delay":0,"fi_promotion":null,"close_on_form_submission":false,"close_on_form_submission_delay":0,"close_on_overlay_click":false,"close_on_esc_press":false,"close_on_f4_press":false,"disable_form_reopen":false,"disable_accessibility":false,"theme_slug":"default-theme","id":1375,"slug":"udemy-best-seller"},"pum-631":{"triggers":[],"cookies":[],"disable_on_mobile":false,"disable_on_tablet":false,"atc_promotion":null,"explain":null,"type_section":null,"theme_id":413,"size":"medium","responsive_min_width":"0%","responsive_max_width":"100%","custom_width":"640px","custom_height_auto":false,"custom_height":"380px","scrollable_content":false,"animation_type":"fade","animation_speed":350,"animation_origin":"center top","open_sound":"none","custom_sound":"","location":"center top","position_top":100,"position_bottom":0,"position_left":0,"position_right":0,"position_from_trigger":false,"position_fixed":false,"overlay_disabled":false,"stackable":false,"disable_reposition":false,"zindex":1999999999,"close_button_delay":0,"fi_promotion":null,"close_on_form_submission":false,"close_on_form_submission_delay":0,"close_on_overlay_click":false,"close_on_esc_press":false,"close_on_f4_press":false,"disable_form_reopen":false,"disable_accessibility":false,"theme_slug":"default-theme","id":631,"slug":"founder-message"},"pum-611":{"triggers":[],"cookies":[],"disable_on_mobile":false,"disable_on_tablet":false,"atc_promotion":null,"explain":null,"type_section":null,"theme_id":413,"size":"medium","responsive_min_width":"0%","responsive_max_width":"100%","custom_width":"640px","custom_height_auto":false,"custom_height":"380px","scrollable_content":false,"animation_type":"fade","animation_speed":350,"animation_origin":"center top","open_sound":"none","custom_sound":"","location":"center top","position_top":100,"position_bottom":0,"position_left":0,"position_right":0,"position_from_trigger":false,"position_fixed":false,"overlay_disabled":false,"stackable":false,"disable_reposition":false,"zindex":1999999999,"close_button_delay":0,"fi_promotion":null,"close_on_form_submission":false,"close_on_form_submission_delay":0,"close_on_overlay_click":false,"close_on_esc_press":false,"close_on_f4_press":false,"disable_form_reopen":false,"disable_accessibility":false,"theme_slug":"default-theme","id":611,"slug":"login-popup"},"pum-419":{"triggers":[],"cookies":[],"disable_on_mobile":false,"disable_on_tablet":false,"atc_promotion":null,"explain":null,"type_section":null,"theme_id":413,"size":"medium","responsive_min_width":"0%","responsive_max_width":"100%","custom_width":"640px","custom_height_auto":false,"custom_height":"380px","scrollable_content":false,"animation_type":"fade","animation_speed":350,"animation_origin":"center top","open_sound":"none","custom_sound":"","location":"center top","position_top":100,"position_bottom":0,"position_left":0,"position_right":0,"position_from_trigger":false,"position_fixed":false,"overlay_disabled":false,"stackable":false,"disable_reposition":false,"zindex":1999999999,"close_button_delay":0,"fi_promotion":null,"close_on_form_submission":false,"close_on_form_submission_delay":0,"close_on_overlay_click":false,"close_on_esc_press":false,"close_on_f4_press":false,"disable_form_reopen":false,"disable_accessibility":false,"theme_slug":"default-theme","id":419,"slug":"register-popup"}};
+//# sourceURL=popup-maker-site-js-extra
+</script>
+<script data-minify="1" id="popup-maker-site-js" src="../../wp-content/cache/min/1/wp-content/plugins/popup-maker/dist/assets/site.js"></script>
+<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script async="" data-no-minify="1" src="../../wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script>
+</body>
+</html>
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me - Debug: cached@1785603330 -->
