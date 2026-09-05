@@ -20,7 +20,7 @@ import urllib.request
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
-SITE = REPO / "study_notes_site"
+SITE = REPO / "cfa_l1_offline_notes_site_2026"
 BUILD = REPO / "tools" / ".build"
 
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36"

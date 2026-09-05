@@ -22,8 +22,8 @@ import re
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
-SITE = REPO / "study_notes_site"
-OUT_FILE = REPO / "full_site_single_file.html"
+SITE = REPO / "cfa_l1_offline_notes_site_2026"
+OUT_FILE = REPO / "cfa_l1_offline_notes_all_in_one_2026.html"
 
 CHUNK_BYTES = 4_000_000
 

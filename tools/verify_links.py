@@ -19,7 +19,7 @@ import urllib.parse
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
-SITE = REPO / "study_notes_site"
+SITE = REPO / "cfa_l1_offline_notes_site_2026"
 
 URL_ATTR_RE = re.compile(r'\b(href|src|srcset|poster)\s*=\s*"([^"]*)"')
 TAG_OPEN_RE = re.compile(r"<[a-zA-Z][a-zA-Z0-9-]*\b[^>]*>")

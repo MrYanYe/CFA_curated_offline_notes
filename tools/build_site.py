@@ -2,7 +2,7 @@
 """
 Build the cleaned, reorganized offline CFA study-notes site.
 
-Source (untouched):  offline_prepnuggets/            (raw mirror, 309MB)
+Source (untouched):  prepnuggets_raw_mirror/            (raw mirror, 309MB)
 Output:              study_notes_site/               (usable offline site)
 
 Per page, in order:
@@ -26,8 +26,8 @@ import urllib.parse
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
-MIRROR = REPO / "offline_prepnuggets"
-SITE = REPO / "study_notes_site"
+MIRROR = REPO / "prepnuggets_raw_mirror"
+SITE = REPO / "cfa_l1_offline_notes_site_2026"
 BUILD = REPO / "tools" / ".build"
 
 LOCAL_HOSTS = ("prepnuggets.com", "cdn.jsdelivr.net", "fonts.googleapis.com", "fonts.gstatic.com")
@@ -488,7 +488,9 @@ def main():
             except (OSError, UnicodeError):
                 continue
             new = text
-            for old, safe in name_pairs:
+            # longest prefixes first: pages reference whole nested names, a
+            # short parent pair must not splinter a long child pair's match
+            for old, safe in sorted(name_pairs, key=lambda pr: -len(pr[0])):
                 new = new.replace(old, safe)
             if new != text:
                 f.write_text(new, encoding="utf-8")

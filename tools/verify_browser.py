@@ -16,7 +16,7 @@ from pathlib import Path
 from playwright.sync_api import sync_playwright
 
 REPO = Path(__file__).resolve().parent.parent
-SITE = REPO / "study_notes_site"
+SITE = REPO / "cfa_l1_offline_notes_site_2026"
 OUT = REPO / "tools" / ".build" / "shots"
 OUT.mkdir(parents=True, exist_ok=True)
 
