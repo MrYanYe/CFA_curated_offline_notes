@@ -1,19 +1,37 @@
 # CFA Level 1 Study Notes — PrepNuggets 离线站点（2026 版）
 
-本项目把 **prepnuggets.com** 的 **CFA Level 1 学习笔记站**（`/cfa-level-1-study-notes/` 栏目，305 个页面、
-3776 张图）完整克隆到本地，并加工成**可离线浏览的成品**：双击即用、零网络请求、跨设备可用。
-2026 年年份标识：资料版本为 2026 考纲内容（原站当前版本）。
+本项目把 **https://prepnuggets.com/cfa-level-1-study-notes/** 的 **CFA Level 1 学习笔记站**（`/cfa-level-1-study-notes/` 栏目，
+含全部主题文章页与 3776 张图）完整克隆到本地，并加工成**可离线浏览的成品**：双击即用、零网络请求、跨设备可用。
+2026 年年份标识：资料版本为 2026 考纲内容（原站当前版本，已与 2026-09-05 在线快照核对）。
 
 ---
 
-## 一、 秒上手（3 种用法）
+## 〇、 本项目的两种形态（先读这里）
+
+离线网页**有两种形态**，内容完全一致、样式一致，区别在于"装载体"：
+
+| | 形态①：**多文件夹网站版** | 形态②：**单文件版** |
+|---|---|---|
+| 是什么 | 一个文件夹，内含 `index.html` + 各栏目子目录 + 资源目录（图片/字体/CSS），即整个"静态网站" | 一个 `.html` 文件，网站全部内容（页面正文+图片）都内嵌在里面 |
+| 入口 | 打开 `cfa_l1_offline_notes_site_2026/index.html` | 打开 `cfa_l1_offline_notes_all_in_one_2026.html` |
+| 体积 | 309 MB（1 个文件夹） | 94.8 MB（1 个文件） |
+| 页面间跳转 | 真实文件跳转（新页面新 URL） | hash 路由（同页切换，地址栏出现 `#/栏目/文章/`） |
+| 首次加载 | ~0.1–1 秒 | ~1.2 秒 |
+| 切页速度 | < 0.2 秒 | ~1–1.5 秒 |
+| 推荐场景 | **日常阅读主力**：电脑、平板、手机浏览器均可 | **单文件走天下**：微信/网盘传一次就能全站带走 |
+
+**选择建议**：手机/平板/电脑常规学习直接用**形态①**（跟原站体验一致）；只有需要"只拷一个文件"（如跨设备秒传、备份到网盘、贴到某些只能传文件的应用里）时才用**形态②**。
+
+---
+
+## 一、 秒上手
 
 | 场景 | 操作 |
 |---|---|
 | **电脑** | 双击 `cfa_l1_offline_notes_site_2026/index.html`（Chrome / Edge / Safari） |
 | **安卓手机 / 平板** | 整个 `cfa_l1_offline_notes_site_2026/` 文件夹拷进设备 → 用 Chrome 打开其 `index.html` |
 | **iPhone / iPad** | 拷进「文件」App → Safari 打开 `index.html`（可「分享 → 添加到主屏幕」全屏阅读） |
-| **只想拷 1 个文件** | `cfa_l1_offline_notes_all_in_one_2026.html`（94.8 MB，全站合一，点击站内链接即切换页面） |
+| **只用单文件** | 打开/分享 `cfa_l1_offline_notes_all_in_one_2026.html`（全站合一，点击站内链接即切换页面） |
 
 上手实测：桌面与手机视口首屏 **0.1–1.2 秒**，图片 100% 加载，0 控制台错误。
 
@@ -101,13 +119,23 @@ cfa_l1_offline_notes/                        ← 项目根（本仓库）
 
 ## 五、 来源与克隆方法
 
-产物全部来自 `prepnuggets_raw_mirror/` 这一份 **2019-2025 年间累积的站点快照**（原站点镜像工具
-逐页抓取 `https://prepnuggets.com/cfa-level-1-study-notes/` 及所引用资源生成）。镜像本身保留了
-WordPress 站点形态：`wp-content/`（主题/插件/上传图）、`wp-includes/`、`wp-json/`（REST API 快照）、
-外加 `cdn.jsdelivr.net`（KaTeX）、`fonts.googleapis.com` / `fonts.gstatic.com`（Google 字体）三个跨域资源树。
+所有产物来自 `prepnuggets_raw_mirror/`——**2026-08-02 对原站的全量抓取快照**（镜像工具逐页抓取
+`https://prepnuggets.com/cfa-level-1-study-notes/` 及所引用资源）。镜像保留了 WordPress 站点形态：
+`wp-content/`（主题/插件/上传图）、`wp-includes/`、`wp-json/`（REST API 快照），外加
+`cdn.jsdelivr.net`（KaTeX）、`fonts.googleapis.com` / `fonts.gstatic.com`（Google 字体）三个跨域资源树。
+镜像里 `uploads/2017…2024` 等年份目录只是原站图片上传时的年份，**不是抓取年份**。
 
-本仓库不含镜像器本身（抓取已一次性完成）；默认无需重抓。仅当 `verify_links.py` 提示资源缺失时，
-用 `fetch_missing.py` 按需从原站补抓（本工程实际补抓 6 个字体 + 8 处图片引用改写，未大量重爬）。
+**与在线站点的一致性（2026-09-05 核对）**：通过原站公开 REST API 拉取全站 427 个页面的清单与
+"最后修改时间"，结论是 CFA 笔记站各页面自 2026-02-20 以来**零内容修改**；与 2026-08-02 快照相比，
+线上只新增了 1 个页面（2027 CFA Level I Updates）。已调用 `tools/fetch_new_pages.py` 增量补齐：
+82 个原镜像漏抓的深层知识点页 + 新增页 → 重新构建后即为与在线完全一致的 2026 版内容。
+
+后续若需要刷新（原站更新后），同样执行：
+
+```bash
+python tools/fetch_new_pages.py     # 对照 REST 清单重抓新增/变化页面
+python tools/build_site.py          # 重新构建（见第六节）
+```
 
 ```mermaid
 flowchart LR

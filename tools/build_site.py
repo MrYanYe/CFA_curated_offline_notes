@@ -293,6 +293,12 @@ def expand_lazyload(html: str) -> str:
         return outer + noscript_tag
 
     html = twin_re.sub(twin_sub, html)
+
+    # every image now carries a real local src in its live <img>; the
+    # <noscript> <img> twins are pure duplicates and browsers with scripting
+    # disabled (a common mobile-webview / reader / data-saver mode) render
+    # BOTH copies -> delete noscript blocks that only hold <img> twins
+    html = re.sub(r"<noscript>\s*(?:<img\b[^>]*/?>\s*)+</noscript>", "", html, flags=re.I | re.S)
     return html
     # same placeholder cleanup on <source srcset>
     html = re.sub(r"<source\b[^>]*>",
@@ -443,16 +449,18 @@ def main():
     # content pages: lift cfa-level-1-study-notes/* up to the site root
     notes_src = MIRROR / "prepnuggets.com" / "cfa-level-1-study-notes"
     pages = [p for p in notes_src.rglob("*.html")]
-    qm_src = MIRROR / "prepnuggets.com" / "quantitative-methods" / "index.html"
-    if qm_src.exists():
-        pages.append(qm_src)
+    TOP_LEVEL_PAGES = ("quantitative-methods", "2027-cfa-level-i-updates")
+    for extra in TOP_LEVEL_PAGES:
+        src = MIRROR / "prepnuggets.com" / extra / "index.html"
+        if src.exists():
+            pages.append(src)
     log(f"content pages to clean: {len(pages)}")
 
     for src_page in pages:
         parts = src_page.relative_to(MIRROR / "prepnuggets.com").parts
-        if parts[0] == "quantitative-methods":
-            new_page = SITE / "quantitative-methods" / "index.html"
-            base_url = "https://prepnuggets.com/quantitative-methods/"
+        if parts[0] in TOP_LEVEL_PAGES:
+            new_page = SITE / parts[0] / "index.html"
+            base_url = f"https://prepnuggets.com/{parts[0]}/"
         else:
             rel = src_page.relative_to(notes_src)
             parent = rel.parent
