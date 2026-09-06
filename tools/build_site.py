@@ -329,8 +329,10 @@ def rewrite_inline_style_urls(html: str, abs_page_dir: Path, renames: dict, repo
 
 
 def clean_page(html: str, base_url: str, abs_page_dir: Path, renames: dict, report: dict) -> str:
-    html = strip_noncache_networks(html)
+    # video embeds FIRST: strip below would delete remote iframes wholesale,
+    # leaving a blank hole where the viewer should sit
     html = replace_video_iframes(html)
+    html = strip_noncache_networks(html)
     html = expand_lazyload(html)
     html = rewrite_attr_urls(html, base_url, abs_page_dir, renames, report)
     html = rewrite_inline_style_urls(html, abs_page_dir, renames, report)

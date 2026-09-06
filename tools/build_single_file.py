@@ -275,9 +275,18 @@ def main():
             continue
         slug = page_slug(p.relative_to(SITE).as_posix())
         article = rewrite_body_refs(article, p.parent, href_targets, registry)
+        # keep the page's own Notes Navigation sidebar alongside the article:
+        # the single-file shell is the homepage, which has no such sidebar
+        from bs4 import BeautifulSoup  # noqa: PLC0415
+        soup = BeautifulSoup(html, "html.parser")
+        sb_div = soup.find(class_="x-sidebar")  # aside or div
+        sb = "".join(map(str, sb_div.contents)) if sb_div else ""
+        if sb:
+            sb = rewrite_body_refs(sb, p.parent, href_targets, registry)
         item_json = json.dumps({"s": slug,
                                 "t": title_m.group(1).strip() if title_m else slug,
-                                "h": article}, ensure_ascii=True)
+                                "h": article,
+                                "n": sb}, ensure_ascii=True)
         # JSON strings must never contain a literal </script> (it would close
         # the wrapping <script> tag and break parsing)
         if "</script" in item_json or "<script" in item_json:
@@ -326,7 +335,7 @@ def main():
     var arr = window["__PN_CHUNK_" + i];
     if (!arr) { continue; }
     for (var j = 0; j < arr.length; j++) {
-      if (arr[j].s != null && !(arr[j].s in PAGES)) { PAGES[arr[j].s] = { t: arr[j].t, h: arr[j].h }; }
+      if (arr[j].s != null && !(arr[j].s in PAGES)) { PAGES[arr[j].s] = { t: arr[j].t, h: arr[j].h, n: arr[j].n || '' }; }
     }
     window["__PN_CHUNK_" + i] = null;
   }
@@ -352,8 +361,22 @@ def main():
       }
     }
   }
+  var INIT = { article: null, title: document.title };
+  function captureInit() {
+    var art = document.querySelector('article[id^="post-"]');
+    if (art) { INIT.article = art.outerHTML; }
+  }
   function render(slug) {
-    if (!slug) { window.scrollTo(0, 0); return; }
+    if (!slug) {
+      // back to the static homepage: restore its original chrome + content
+      var cur = document.querySelector('article[id^="post-"]');
+      if (cur && INIT.article) { cur.outerHTML = INIT.article; }
+      document.title = INIT.title;
+      restoreSidebar('');
+      applyImages(document);
+      window.scrollTo(0, 0);
+      return;
+    }
     var page = PAGES[slug];
     if (!page) { return; }
     var art = document.querySelector('article[id^="post-"]');
@@ -361,6 +384,7 @@ def main():
     art.outerHTML = '<article id="post-' + slug.replace(/[^A-Za-z0-9_-]/g, "")
                     + '" class="pn-single-file-page">' + page.h + '</article>';
     if (page.t) { document.title = page.t; }
+    restoreSidebar(page.n || '');
     var fresh = document.querySelector('article[id^="post-"]');
     if (fresh) {
       applyImages(fresh);
@@ -371,6 +395,27 @@ def main():
     }
     window.scrollTo(0, 0);
   }
+  function restoreSidebar(navHtml) {
+    var host = document.getElementById('pn-sidebar');
+    if (!host) { return; }
+    host.innerHTML = navHtml;
+  }
+  function placeSidebar() {
+    var host = document.getElementById('pn-sidebar');
+    if (!host) {
+      host = document.createElement('div');
+      host.id = 'pn-sidebar';
+      host.className = 'x-sidebar right';
+      host.style.cssText = 'float:right;width:300px;margin:0 0 1em 1.5em;max-width:100%;';
+    }
+    if (!host.parentNode) {
+      var art = document.querySelector('article[id^="post-"]');
+      if (art && art.parentNode) { art.parentNode.insertBefore(host, art); }
+      else { document.body.appendChild(host); }
+    }
+  }
+  placeSidebar();
+  captureInit();
   applyImages(document);
   function fromHash() {
     var h = location.hash.replace(/^#\\/?/, "");
