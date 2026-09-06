@@ -190,6 +190,8 @@ def main():
         page = SITE / rel
         html = page.read_text(encoding="utf-8", errors="ignore")
         page_dir = page.parent
+        # attribute URLs live in markup only - never inside script/style text
+        html = re.sub(r"<(script|style)[^>]*>.*?</>", "", html, flags=re.S | re.I)
 
         # 2. remote tags (RSS/alternate metadata links may stay online-only)
         for m in re.finditer(r"<(script|link|iframe)\b[^>]*>", html):
