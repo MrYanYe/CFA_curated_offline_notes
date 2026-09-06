@@ -208,6 +208,14 @@ def extract_article(html: str):
     return m.group(1) if m else None
 
 
+VIDEO_PLAYER_JS = ("(function(){document.addEventListener('click',function(e){"
+                    "var t=e.target.closest?e.target.closest('.pn-video-player'):null;"
+                    "if(!t||t.dataset.loaded)return;t.dataset.loaded='1';"
+                    "t.innerHTML='<iframe src=\"'+encodeURI(t.dataset.src)+'\" width=\"100%\" height=\"100%\" "
+                    "frameborder=\"0\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" "
+                    "allowfullscreen style=\"position:absolute;inset:0;\"></iframe>';});})();")
+
+
 def main():
     out_file = OUT_COMPRESSED if COMPRESS_MODE else OUT_FILE
     skip_roots = ("wp-content", "wp-includes", "wp-json",
@@ -230,6 +238,7 @@ def main():
     head_m = re.search(r"<head>(.*?)</head>", homepage, re.S | re.I)
     head_inner = head_m.group(1) if head_m else ""
     bundle_css, bundle_js = [], []
+    bundle_js.insert(0, VIDEO_PLAYER_JS)
 
     for m in re.finditer(r"<(link|script|style)\b([^>]*)>", head_inner, re.S):
         kind, attrs = m.group(1), m.group(2)
@@ -265,6 +274,7 @@ def main():
 
     # ---- articles & shell: refs rewritten; images deduped via a registry ----
     registry = {}
+    page_styles = {}
     chunks, current_chunk, current_bytes = [], [], 0
     for p in sorted(content_pages, key=lambda x: x.relative_to(SITE).as_posix()):
         html = p.read_text(encoding="utf-8", errors="ignore")
@@ -283,6 +293,16 @@ def main():
         sb = "".join(map(str, sb_div.contents)) if sb_div else ""
         if sb:
             sb = rewrite_body_refs(sb, p.parent, href_targets, registry)
+        # collect this page's inline <style> blocks (customizer CSS drives
+        # e.g. the Notes Navigation current-item highlight) - the homepage
+        # shell alone does not carry them
+        for st_m in re.finditer(r"<style[^>]*>(.*?)</style>", html, re.S):
+            inner = st_m.group(1).strip()
+            if inner and len(inner) > 80:
+                key = abs(hash(inner))
+                if key not in page_styles:
+                    page_styles[key] = rewrite_css(inner, SITE)
+
         item_json = json.dumps({"s": slug,
                                 "t": title_m.group(1).strip() if title_m else slug,
                                 "h": article,

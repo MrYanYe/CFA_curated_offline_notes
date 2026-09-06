@@ -2039,7 +2039,7 @@ only screen and (min-resolution: 192dpi) {
 
 
 <figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
-<div class="x-resp-embed x-is-video x-is-youtube"><div class="pn-video-offline" style="width:100%;max-width:966px;aspect-ratio:966/543;margin:1em auto;background:#e9ecf1;border:1px solid #d5dae2;border-radius:8px;display:flex;align-items:center;justify-content:center;padding:12px;box-sizing:border-box;"><p style="text-align:center;color:#5a6472;margin:0;">🎛 <b>CFA® Level I Ethics - Mosaic Theory</b><br><span style="font-size:.85em;color:#8a93a2;">Video (offline)</span></p></div></div>
+<div class="x-resp-embed x-is-video x-is-youtube"><div class="pn-video-player" data-src="https://www.youtube.com/embed/iFvNei3AokE?feature=oembed" style="width:100%;max-width:966px;aspect-ratio:966/543;margin:1em auto;background:#000;border-radius:8px;position:relative;cursor:pointer;display:flex;align-items:center;justify-content:center;box-sizing:border-box;"><span style="width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.9);display:flex;align-items:center;justify-content:center;font-size:26px;color:#000;box-shadow:0 2px 8px rgba(0,0,0,.4);">&#9654;</span><span style="position:absolute;bottom:8px;right:12px;color:#fff;opacity:.75;font-size:12px;">Video - click to play (online)</span></div></div>
 </div></figure>
 
 
@@ -2282,7 +2282,7 @@ PrepNuggets LLP is a Singapore-registered partnership (UEN: T22LL1122G)<br>
 				
 		
 				<div class="pum-content popmake-content" tabindex="0">
-			<div class="x-resp-embed x-is-video x-is-vimeo"><div class="pn-video-offline" style="width:100%;max-width:966px;aspect-ratio:966/543;margin:1em auto;background:#e9ecf1;border:1px solid #d5dae2;border-radius:8px;display:flex;align-items:center;justify-content:center;padding:12px;box-sizing:border-box;"><p style="text-align:center;color:#5a6472;margin:0;">🎛 <b>CFA L1 Intro Video</b><br><span style="font-size:.85em;color:#8a93a2;">Video (offline)</span></p></div></div>
+			<div class="x-resp-embed x-is-video x-is-vimeo"><div class="pn-video-player" data-src="https://player.vimeo.com/video/424536610?h=72aa1d6252&dnt=1&app_id=122963" style="width:100%;max-width:966px;aspect-ratio:966/543;margin:1em auto;background:#000;border-radius:8px;position:relative;cursor:pointer;display:flex;align-items:center;justify-content:center;box-sizing:border-box;"><span style="width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.9);display:flex;align-items:center;justify-content:center;font-size:26px;color:#000;box-shadow:0 2px 8px rgba(0,0,0,.4);">&#9654;</span><span style="position:absolute;bottom:8px;right:12px;color:#fff;opacity:.75;font-size:12px;">Video - click to play (online)</span></div></div>
 		</div>
 
 				
@@ -2383,7 +2383,7 @@ PrepNuggets LLP is a Singapore-registered partnership (UEN: T22LL1122G)<br>
 				
 		
 				<div class="pum-content popmake-content" tabindex="0">
-			<div class="x-resp-embed x-is-video x-is-vimeo"><div class="pn-video-offline" style="width:100%;max-width:966px;aspect-ratio:966/543;margin:1em auto;background:#e9ecf1;border:1px solid #d5dae2;border-radius:8px;display:flex;align-items:center;justify-content:center;padding:12px;box-sizing:border-box;"><p style="text-align:center;color:#5a6472;margin:0;">🎛 <b>PrepNuggets CFA Prep</b><br><span style="font-size:.85em;color:#8a93a2;">Video (offline)</span></p></div></div>
+			<div class="x-resp-embed x-is-video x-is-vimeo"><div class="pn-video-player" data-src="https://player.vimeo.com/video/424534534?h=f97818d825&dnt=1&app_id=122963" style="width:100%;max-width:966px;aspect-ratio:966/543;margin:1em auto;background:#000;border-radius:8px;position:relative;cursor:pointer;display:flex;align-items:center;justify-content:center;box-sizing:border-box;"><span style="width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.9);display:flex;align-items:center;justify-content:center;font-size:26px;color:#000;box-shadow:0 2px 8px rgba(0,0,0,.4);">&#9654;</span><span style="position:absolute;bottom:8px;right:12px;color:#fff;opacity:.75;font-size:12px;">Video - click to play (online)</span></div></div>
 		</div>
 
 				
@@ -2605,6 +2605,7 @@ if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
 images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
 if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async src="../../../wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script>
 </script>
+<script>(function(){document.addEventListener('click',function(e){var t=e.target.closest?e.target.closest('.pn-video-player'):null;if(!t||t.dataset.loaded)return;t.dataset.loaded='1';t.innerHTML='<iframe src="'+encodeURI(t.dataset.src)+'" width="100%" height="100%" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen style="position:absolute;inset:0;"></iframe>';});})();</script>
 </body>
 </html>
 <!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me - Debug: cached@1788614972 -->

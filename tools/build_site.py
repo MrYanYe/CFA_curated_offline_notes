@@ -205,6 +205,11 @@ def strip_noncache_networks(html: str) -> str:
 
 
 def replace_video_iframes(html: str) -> str:
+    """Swap video embeds for lazy player frames (click to play, needs network).
+
+    The live player chrome (dark box with a play button) is kept; the real
+    iframe is created on click only, so offline browsing never hangs.
+    """
     iframe_re = re.compile(
         r"<iframe\b([^>]*?)>.*?</iframe>|<iframe\b([^>]*?)/?>",
         re.S | re.I)
@@ -218,23 +223,35 @@ def replace_video_iframes(html: str) -> str:
     def sub(m):
         attrs = m.group(1) or m.group(2) or ""
         if not has_remote_video(attrs):
-            # keep iframe as-is; src rewriting happens in the attr pass
             return m.group(0)
         src = re.search(r'src="([^"]*)"', attrs, flags=re.I)
-        title_attr = re.search(r'title="([^"]*)"', attrs, flags=re.I)
         width = re.search(r'width="(\d+)"', attrs, flags=re.I)
         height = re.search(r'height="(\d+)"', attrs, flags=re.I)
         w = width.group(1) if width else "560"
         h = height.group(1) if height else "315"
-        title = (title_attr.group(1) if title_attr else "Video").replace("&", "&amp;").replace("<", "&lt;")
+        embed_src = src.group(1).replace("&amp;", "&") if src else ""
         return (
-            f'<div class="pn-video-offline" style="width:100%;max-width:{w}px;aspect-ratio:{w}/{h};'
-            f'margin:1em auto;background:#e9ecf1;border:1px solid #d5dae2;border-radius:8px;'
-            f'display:flex;align-items:center;justify-content:center;padding:12px;box-sizing:border-box;">'
-            f'<p style="text-align:center;color:#5a6472;margin:0;">\U0001F39B <b>{title}</b><br>'
-            f'<span style="font-size:.85em;color:#8a93a2;">Video (offline)</span></p></div>')
+            f'<div class="pn-video-player" data-src="{embed_src}" '
+            f'style="width:100%;max-width:{w}px;aspect-ratio:{w}/{h};margin:1em auto;'
+            f'background:#000;border-radius:8px;position:relative;cursor:pointer;'
+            f'display:flex;align-items:center;justify-content:center;box-sizing:border-box;">'
+            f'<span style="width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.9);'
+            f'display:flex;align-items:center;justify-content:center;font-size:26px;color:#000;'
+            f'box-shadow:0 2px 8px rgba(0,0,0,.4);">&#9654;</span>'
+            f'<span style="position:absolute;bottom:8px;right:12px;color:#fff;opacity:.75;'
+            f'font-size:12px;">Video - click to play (online)</span></div>')
 
     return iframe_re.sub(sub, html)
+
+
+def video_player_script() -> str:
+    """One small script: on click, mount the real iframe into .pn-video-player."""
+    return ("<script>(function(){document.addEventListener('click',function(e){"
+            "var t=e.target.closest?e.target.closest('.pn-video-player'):null;"
+            "if(!t||t.dataset.loaded)return;t.dataset.loaded='1';"
+            "t.innerHTML='<iframe src=\"'+encodeURI(t.dataset.src)+'\" width=\"100%\" height=\"100%\" "
+            "frameborder=\"0\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" "
+            "allowfullscreen style=\"position:absolute;inset:0;\"></iframe>';});})();</script>")
 
 
 def sanitize_srcset(value: str) -> str:
@@ -339,6 +356,10 @@ def clean_page(html: str, base_url: str, abs_page_dir: Path, renames: dict, repo
     # @import of live google-fonts css endpoints -> already mirrored locally
     html = re.sub(r"@import\s+(?:url\()?['\"]?(?:https?:)?//fonts\.googleapis\.com/[^\"')]*['\"]?\)?\s*;",
                   "", html, flags=re.I | re.S)
+    # lazy-video player bootstrap (click -> iframe) once per page
+    marker = "</body>"
+    player = video_player_script() + "\n" + marker
+    html = html.replace(marker, player) if marker in html else html + video_player_script()
     return html
 
 
