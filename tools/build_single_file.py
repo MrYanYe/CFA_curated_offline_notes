@@ -211,7 +211,8 @@ def extract_article(html: str):
 VIDEO_PLAYER_JS = ("(function(){document.addEventListener('click',function(e){"
                     "var t=e.target.closest?e.target.closest('.pn-video-player'):null;"
                     "if(!t||t.dataset.loaded)return;t.dataset.loaded='1';"
-                    "t.innerHTML='<iframe src=\"'+encodeURI(t.dataset.src)+'\" width=\"100%\" height=\"100%\" "
+                    "var s=(t.dataset.src||'').replace('www.youtube.com/','www.youtube-nocookie.com/');"
+                    "t.innerHTML='<iframe src=\"'+encodeURI(s)+'\" width=\"100%\" height=\"100%\" "
                     "frameborder=\"0\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" "
                     "allowfullscreen style=\"position:absolute;inset:0;\"></iframe>';});})();")
 

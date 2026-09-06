@@ -230,6 +230,18 @@ def replace_video_iframes(html: str) -> str:
         w = width.group(1) if width else "560"
         h = height.group(1) if height else "315"
         embed_src = src.group(1).replace("&amp;", "&") if src else ""
+        # youtube-nocookie: the official privacy-enhanced embed host - avoids
+        # "Error 153 / Video player configuration error" on cookie-restricted
+        # or file:// origins that youtube.com/embed triggers
+        embed_src = embed_src.replace("www.youtube.com/", "www.youtube-nocookie.com/")
+        open_url = ""
+        m_vid = re.search(r"(?:embed/|watch\?v=)([A-Za-z0-9_-]{6,20})", embed_src)
+        if m_vid:
+            open_url = f'https://www.youtube.com/watch?v={m_vid.group(1)}'
+        open_anchor = (
+            f'<a href="{open_url}" target="_blank" rel="noopener" '
+            f'style="position:absolute;bottom:8px;left:12px;color:#fff;opacity:.75;'
+            f'font-size:12px;text-decoration:underline;">Open on YouTube</a>' if open_url else "")
         return (
             f'<div class="pn-video-player" data-src="{embed_src}" '
             f'style="width:100%;max-width:{w}px;aspect-ratio:{w}/{h};margin:1em auto;'
@@ -239,7 +251,8 @@ def replace_video_iframes(html: str) -> str:
             f'display:flex;align-items:center;justify-content:center;font-size:26px;color:#000;'
             f'box-shadow:0 2px 8px rgba(0,0,0,.4);">&#9654;</span>'
             f'<span style="position:absolute;bottom:8px;right:12px;color:#fff;opacity:.75;'
-            f'font-size:12px;">Video - click to play (online)</span></div>')
+            f'font-size:12px;">Video - click to play (online)</span>'
+            f'{open_anchor}</div>')
 
     return iframe_re.sub(sub, html)
 
