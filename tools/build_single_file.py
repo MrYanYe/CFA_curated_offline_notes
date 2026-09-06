@@ -15,29 +15,56 @@ Lossless: original image bytes are embedded untouched (user's choice).
 """
 
 import base64
+import io
 import json
 import mimetypes
 import os
 import re
+import sys
 from pathlib import Path
+
+from PIL import Image
 
 REPO = Path(__file__).resolve().parent.parent
 SITE = REPO / "cfa_l1_offline_notes_site_2026"
 OUT_FILE = REPO / "cfa_l1_offline_notes_all_in_one_2026.html"
+OUT_COMPRESSED = REPO / "cfa_l1_offline_notes_all_in_one_2026_compressed.html"
 
 CHUNK_BYTES = 4_000_000
 
+COMPRESS_MODE = "--compress" in sys.argv  # module-level: b64() is used widely
+
+COMPRESS_THRESHOLD = 120_000  # bytes; smaller images stay untouched
+COMPRESS_QUALITY = 78  # visually lossless for diagrams; original kept too
 
 FONT_MIMES = {"woff2": "font/woff2", "woff": "font/woff", "ttf": "font/ttf",
               "otf": "font/otf", "eot": "application/vnd.ms-fontobject"}
 IMAGE_MIMES = {"svg": "image/svg+xml", "webp": "image/webp"}
 
 
-def b64(path: Path):
+def b64(path: Path, compress: bool = False):
     ext = path.suffix.lower().lstrip(".")
     mime = FONT_MIMES.get(ext) or IMAGE_MIMES.get(ext) \
         or mimetypes.guess_type(path.name)[0] or "application/octet-stream"
-    return f"data:{mime};base64," + base64.b64encode(path.read_bytes()).decode("ascii")
+    data = path.read_bytes()
+    if compress and ext in ("png", "jpg", "jpeg", "gif", "webp") and len(data) > COMPRESS_THRESHOLD:
+        try:
+            img = Image.open(io.BytesIO(data))
+            if not (ext == "gif" and getattr(img, "is_animated", False)):
+                img = img.convert("RGBA" if img.mode in ("P", "RGBA", "LA") else "RGB")
+                if img.mode == "RGBA":
+                    flat = Image.new("RGB", img.size, (255, 255, 255))
+                    flat.paste(img, mask=img.getchannel("A"))
+                    img = flat
+                out = io.BytesIO()
+                img.save(out, "JPEG", quality=COMPRESS_QUALITY)
+                candidate = out.getvalue()
+                if len(candidate) < len(data):
+                    data = candidate
+                    mime = "image/jpeg"
+        except Exception:  # noqa: BLE001 - keep original on any failure
+            pass
+    return f"data:{mime};base64," + base64.b64encode(data).decode("ascii")
 
 
 def resolve_site_file(rel_url: str, base_dir: Path):
@@ -74,7 +101,7 @@ def rewrite_css(css_text: str, css_path: Path) -> str:
             w2 = f.with_suffix(".woff2")
             if w2.is_file():
                 f = w2
-        return f"url({b64(f)})"
+        return f"url({b64(f, COMPRESS_MODE)})"
 
     css_text = re.sub(r"@import\s+(?:url\()?\s*[\"']?(?:https?:)?//fonts\.googleapis\.com/[^\"')]*?[\"']?\s*\)?\s*;",
                       "", css_text, flags=re.I | re.S)
@@ -155,7 +182,7 @@ def rewrite_body_refs(html: str, base_dir: Path, pages: set, registry: dict) -> 
                     return am.group(0)
                 if kind == "page":
                     return f'{name}="{f}"'
-                return f'{name}="{b64(f)}"'
+                return f'{name}="{b64(f, COMPRESS_MODE)}"'
             if name == "srcset":
                 entries = []
                 for chunk in value.split(","):
@@ -165,7 +192,7 @@ def rewrite_body_refs(html: str, base_dir: Path, pages: set, registry: dict) -> 
                     u, rest = chunk.split(" ", 1) if " " in chunk else (chunk, "")
                     kind, f = resolve(u)
                     if kind == "file":
-                        entries.append(f"{b64(f)} {rest}".rstrip())
+                        entries.append(f"{b64(f, COMPRESS_MODE)} {rest}".rstrip())
                     elif kind in (None, "external"):
                         entries.append(f"{u} {rest}".rstrip())
                 return f'srcset="{", ".join(entries)}"' if entries else ""
@@ -182,6 +209,7 @@ def extract_article(html: str):
 
 
 def main():
+    out_file = OUT_COMPRESSED if COMPRESS_MODE else OUT_FILE
     skip_roots = ("wp-content", "wp-includes", "wp-json",
                   "cdn.jsdelivr.net", "fonts.googleapis.com", "fonts.gstatic.com")
     content_pages = []
@@ -270,7 +298,7 @@ def main():
     # serialize the image registry as {"key":"data uri", ...} pairs, chunked
     img_chunks, cur, cur_n = [], [], 0
     for k in registry:
-        pair = f"{json.dumps(k)}:{json.dumps(b64(SITE / k))}"
+        pair = f"{json.dumps(k)}:{json.dumps(b64(SITE / k, COMPRESS_MODE))}"
         if cur_n + len(pair) > CHUNK_BYTES and cur:
             img_chunks.append(cur)
             cur, cur_n = [], 0
@@ -371,9 +399,9 @@ def main():
         router_js,
         "\n</body></html>\n",
     ]
-    with open(OUT_FILE, "w", encoding="utf-8", newline="\n") as f:
+    with open(out_file, "w", encoding="utf-8", newline="\n") as f:
         f.write("\n".join(parts))
-    print(f"done: {OUT_FILE.name} = {os.path.getsize(OUT_FILE) / 1e6:.1f} MB, "
+    print(f"done: {out_file.name} = {os.path.getsize(out_file) / 1e6:.1f} MB, "
           f"pages={len(content_pages)}, chunks={len(chunks)}, "
           f"css_bundle={len(css_bundle) / 1e6:.1f} MB, js_files={len(bundle_js)}")
 

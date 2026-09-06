@@ -505,6 +505,10 @@ def main():
                 n += 1
         log(f"percent-name ref rewrite applied to {n} files")
 
+    # every image renders ONCE (live-origin behavior): drop second instances
+    from dedupe_image_duplicates import dedupe_tree  # noqa: PLC0415
+    log(f"duplicate images removed on {dedupe_tree()} pages")
+
     # deterministic fallback: for missing image derivatives point references at
     # the largest same-prefix variant already on disk (zero network needed)
     from fetch_missing import rewrite_refs_to_existing  # noqa: PLC0415
