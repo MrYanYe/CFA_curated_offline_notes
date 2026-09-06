@@ -191,7 +191,7 @@ def main():
         html = page.read_text(encoding="utf-8", errors="ignore")
         page_dir = page.parent
         # attribute URLs live in markup only - never inside script/style text
-        html = re.sub(r"<(script|style)[^>]*>.*?</>", "", html, flags=re.S | re.I)
+        html = re.sub(r"<(script|style)\b[^>]*>.*?</\1>", "", html, flags=re.S | re.I)
 
         # 2. remote tags (RSS/alternate metadata links may stay online-only)
         for m in re.finditer(r"<(script|link|iframe)\b[^>]*>", html):
@@ -243,7 +243,7 @@ def main():
                     if h not in ("prepnuggets.com", "www.googletagmanager.com",
                                  "secure.gravatar.com", "www.facebook.com",
                                  "ws.sharethis.com", "fd.cleantalk.org",
-                                 "www.youtube.com", "player.vimeo.com", "youtu.be",
+                                 "www.youtube.com", "www.youtube-nocookie.com", "player.vimeo.com", "youtu.be",
                                  "fonts.gstatic.com", "fonts.googleapis.com",
                                  "cdn.jsdelivr.net"):
                         problems.append(f"{rel}: unexpected external https {url[:80]}")
