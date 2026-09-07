@@ -51,6 +51,56 @@ PATH_RENAMES = {
     "/quantitative-methods-study-notes/": "/quant-methods/",
 }
 
+# Deeper segments also get compressed (user request 2026-09-08: every nested
+# folder level counts). Rule: <=2 words stay intact (short names keep their
+# full identity); longer ones keep first word + last semantic word, e.g.
+# 'external-influences-on-industry-growth-profitability-and-risk' ->
+# 'external-risk'. Collisions: every old segment in a conflicting group stays
+# unchanged rather than gaining ambiguous/sequence names. Top-level segments
+# are excluded: PATH_RENAMES (user-approved short names) owns that layer.
+SEG_STOPWORDS = {"a", "an", "the", "of", "in", "and", "for", "to", "on", "or",
+                 "with", "as", "at", "from", "by", "into", "over", "under",
+                 "between", "through", "across", "its", "their", "this", "that"}
+
+
+def compact_seg(seg: str) -> str:
+    words = [w for w in seg.split("-") if w]
+    if len(words) <= 2:
+        return seg
+    tail = words[-1]
+    if tail in SEG_STOPWORDS or len(tail) <= 2:
+        tail = words[-2]
+    return words[0] + "-" + tail
+
+
+def compute_seg_renames(notes_root: Path) -> dict:
+    """{old_segment -> new_segment} over every deeper content-page segment."""
+    segs = set()
+    for p in notes_root.rglob("index.html"):
+        parts = p.relative_to(notes_root).parts
+        for part in parts[1:]:          # parts[0] belongs to PATH_RENAMES
+            if part.endswith(".html"):
+                continue
+            segs.add(part)
+    owner, groups = {}, {}
+    for seg in sorted(segs, key=len):
+        new = compact_seg(seg)
+        if new == seg:
+            continue
+        buckets = groups.setdefault(new, [])
+        buckets.append(seg)
+    out = {}
+    for new, olds in groups.items():
+        if len(olds) == 1:
+            out[olds[0]] = new
+        else:
+            for seg in olds:            # ambiguous: keep every old name intact
+                out[seg] = seg
+    return out
+
+
+SEG_RENAMES = compute_seg_renames(MIRROR / "prepnuggets.com" / "cfa-level-1-study-notes")
+
 LOCAL_HOSTS = ("prepnuggets.com", "cdn.jsdelivr.net", "fonts.googleapis.com", "fonts.gstatic.com")
 
 ATTR_URL_RE = re.compile(r'([a-zA-Z][a-zA-Z0-9-]*)\s*=\s*"([^"]*)"')
@@ -89,7 +139,7 @@ def local_url_candidates(full: str):
 
 
 def apply_path_renames(rel: str) -> str:
-    """Apply PATH_RENAMES to a site-relative path ('a/b/c' or '/a/b/c').
+    """Apply PATH_RENAMES (topic layer) + SEG_RENAMES (every deeper segment).
 
     Never assume the caller's leading slash: new_path keeps the URL's '/'
     while page-placement parents do not (that asymmetry silently matched
@@ -101,9 +151,11 @@ def apply_path_renames(rel: str) -> str:
     for old_prefix, new_prefix in PATH_RENAMES.items():
         old = old_prefix.lstrip("/")
         if bare == old.rstrip("/") or bare.startswith(old):
-            out = new_prefix.lstrip("/") + bare[len(old):]
-            return "/" + out if lead else out
-    return rel
+            bare = new_prefix.lstrip("/") + bare[len(old):]
+            break
+    parts = [SEG_RENAMES.get(p, p) for p in bare.split("/") if p]
+    out = "/".join(parts)
+    return "/" + out if lead else out
 
 
 def map_url_to_local(full: str, rename_css: dict):

@@ -55,8 +55,8 @@
 | `quant-methods/` | Quantitative Methods |
 | `quantitative-methods/` | 原站"量化方法"另一栏目页 |
 
-每个栏目下按知识点分子目录（如 `economics-study-notes/understanding-business-cycles/`），层级与原站
-`https://prepnuggets.com/cfa-level-1-study-notes/...` 完全一致。
+每个栏目下按知识点分子目录（如 `economics/understanding-cycles/`），层级与原站
+`https://prepnuggets.com/cfa-level-1-study-notes/...` 结构一致（目录名已压缩，完整映射见上方对照表 + [docs/slug_rename_map.md](docs/slug_rename_map.md)）。
 
 **范围边界**：学习笔记正文/图表全部离线可用；公式（KaTeX）、图标字体（Font Awesome）、Google 字体均已本地化。
 依赖原站服务器的功能（站内搜索、评论、会员登录、视频播放）离线不可用——视频嵌入处显示静态占位框
@@ -120,6 +120,7 @@ cfa_l1_notes/                        ← 项目根（本仓库）
 |---|---|---|
 | `<栏目>-study-notes/`（11 个） | `economics/`、`fsa/`、`quant-methods/` 等 | 仅栏目层去掉 `-study-notes` 后缀；`quant-methods` 是为避让原有 `quantitative-methods/` 目录；文章级 slug 目录一律不动 |
 | `wp-content/uploads/` | `wp-content/up/` | 纯资源链压缩（与原文 URL 无对照价值）；镜内部保持 `uploads/` 原样 |
+| 深层子目录段（第三轮：递归层全压） | 首词-尾词（如 `external-influences-on-industry-growth-profitability-and-risk` → `external-risk`） | 规则：词数 ≤2 保留原名；≥3 词取首词+末语义词；压缩结果冲突的组全部保持原名；完整对照表见 [docs/slug_rename_map.md](docs/slug_rename_map.md)（286 段） |
 
 旧名对应的旧脚本（`fix_links.py`、`mirror_site.py`、`mirror_prepnuggets.py`）已被 `tools/` 新管线取代并删除
 （git 历史中仍可查）。
