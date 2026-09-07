@@ -34,8 +34,8 @@ CHUNK_BYTES = 4_000_000
 
 COMPRESS_MODE = "--compress" in sys.argv  # module-level: b64() is used widely
 
-COMPRESS_THRESHOLD = 120_000  # bytes; smaller images stay untouched
-COMPRESS_QUALITY = 78  # visually lossless for diagrams; original kept too
+COMPRESS_THRESHOLD = 100_000  # bytes; smaller images stay untouched
+COMPRESS_QUALITY = 70  # visually lossless for diagrams; original kept too
 
 FONT_MIMES = {"woff2": "font/woff2", "woff": "font/woff", "ttf": "font/ttf",
               "otf": "font/otf", "eot": "application/vnd.ms-fontobject"}
@@ -106,6 +106,15 @@ def rewrite_css(css_text: str, css_path: Path) -> str:
     css_text = re.sub(r"@import\s+(?:url\()?\s*[\"']?(?:https?:)?//fonts\.googleapis\.com/[^\"')]*?[\"']?\s*\)?\s*;",
                       "", css_text, flags=re.I | re.S)
     return re.sub(r"url\(\s*(['\"]?)([^'\"\\)]*)\1\s*\)", url_sub, css_text, flags=re.I)
+
+
+
+def minify_css(css_text: str) -> str:
+    """Whitespace/comment minify - safe for data-URI css (keeps url(...) intact)."""
+    css_text = re.sub(r"/\*.*?\*/", "", css_text, flags=re.S)
+    css_text = re.sub(r"\s+", " ", css_text)
+    css_text = re.sub(r"\s*([{};:,>])\s*", r"\1", css_text)
+    return css_text.strip()
 
 
 def page_slug(site_rel: str) -> str:
@@ -297,17 +306,25 @@ def main():
         # collect this page's inline <style> blocks (customizer CSS drives
         # e.g. the Notes Navigation current-item highlight) - the homepage
         # shell alone does not carry them
-        for st_m in re.finditer(r"<style[^>]*>(.*?)</style>", html, re.S):
+        for st_m in re.finditer(r"<style\b[^>]*>(.*?)</style>", html, re.S):
             inner = st_m.group(1).strip()
             if inner and len(inner) > 80:
                 key = abs(hash(inner))
                 if key not in page_styles:
-                    page_styles[key] = rewrite_css(inner, SITE)
+                    page_styles[key] = minify_css(rewrite_css(inner, SITE))
 
+        # the page's main-container class list drives the column rules
+        # (.x-main.full = 100% width, .x-main.left = 80% + sidebar column) -
+        # the homepage shell alone would stretch article banners full-width
+        main_classes = ""
+        m_div = soup.find(class_="x-main")
+        if m_div:
+            main_classes = " ".join(m_div.get("class") or [])
         item_json = json.dumps({"s": slug,
                                 "t": title_m.group(1).strip() if title_m else slug,
                                 "h": article,
-                                "n": sb}, ensure_ascii=True)
+                                "n": sb,
+                                "m": main_classes}, ensure_ascii=True)
         # JSON strings must never contain a literal </script> (it would close
         # the wrapping <script> tag and break parsing)
         if "</script" in item_json or "<script" in item_json:
@@ -337,7 +354,15 @@ def main():
     if cur:
         img_chunks.append(cur)
 
-    css_bundle = "\n".join(bundle_css)
+    css_bundle = "\n".join(bundle_css + list(page_styles.values()))
+    FIX_CSS = (
+        "/* pn-fix: featured thumb hugs the banner image */"
+        ".pn-single-file-page .entry-featured .entry-thumb { position: relative !important; "
+        "height: 0 !important; padding-top: 31.2%; background: #000; }"
+        ".pn-single-file-page .entry-featured .entry-thumb img { position: absolute !important; "
+        "top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; "
+        "max-width: none !important; margin: 0 !important; display: block !important; }")
+    css_bundle += "\n" + FIX_CSS
 
     data_scripts = "\n".join(
         f'<script>window.__PN_CHUNK_{i} = [{",".join(chunk)}];</script>'
@@ -356,7 +381,7 @@ def main():
     var arr = window["__PN_CHUNK_" + i];
     if (!arr) { continue; }
     for (var j = 0; j < arr.length; j++) {
-      if (arr[j].s != null && !(arr[j].s in PAGES)) { PAGES[arr[j].s] = { t: arr[j].t, h: arr[j].h, n: arr[j].n || '' }; }
+      if (arr[j].s != null && !(arr[j].s in PAGES)) { PAGES[arr[j].s] = { t: arr[j].t, h: arr[j].h, n: arr[j].n || '', m: arr[j].m || '' }; }
     }
     window["__PN_CHUNK_" + i] = null;
   }
@@ -382,7 +407,9 @@ def main():
       }
     }
   }
-  var INIT = { article: null, title: document.title };
+  var INIT = { article: null, title: document.title, mainClass: '' };
+  var MAIN = document.querySelector('.x-main');
+  if (MAIN) { INIT.mainClass = MAIN.className; }
   function captureInit() {
     var art = document.querySelector('article[id^="post-"]');
     if (art) { INIT.article = art.outerHTML; }
@@ -392,6 +419,7 @@ def main():
       // back to the static homepage: restore its original chrome + content
       var cur = document.querySelector('article[id^="post-"]');
       if (cur && INIT.article) { cur.outerHTML = INIT.article; }
+      if (MAIN && INIT.mainClass) { MAIN.className = INIT.mainClass; }
       document.title = INIT.title;
       restoreSidebar('');
       applyImages(document);
@@ -404,6 +432,7 @@ def main():
     if (!art) { return; }
     art.outerHTML = '<article id="post-' + slug.replace(/[^A-Za-z0-9_-]/g, "")
                     + '" class="pn-single-file-page">' + page.h + '</article>';
+    if (page.m && MAIN) { MAIN.className = page.m; }
     if (page.t) { document.title = page.t; }
     restoreSidebar(page.n || '');
     var fresh = document.querySelector('article[id^="post-"]');
@@ -454,14 +483,14 @@ def main():
         '<meta name="viewport" content="width=device-width, initial-scale=1.0"/>',
         "<title>%s</title>" % hp_title,
         # one <style> per original file: a parse error inside one file cannot
-        # swallow the rules of the files that follow it
-        *[f"<style>{c}</style>" for c in bundle_css],
+        # swallow the rules of the files that follow it; per-page inline styles
+        # (customizer CSS) and the featured-thumb fix ride along
+        *[f"<style>{c}</style>" for c in bundle_css + list(page_styles.values()) + [FIX_CSS]],
         # one <script> per original file, placed in <head> (their original
         # position): body inline scripts rely on jQuery being defined first
         *[f"<script>{j}</script>" for j in bundle_js],
         "</head>\n<body" + body_attrs + ">\n",
         shell_body,
-        '<div id="pn-build-stamp" '
         'style="position:fixed;bottom:4px;left:8px;z-index:9999;font-size:11px;color:#888;'
         'background:rgba(255,255,255,.85);padding:2px 8px;border-radius:4px;'
         'box-shadow:0 1px 2px rgba(0,0,0,.15);">CFA offline build v2026-09-07</div>',
