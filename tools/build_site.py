@@ -2,7 +2,7 @@
 """
 Build the cleaned, reorganized offline CFA study-notes site.
 
-Source (untouched):  prepnuggets_raw_mirror/            (raw mirror, 309MB)
+Source (untouched):  raw_mirror/            (raw mirror, 309MB)
 Output:              study_notes_site/               (usable offline site)
 
 Per page, in order:
@@ -26,8 +26,8 @@ import urllib.parse
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
-MIRROR = REPO / "prepnuggets_raw_mirror"
-SITE = REPO / "cfa_l1_offline_notes_site_2026"
+MIRROR = REPO / "raw_mirror"
+SITE = REPO / "site_2026"
 BUILD = REPO / "tools" / ".build"
 
 LOCAL_HOSTS = ("prepnuggets.com", "cdn.jsdelivr.net", "fonts.googleapis.com", "fonts.gstatic.com")
@@ -230,18 +230,23 @@ def replace_video_iframes(html: str) -> str:
         w = width.group(1) if width else "560"
         h = height.group(1) if height else "315"
         embed_src = src.group(1).replace("&amp;", "&") if src else ""
-        # youtube-nocookie: the official privacy-enhanced embed host - avoids
-        # "Error 153 / Video player configuration error" on cookie-restricted
-        # or file:// origins that youtube.com/embed triggers
+        # youtube-nocookie: the official privacy-enhanced embed host (works from
+        # http(s) pages, the only context where YouTube serves embeds)
         embed_src = embed_src.replace("www.youtube.com/", "www.youtube-nocookie.com/")
-        open_url = ""
+        open_url, open_label = "", ""
         m_vid = re.search(r"(?:embed/|watch\?v=)([A-Za-z0-9_-]{6,20})", embed_src)
         if m_vid:
             open_url = f'https://www.youtube.com/watch?v={m_vid.group(1)}'
+            open_label = "Open on YouTube"
+        else:
+            m_vin = re.search(r"(?:player\.)?vimeo\.com/video/(\d+)", embed_src)
+            if m_vin:
+                open_url = f"https://vimeo.com/{m_vin.group(1)}"
+                open_label = "Open on Vimeo"
         open_anchor = (
             f'<a href="{open_url}" target="_blank" rel="noopener" '
             f'style="position:absolute;bottom:8px;left:12px;color:#fff;opacity:.75;'
-            f'font-size:12px;text-decoration:underline;">Open on YouTube</a>' if open_url else "")
+            f'font-size:12px;text-decoration:underline;">{open_label}</a>' if open_url else "")
         return (
             f'<div class="pn-video-player" data-src="{embed_src}" '
             f'style="width:100%;max-width:{w}px;aspect-ratio:{w}/{h};margin:1em auto;'
@@ -258,13 +263,27 @@ def replace_video_iframes(html: str) -> str:
 
 
 def video_player_script() -> str:
-    """One small script: on click, mount the real iframe into .pn-video-player."""
+    """On click: inline-embed over http(s); over file:// open the watch page.
+
+    YouTube refuses all /embed/ requests made without a Referer (Error 153,
+    "Video player configuration error") - that is every file:// page, there is
+    no way to send a referrer from a file:// document. Watch pages play fine
+    with no referrer, so file:// clicks go straight to them; http(s) pages
+    (localhost preview, self-hosted) keep the inline player.
+    """
     return ("<script>(function(){document.addEventListener('click',function(e){"
             "var t=e.target.closest?e.target.closest('.pn-video-player'):null;"
             "if(!t||t.dataset.loaded)return;t.dataset.loaded='1';"
-            "t.innerHTML='<iframe src=\"'+encodeURI(t.dataset.src)+'\" width=\"100%\" height=\"100%\" "
+            "var src=t.dataset.src||'',m,watch='';"
+            "if((m=src.match(/(?:youtube(?:-nocookie)?\\.com\\/embed\\/|youtu\\.be\\/|youtube\\.com\\/watch\\?v=)([A-Za-z0-9_-]+)/)))watch='https://www.youtube.com/watch?v='+m[1];"
+            "else if((m=src.match(/(?:player\\.)?vimeo\\.com\\/video\\/(\\d+)/)))watch='https://vimeo.com/'+m[1];"
+            "if(location.protocol==='file:'){if(watch)window.open(watch,'_blank');return;}"
+            "t.innerHTML='<iframe src=\"'+encodeURI(src)+'\" width=\"100%\" height=\"100%\" "
             "frameborder=\"0\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" "
-            "allowfullscreen style=\"position:absolute;inset:0;\"></iframe>';});})();</script>")
+            "allowfullscreen style=\"position:absolute;inset:0;\"></iframe>'"
+            "+(watch?'<a href=\"'+watch+'\" target=\"_blank\" rel=\"noopener\" "
+            "style=\"position:absolute;bottom:8px;left:12px;color:#fff;opacity:.8;"
+            "font-size:12px;text-decoration:underline;z-index:5;\">Open</a>':'');});})();</script>")
 
 
 def sanitize_srcset(value: str) -> str:

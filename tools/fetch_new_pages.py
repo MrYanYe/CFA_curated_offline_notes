@@ -5,7 +5,7 @@ the raw mirror, plus every asset those pages reference.
 
 Discovers missing pages via the public WP REST API (per-page modified times
 make it easy to confirm freshness), downloads each missing page and its
-referenced local assets into prepnuggets_raw_mirror/, then the normal
+referenced local assets into raw_mirror/, then the normal
 build_site.py pipeline picks them up automatically.
 
 Usage:  python tools/fetch_new_pages.py
@@ -20,8 +20,8 @@ from pathlib import Path
 from scrapling.fetchers import Fetcher
 
 REPO = Path(__file__).resolve().parent.parent
-MIRROR = REPO / "prepnuggets_raw_mirror"
-SITE = REPO / "cfa_l1_offline_notes_site_2026"
+MIRROR = REPO / "raw_mirror"
+SITE = REPO / "site_2026"
 BUILD = REPO / "tools" / ".build"
 
 CROSS_DOMAINS = ("cdn.jsdelivr.net", "fonts.googleapis.com", "fonts.gstatic.com")

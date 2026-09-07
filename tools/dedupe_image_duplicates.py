@@ -15,7 +15,7 @@ import re
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
-SITE = REPO / "cfa_l1_offline_notes_site_2026"
+SITE = REPO / "site_2026"
 
 IMG_RE = re.compile(r"<img\b[^>]*>", re.S | re.I)
 SRC_RE = re.compile(r'(?i)\bsrc="([^"]*)"')

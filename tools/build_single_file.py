@@ -26,9 +26,9 @@ from pathlib import Path
 from PIL import Image
 
 REPO = Path(__file__).resolve().parent.parent
-SITE = REPO / "cfa_l1_offline_notes_site_2026"
-OUT_FILE = REPO / "cfa_l1_offline_notes_all_in_one_2026.html"
-OUT_COMPRESSED = REPO / "cfa_l1_offline_notes_all_in_one_2026_compressed.html"
+SITE = REPO / "site_2026"
+OUT_FILE = REPO / "notes_all_in_one_2026.html"
+OUT_COMPRESSED = REPO / "notes_all_in_one_2026_compressed.html"
 
 CHUNK_BYTES = 4_000_000
 
@@ -217,13 +217,22 @@ def extract_article(html: str):
     return m.group(1) if m else None
 
 
+# On click: inline-embed over http(s); over file:// open the watch page.
+# YouTube refuses /embed/ without a Referer (Error 153) - every file:// page -
+# while watch pages play fine with no referrer; see build_site.py notes.
 VIDEO_PLAYER_JS = ("(function(){document.addEventListener('click',function(e){"
-                    "var t=e.target.closest?e.target.closest('.pn-video-player'):null;"
-                    "if(!t||t.dataset.loaded)return;t.dataset.loaded='1';"
-                    "var s=(t.dataset.src||'').replace('www.youtube.com/','www.youtube-nocookie.com/');"
-                    "t.innerHTML='<iframe src=\"'+encodeURI(s)+'\" width=\"100%\" height=\"100%\" "
-                    "frameborder=\"0\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" "
-                    "allowfullscreen style=\"position:absolute;inset:0;\"></iframe>';});})();")
+                   "var t=e.target.closest?e.target.closest('.pn-video-player'):null;"
+                   "if(!t||t.dataset.loaded)return;t.dataset.loaded='1';"
+                   "var src=t.dataset.src||'',m,watch='';"
+                   "if((m=src.match(/(?:youtube(?:-nocookie)?\\.com\\/embed\\/|youtu\\.be\\/|youtube\\.com\\/watch\\?v=)([A-Za-z0-9_-]+)/)))watch='https://www.youtube.com/watch?v='+m[1];"
+                   "else if((m=src.match(/(?:player\\.)?vimeo\\.com\\/video\\/(\\d+)/)))watch='https://vimeo.com/'+m[1];"
+                   "if(location.protocol==='file:'){if(watch)window.open(watch,'_blank');return;}"
+                   "t.innerHTML='<iframe src=\"'+encodeURI(src)+'\" width=\"100%\" height=\"100%\" "
+                   "frameborder=\"0\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" "
+                   "allowfullscreen style=\"position:absolute;inset:0;\"></iframe>'"
+                   "+(watch?'<a href=\"'+watch+'\" target=\"_blank\" rel=\"noopener\" "
+                   "style=\"position:absolute;bottom:8px;left:12px;color:#fff;opacity:.8;"
+                   "font-size:12px;text-decoration:underline;z-index:5;\">Open</a>':'');});})();")
 
 
 def main():

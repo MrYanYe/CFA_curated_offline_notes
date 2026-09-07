@@ -19,7 +19,7 @@ import urllib.parse
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
-SITE = REPO / "cfa_l1_offline_notes_site_2026"
+SITE = REPO / "site_2026"
 
 # Images the LIVE site refuses to serve (verified HTTP 403 via clean browser
 # requests on 2026-09-06) - the origin anti-bot rules block these exact files,
@@ -243,7 +243,8 @@ def main():
                     if h not in ("prepnuggets.com", "www.googletagmanager.com",
                                  "secure.gravatar.com", "www.facebook.com",
                                  "ws.sharethis.com", "fd.cleantalk.org",
-                                 "www.youtube.com", "www.youtube-nocookie.com", "player.vimeo.com", "youtu.be",
+                                 "www.youtube.com", "www.youtube-nocookie.com", "vimeo.com",
+                                 "player.vimeo.com", "youtu.be",
                                  "fonts.gstatic.com", "fonts.googleapis.com",
                                  "cdn.jsdelivr.net"):
                         problems.append(f"{rel}: unexpected external https {url[:80]}")
