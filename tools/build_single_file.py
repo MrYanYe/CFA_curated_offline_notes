@@ -118,6 +118,8 @@ def minify_css(css_text: str) -> str:
 
 
 def page_slug(site_rel: str) -> str:
+    if site_rel == "index.html":
+        return ""  # the homepage; a bare name would slice to 'index.htm'
     return site_rel[: -len("/index.html")] if site_rel.endswith("/index.html") else site_rel
 
 
@@ -144,6 +146,11 @@ def rewrite_body_refs(html: str, base_dir: Path, pages: set, registry: dict) -> 
         if url.startswith(("http://", "https://")):
             return "external", url
         f = resolve_site_file(url, base_dir)
+        if f is None:
+            # sidebar/menu links are relative to the mirror-page depth, which is
+            # one level deeper than the parked site page: retry rooted at SITE
+            # (same fallback the css rewrite already uses)
+            f = resolve_site_file(re.sub(r"^(?:\.\./)+", "", url), SITE)
         if f is None:
             return None, None
         if f.name == "index.html":
