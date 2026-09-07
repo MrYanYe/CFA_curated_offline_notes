@@ -201,17 +201,13 @@ YouTube/Vimeo 嵌入、Google 字体），浏览器离线时逐项等网络超�
 清理：删除远程引用、懒加载展开为本地真实路径、字体/资源本地化、`%` 转义文件名迁移（file:// 下不可达）。
 
 **Q2 视频怎么用？**
-原站视频来自 YouTube/Vimeo 流媒体，不缓存。点击播放框后**在当前页面内嵌播放**（无论 file:// 双击打开
-还是 http(s) 打开，行为一致；不再自动跳转别的标签页）：
-- 常规网络：内嵌播放器直接出现在文章里（YouTube/Vimeo 官方播放器）；
-- 部分网络/地区（file:// 页面请求不带 Referer，Google 会拒绝来源不明页面的嵌入，显示
-“Error 153 / Video player configuration error”——2026-09-07 实测确定）：此时播放框内显示 YouTube
-官方错误页，上面自带 **"Watch on YouTube"** 按钮（点击即跳原视频页），播放器左下角的
-**"Open"** 链接同样通往原视频——不跳转是默认，跳转由你决定。
-- 想稳定内嵌播放或手机局域网共享：双击 [serve_local.cmd](serve_local.cmd)（或 `python tools/serve.py`），
-浏览器自动打开 http://127.0.0.1:8909/（手机连同一 WiFi 访问提示的 http://局域网IP:8909/）——
-http 方式下内嵌播放已验证 100% 可用；file:// 模式仍是最简单、零依赖的浏览方式。
-离线时零网络请求（不会卡页面）。
+原站视频来自 YouTube/Vimeo 流媒体，不缓存。现按原站播放器样式显示黑底播放框（带播放按钮）：
+- **file:// 打开**（双击文件/拷手机直接打开）：点击播放键 → 新标签直接打开 YouTube/Vimeo **观看页**
+（YouTube 嵌入页要求请求带 Referer，file:// 页面永远没有 → 嵌入必报 “Error 153 / Video player
+configuration error”，2026-09-07 实测确定；观看页无此限制，打开即播）；
+- **http(s) 打开**（本地 server：双击 tools/serve.py 或 `python tools/serve.py`，或自托管）：点击 →
+**当前页内嵌播放**（同网络下已验证 100% 可用，播放器直接出现在文章中）；
+- 播放框左下角常驻 “Open on YouTube / Open on Vimeo” 外链保底；离线时零网络请求（不会卡页面）。
 
 **Q3 单文件版为什么 128.8 MB？**
 原图无损内嵌（用户选定方案）：全部图片去重后约 89 MB 的 base64 去重注册表（1504 张）+ 388 页正文 + 30.9 MB 字体/CSS。
