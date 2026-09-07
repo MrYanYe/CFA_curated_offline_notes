@@ -3,6 +3,8 @@
 本项目把 **https://prepnuggets.com/cfa-level-1-study-notes/** 的 **CFA Level 1 学习笔记站**（`/cfa-level-1-study-notes/` 栏目，
 含全部主题文章页：388 个内容页 + 主页，图片约 4000 张）完整克隆到本地，并加工成**可离线浏览的成品**：双击即用、零网络请求、跨设备可用。
 2026 年年份标识：资料版本为 2026 考纲内容（原站当前版本，已与 2026-09-05 在线快照核对）。
+**开发/复现参考（双语）**：[docs/engineering_guide.md](docs/engineering_guide.md) — 架构、管线、关键常量、踩坑史与验证矩阵。
+
 
 ---
 
