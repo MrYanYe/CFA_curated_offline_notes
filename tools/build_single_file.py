@@ -217,16 +217,17 @@ def extract_article(html: str):
     return m.group(1) if m else None
 
 
-# On click: inline-embed over http(s); over file:// open the watch page.
-# YouTube refuses /embed/ without a Referer (Error 153) - every file:// page -
-# while watch pages play fine with no referrer; see build_site.py notes.
+# On click: mount the real player iframe INLINE, whatever the protocol.
+# file:// pages send no Referer and on some networks YouTube answers /embed/
+# with Error 153 - the frame then shows YouTube's own error page with its
+# "Watch on YouTube" button (plus the Open link below); nothing navigates
+# away on its own. Keep the wording in sync with build_site.video_player_script.
 VIDEO_PLAYER_JS = ("(function(){document.addEventListener('click',function(e){"
                    "var t=e.target.closest?e.target.closest('.pn-video-player'):null;"
                    "if(!t||t.dataset.loaded)return;t.dataset.loaded='1';"
                    "var src=t.dataset.src||'',m,watch='';"
                    "if((m=src.match(/(?:youtube(?:-nocookie)?\\.com\\/embed\\/|youtu\\.be\\/|youtube\\.com\\/watch\\?v=)([A-Za-z0-9_-]+)/)))watch='https://www.youtube.com/watch?v='+m[1];"
                    "else if((m=src.match(/(?:player\\.)?vimeo\\.com\\/video\\/(\\d+)/)))watch='https://vimeo.com/'+m[1];"
-                   "if(location.protocol==='file:'){if(watch)window.open(watch,'_blank');return;}"
                    "t.innerHTML='<iframe src=\"'+encodeURI(src)+'\" width=\"100%\" height=\"100%\" "
                    "frameborder=\"0\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" "
                    "allowfullscreen style=\"position:absolute;inset:0;\"></iframe>'"

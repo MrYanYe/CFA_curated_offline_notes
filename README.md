@@ -13,7 +13,7 @@
 | | 形态①：**多文件夹网站版** | 形态②：**单文件版** |
 |---|---|---|
 | 是什么 | 一个文件夹，内含 `index.html` + 各栏目子目录 + 资源目录（图片/字体/CSS），即整个"静态网站" | 一个 `.html` 文件，网站全部内容（页面正文+图片）都内嵌在里面 |
-| 入口 | 打开 `site_2026/index.html` | 打开 `notes_all_in_one_2026.html`（**原始未压缩版**）或 `notes_all_in_one_2026_compressed.html`（**压缩版，<100 MB**） |
+| 入口 | 打开 `cfa_l1_offline_notes_site_2026/index.html` | 打开 `cfa_l1_offline_notes_all_in_one_2026.html`（**原始未压缩版**）或 `notes_all_in_one_2026_compressed.html`（**压缩版，<100 MB**） |
 | 体积 | 309 MB（1 个文件夹） | **128.8 MB**（原始未压缩）/ **99.8 MB**（压缩版 <100MB） |
 | 页面间跳转 | 真实文件跳转（新页面新 URL） | hash 路由（同页切换，地址栏出现 `#/栏目/文章/`） |
 | 首次加载 | ~0.1–1 秒 | ~1.2 秒 |
@@ -28,10 +28,10 @@
 
 | 场景 | 操作 |
 |---|---|
-| **电脑** | 双击 `site_2026/index.html`（Chrome / Edge / Safari） |
-| **安卓手机 / 平板** | 整个 `site_2026/` 文件夹拷进设备 → 用 Chrome 打开其 `index.html` |
+| **电脑** | 双击 `cfa_l1_offline_notes_site_2026/index.html`（Chrome / Edge / Safari） |
+| **安卓手机 / 平板** | 整个 `cfa_l1_offline_notes_site_2026/` 文件夹拷进设备 → 用 Chrome 打开其 `index.html` |
 | **iPhone / iPad** | 拷进「文件」App → Safari 打开 `index.html`（可「分享 → 添加到主屏幕」全屏阅读） |
-| **只用单文件** | 打开/分享 `notes_all_in_one_2026.html`（全站合一，点击站内链接即切换页面） |
+| **只用单文件** | 打开/分享 `cfa_l1_offline_notes_all_in_one_2026.html`（全站合一，点击站内链接即切换页面） |
 
 上手实测：桌面与手机视口首屏 **0.1–1.2 秒**，图片 100% 加载，0 控制台错误。
 
@@ -68,7 +68,7 @@
 
 | | **多页站点版**（大文件夹） | **单文件版**（1 个 html） |
 |---|---|---|
-| 位置 | `site_2026/` | `notes_all_in_one_2026.html` |
+| 位置 | `cfa_l1_offline_notes_site_2026/` | `cfa_l1_offline_notes_all_in_one_2026.html` |
 | 体积 | 309 MB | 129.0 MB 原始 / 99.8 MB 压缩 |
 | 翻页方式 | 真实多页面跳转（相对路径） | hash 路由（`#/economics-study-notes/` 等） |
 | 首次加载 | ~0.1–1.0 s | ~1.2 s（一次性解析数据块） |
@@ -84,17 +84,17 @@
 ## 四、 目录结构（2026-09 版命名）
 
 ```
-cfa_l1_notes/                        ← 项目根（本仓库）
+cfa_l1_offline_notes/                        ← 项目根（本仓库）
 ├── README.md                                ← 本说明
 ├── docs/
 │   ├── readme_images/                       ← 本 README 配图（验证时的真实截图）
 │   └── superpowers/specs/                   ← 设计文档（历史）
-├── raw_mirror/                  ← 原始镜像（唯一源，构建输入，309 MB，不拷贝分发）
-├── site_2026/          ← 成品①：多页站点版（拷手机用这个）
+├── prepnuggets_raw_mirror/                  ← 原始镜像（唯一源，构建输入，309 MB，不拷贝分发）
+├── cfa_l1_offline_notes_site_2026/          ← 成品①：多页站点版（拷手机用这个）
 │   ├── index.html                           ← 主页（最外层，双击即读）
 │   ├── README.md                            ← 站点内使用说明（简短版）
 │   └── <10 个栏目>/…                        ← 与原站同层级
-├── notes_all_in_one_2026.html← 成品②：单文件版
+├── cfa_l1_offline_notes_all_in_one_2026.html← 成品②：单文件版
 └── tools/                                   ← 全部脚本（构建/补抓/校验），统一放这里
     ├── build_site.py                        ← 镜像 → 多页站点版（清洗+重排+缺图兜底）
     ├── fetch_missing.py                     ← 从原站补抓镜像缺失的少量资源（网络）
@@ -129,7 +129,7 @@ cfa_l1_notes/                        ← 项目根（本仓库）
 
 ## 五、 来源与克隆方法
 
-所有产物来自 `raw_mirror/`——**2026-08-02 对原站的全量抓取快照**（镜像工具逐页抓取
+所有产物来自 `prepnuggets_raw_mirror/`——**2026-08-02 对原站的全量抓取快照**（镜像工具逐页抓取
 `https://prepnuggets.com/cfa-level-1-study-notes/` 及所引用资源）。镜像保留了 WordPress 站点形态：
 `wp-content/`（主题/插件/上传图；`uploads/` 在产品树中缩写为 `up/`）、`wp-includes/`、`wp-json/`（REST API 快照），外加
 `cdn.jsdelivr.net`（KaTeX）、`fonts.googleapis.com` / `fonts.gstatic.com`（Google 字体）三个跨域资源树。
@@ -149,13 +149,13 @@ python tools/build_site.py          # 重新构建（见第六节）
 
 ```mermaid
 flowchart LR
-    A[raw_mirror<br/>原始镜像 309MB] --> B[build_site.py<br/>清洗+重排]
-    B --> C[site_2026/<br/>多页站点版]
+    A[prepnuggets_raw_mirror<br/>原始镜像 309MB] --> B[build_site.py<br/>清洗+重排]
+    B --> C[cfa_l1_offline_notes_site_2026/<br/>多页站点版]
     C --> D[fetch_missing.py<br/>按需补抓缺失资源]
     D --> E[verify_links.py<br/>链接机检]
     E --> F[verify_browser.py<br/>浏览器实测]
     F --> G[build_single_file.py<br/>全栈合一]
-    G --> H[notes_all_in_one_2026.html]
+    G --> H[cfa_l1_offline_notes_all_in_one_2026.html]
 ```
 
 ---
@@ -163,7 +163,7 @@ flowchart LR
 ## 六、 重新构建（可选，按顺序执行）
 
 ```bash
-cd cfa_l1_notes
+cd cfa_l1_offline_notes
 python tools/build_site.py          # 1) 镜像 → 多页站点版（清空重建）
 python tools/fetch_missing.py       # 2) 有网络时补抓缺失字体（可选）
 python tools/verify_links.py        # 3) 机检：必须输出 ALL CLEAN
@@ -201,13 +201,17 @@ YouTube/Vimeo 嵌入、Google 字体），浏览器离线时逐项等网络超�
 清理：删除远程引用、懒加载展开为本地真实路径、字体/资源本地化、`%` 转义文件名迁移（file:// 下不可达）。
 
 **Q2 视频怎么用？**
-原站视频来自 YouTube/Vimeo 流媒体，不缓存。播放框点击行为分两种（均需联网）：
-① **file:// 打开**（双击/拷手机直接打开）：YouTube 的 /embed/ 嵌入页要求请求带 Referer，
-而 file:// 页面永远没有 Referer → 无论参数/域名全是 “Error 153 / Video player configuration error”
-（2026-09-07 实测：同网络下替换成 http 页面内嵌或直开 watch 观看页即正常）。因此点击直接打开
-YouTube/Vimeo **观看页**（到网址即播放，最稳路径）；② **http(s) 打开**（本地 http server、
-自托管）：点击内嵌播放（已实测 127.0.0.1 页面下 YouTube/Vimeo 均正常出播放器）。
-播放框左下角常驻 “Open on YouTube / Open on Vimeo” 外链保底；离线时零网络请求（不会卡页面）。
+原站视频来自 YouTube/Vimeo 流媒体，不缓存。点击播放框后**在当前页面内嵌播放**（无论 file:// 双击打开
+还是 http(s) 打开，行为一致；不再自动跳转别的标签页）：
+- 常规网络：内嵌播放器直接出现在文章里（YouTube/Vimeo 官方播放器）；
+- 部分网络/地区（file:// 页面请求不带 Referer，Google 会拒绝来源不明页面的嵌入，显示
+“Error 153 / Video player configuration error”——2026-09-07 实测确定）：此时播放框内显示 YouTube
+官方错误页，上面自带 **"Watch on YouTube"** 按钮（点击即跳原视频页），播放器左下角的
+**"Open"** 链接同样通往原视频——不跳转是默认，跳转由你决定。
+- 想稳定内嵌播放或手机局域网共享：双击 [serve_local.cmd](serve_local.cmd)（或 `python tools/serve.py`），
+浏览器自动打开 http://127.0.0.1:8909/（手机连同一 WiFi 访问提示的 http://局域网IP:8909/）——
+http 方式下内嵌播放已验证 100% 可用；file:// 模式仍是最简单、零依赖的浏览方式。
+离线时零网络请求（不会卡页面）。
 
 **Q3 单文件版为什么 128.8 MB？**
 原图无损内嵌（用户选定方案）：全部图片去重后约 89 MB 的 base64 去重注册表（1504 张）+ 388 页正文 + 30.9 MB 字体/CSS。

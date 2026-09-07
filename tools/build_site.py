@@ -355,13 +355,13 @@ def replace_video_iframes(html: str) -> str:
 
 
 def video_player_script() -> str:
-    """On click: inline-embed over http(s); over file:// open the watch page.
+    """On click: mount the real player iframe INLINE, whatever the protocol.
 
-    YouTube refuses all /embed/ requests made without a Referer (Error 153,
-    "Video player configuration error") - that is every file:// page, there is
-    no way to send a referrer from a file:// document. Watch pages play fine
-    with no referrer, so file:// clicks go straight to them; http(s) pages
-    (localhost preview, self-hosted) keep the inline player.
+    Every protocol gets the inline embed (user choice 2026-09-08): file://
+    pages send no Referer, and on SOME networks YouTube answers /embed/ with
+    Error 153 in that case - the frame then shows YouTube's own error page
+    with its "Watch on YouTube" button (plus our bottom-left Open link).
+    Nothing auto-navigates away; the page is never left unless the user asks.
     """
     return ("<script>(function(){document.addEventListener('click',function(e){"
             "var t=e.target.closest?e.target.closest('.pn-video-player'):null;"
@@ -369,7 +369,6 @@ def video_player_script() -> str:
             "var src=t.dataset.src||'',m,watch='';"
             "if((m=src.match(/(?:youtube(?:-nocookie)?\\.com\\/embed\\/|youtu\\.be\\/|youtube\\.com\\/watch\\?v=)([A-Za-z0-9_-]+)/)))watch='https://www.youtube.com/watch?v='+m[1];"
             "else if((m=src.match(/(?:player\\.)?vimeo\\.com\\/video\\/(\\d+)/)))watch='https://vimeo.com/'+m[1];"
-            "if(location.protocol==='file:'){if(watch)window.open(watch,'_blank');return;}"
             "t.innerHTML='<iframe src=\"'+encodeURI(src)+'\" width=\"100%\" height=\"100%\" "
             "frameborder=\"0\" allow=\"autoplay; encrypted-media; picture-in-picture; fullscreen\" "
             "allowfullscreen style=\"position:absolute;inset:0;\"></iframe>'"
