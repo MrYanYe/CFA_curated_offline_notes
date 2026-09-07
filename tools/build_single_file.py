@@ -461,6 +461,10 @@ def main():
         *[f"<script>{j}</script>" for j in bundle_js],
         "</head>\n<body" + body_attrs + ">\n",
         shell_body,
+        '<div id="pn-build-stamp" '
+        'style="position:fixed;bottom:4px;left:8px;z-index:9999;font-size:11px;color:#888;'
+        'background:rgba(255,255,255,.85);padding:2px 8px;border-radius:4px;'
+        'box-shadow:0 1px 2px rgba(0,0,0,.15);">CFA offline build v2026-09-07</div>',
         "\n" + data_scripts + "\n",
         router_js,
         "\n</body></html>\n",
