@@ -301,8 +301,18 @@ def main():
         soup = BeautifulSoup(html, "html.parser")
         sb_div = soup.find(class_="x-sidebar")  # aside or div
         sb = "".join(map(str, sb_div.contents)) if sb_div else ""
+        sb_cls = " ".join(sb_div.get("class") or []) if sb_div else ""
         if sb:
             sb = rewrite_body_refs(sb, p.parent, href_targets, registry)
+        # the homepage shell is a full-width template: its body classes (e.g.
+        # page-template-template-layout-full-width-php) pin .x-main to width:auto
+        # via ".page-template-...-php .x-main{width:auto}". Every routed page
+        # must carry its own body classes (page-template-default +
+        # x-content-sidebar-active) or its 80% content column collapses to full
+        # width. The alternative (override in CSS) is brittle: these selectors
+        # are 0-2-0 and any customizer reorder breaks it again.
+        page_body_m = re.search(r'<body\b[^>]*class="([^"]*)"', html)
+        page_body_cls = page_body_m.group(1) if page_body_m else ""
         # collect this page's inline <style> blocks (customizer CSS drives
         # e.g. the Notes Navigation current-item highlight) - the homepage
         # shell alone does not carry them
@@ -324,7 +334,9 @@ def main():
                                 "t": title_m.group(1).strip() if title_m else slug,
                                 "h": article,
                                 "n": sb,
-                                "m": main_classes}, ensure_ascii=True)
+                                "m": main_classes,
+                                "b": page_body_cls,
+                                "c": sb_cls}, ensure_ascii=True)
         # JSON strings must never contain a literal </script> (it would close
         # the wrapping <script> tag and break parsing)
         if "</script" in item_json or "<script" in item_json:
@@ -355,14 +367,10 @@ def main():
         img_chunks.append(cur)
 
     css_bundle = "\n".join(bundle_css + list(page_styles.values()))
-    FIX_CSS = (
-        "/* pn-fix: featured thumb hugs the banner image */"
-        ".pn-single-file-page .entry-featured .entry-thumb { position: relative !important; "
-        "height: 0 !important; padding-top: 31.2%; background: #000; }"
-        ".pn-single-file-page .entry-featured .entry-thumb img { position: absolute !important; "
-        "top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; "
-        "max-width: none !important; margin: 0 !important; display: block !important; }")
-    css_bundle += "\n" + FIX_CSS
+    # no featured-thumb override: the theme CSS + the image's own intrinsic
+    # ratio must size the banner exactly as in the multi-file pages (a fixed
+    # ratio meant every banner got the same 31.2% geometry). The body-class /
+    # x-main.left restore below is what keeps the banner inside the 80% column.
 
     data_scripts = "\n".join(
         f'<script>window.__PN_CHUNK_{i} = [{",".join(chunk)}];</script>'
@@ -381,7 +389,7 @@ def main():
     var arr = window["__PN_CHUNK_" + i];
     if (!arr) { continue; }
     for (var j = 0; j < arr.length; j++) {
-      if (arr[j].s != null && !(arr[j].s in PAGES)) { PAGES[arr[j].s] = { t: arr[j].t, h: arr[j].h, n: arr[j].n || '', m: arr[j].m || '' }; }
+      if (arr[j].s != null && !(arr[j].s in PAGES)) { PAGES[arr[j].s] = { t: arr[j].t, h: arr[j].h, n: arr[j].n || '', m: arr[j].m || '', b: arr[j].b || '', c: arr[j].c || '' }; }
     }
     window["__PN_CHUNK_" + i] = null;
   }
@@ -407,7 +415,7 @@ def main():
       }
     }
   }
-  var INIT = { article: null, title: document.title, mainClass: '' };
+  var INIT = { article: null, title: document.title, mainClass: '', bodyClass: document.body.className };
   var MAIN = document.querySelector('.x-main');
   if (MAIN) { INIT.mainClass = MAIN.className; }
   function captureInit() {
@@ -420,8 +428,9 @@ def main():
       var cur = document.querySelector('article[id^="post-"]');
       if (cur && INIT.article) { cur.outerHTML = INIT.article; }
       if (MAIN && INIT.mainClass) { MAIN.className = INIT.mainClass; }
+      document.body.className = INIT.bodyClass;
       document.title = INIT.title;
-      restoreSidebar('');
+      restoreSidebar('', '', false);
       applyImages(document);
       window.scrollTo(0, 0);
       return;
@@ -433,8 +442,9 @@ def main():
     art.outerHTML = '<article id="post-' + slug.replace(/[^A-Za-z0-9_-]/g, "")
                     + '" class="pn-single-file-page">' + page.h + '</article>';
     if (page.m && MAIN) { MAIN.className = page.m; }
+    if (page.b) { document.body.className = page.b; }
     if (page.t) { document.title = page.t; }
-    restoreSidebar(page.n || '');
+    restoreSidebar(page.n || '', page.c, !!page.n);
     var fresh = document.querySelector('article[id^="post-"]');
     if (fresh) {
       applyImages(fresh);
@@ -445,22 +455,30 @@ def main():
     }
     window.scrollTo(0, 0);
   }
-  function restoreSidebar(navHtml) {
+  function restoreSidebar(navHtml, navCls, show) {
     var host = document.getElementById('pn-sidebar');
     if (!host) { return; }
     host.innerHTML = navHtml;
+    if (navCls) { host.className = navCls; }
+    host.style.display = show ? '' : 'none';  // homepage has no sidebar at all
   }
   function placeSidebar() {
     var host = document.getElementById('pn-sidebar');
     if (!host) {
       host = document.createElement('div');
       host.id = 'pn-sidebar';
+      // no inline sizing: the theme CSS widths it, same as the page's own
+      // .x-sidebar (inline styles would win over the customizer and break
+      // the content 80% / sidebar calc(100%-2.463%-80%) split)
       host.className = 'x-sidebar right';
-      host.style.cssText = 'float:right;width:300px;margin:0 0 1em 1.5em;max-width:100%;';
     }
     if (!host.parentNode) {
-      var art = document.querySelector('article[id^="post-"]');
-      if (art && art.parentNode) { art.parentNode.insertBefore(host, art); }
+      // sibling AFTER .x-main, exactly where the original pages place
+      // .x-sidebar: as a child of .x-main it would take its 17.5% from the
+      // 80% column (165px) instead of the outer container (213px), and on
+      // mobile it would stack above the article instead of below it
+      var main = document.querySelector('.x-main');
+      if (main && main.parentNode) { main.parentNode.insertBefore(host, main.nextSibling); }
       else { document.body.appendChild(host); }
     }
   }
@@ -484,8 +502,8 @@ def main():
         "<title>%s</title>" % hp_title,
         # one <style> per original file: a parse error inside one file cannot
         # swallow the rules of the files that follow it; per-page inline styles
-        # (customizer CSS) and the featured-thumb fix ride along
-        *[f"<style>{c}</style>" for c in bundle_css + list(page_styles.values()) + [FIX_CSS]],
+        # (customizer CSS) ride along
+        *[f"<style>{c}</style>" for c in bundle_css + list(page_styles.values())],
         # one <script> per original file, placed in <head> (their original
         # position): body inline scripts rely on jQuery being defined first
         *[f"<script>{j}</script>" for j in bundle_js],
