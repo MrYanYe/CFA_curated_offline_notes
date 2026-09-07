@@ -26,9 +26,9 @@ from pathlib import Path
 from PIL import Image
 
 REPO = Path(__file__).resolve().parent.parent
-SITE = REPO / "site_2026"
-OUT_FILE = REPO / "notes_all_in_one_2026.html"
-OUT_COMPRESSED = REPO / "notes_all_in_one_2026_compressed.html"
+SITE = REPO / "cfa_l1_offline_notes_site_2026"
+OUT_FILE = REPO / "cfa_l1_offline_notes_all_in_one_2026.html"
+OUT_COMPRESSED = REPO / "cfa_l1_offline_notes_all_in_one_2026_compressed.html"
 
 CHUNK_BYTES = 4_000_000
 

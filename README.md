@@ -14,7 +14,7 @@
 |---|---|---|
 | 是什么 | 一个文件夹，内含 `index.html` + 各栏目子目录 + 资源目录（图片/字体/CSS），即整个"静态网站" | 一个 `.html` 文件，网站全部内容（页面正文+图片）都内嵌在里面 |
 | 入口 | 打开 `site_2026/index.html` | 打开 `notes_all_in_one_2026.html`（**原始未压缩版**）或 `notes_all_in_one_2026_compressed.html`（**压缩版，<100 MB**） |
-| 体积 | 309 MB（1 个文件夹） | **128.9 MB**（原始未压缩）/ **99.9 MB**（压缩版 <100MB） |
+| 体积 | 309 MB（1 个文件夹） | **128.8 MB**（原始未压缩）/ **99.8 MB**（压缩版 <100MB） |
 | 页面间跳转 | 真实文件跳转（新页面新 URL） | hash 路由（同页切换，地址栏出现 `#/栏目/文章/`） |
 | 首次加载 | ~0.1–1 秒 | ~1.2 秒 |
 | 切页速度 | < 0.2 秒 | ~1–1.5 秒 |
@@ -39,20 +39,20 @@
 
 ## 二、 内容
 
-原站栏目（CFA 2026 Level 1，10 大主题 + 1 个附带栏目，目录名沿用原站路径，可对照原网址直接切换）：
+原站栏目（CFA 2026 Level 1，10 大主题 + 1 个附带栏目，文章级别目录沿用原站路径（栏目层已压缩，见上表））：
 
-| 本地目录 | 对应原站栏目 |
+| 本地目录（栏目层已压缩） | 对应原站栏目 |
 |---|---|
-| `alternative-investments-study-notes/` | Alternative Investments |
-| `corporate-issuers-study-notes/` | Corporate Issuers |
-| `derivatives-study-notes/` | Derivatives |
-| `economics-study-notes/` | Economics |
-| `equity-investments-study-notes/` | Equity Investments |
-| `ethics-study-notes/` | Ethics |
-| `financial-statement-analysis-fsa-study-notes/` | Financial Statement Analysis（FSA） |
-| `fixed-income-study-notes/` | Fixed Income |
-| `portfolio-management-study-notes/` | Portfolio Management |
-| `quantitative-methods-study-notes/` | Quantitative Methods |
+| `alternative-investments/` | Alternative Investments |
+| `corporate-issuers/` | Corporate Issuers |
+| `derivatives/` | Derivatives |
+| `economics/` | Economics |
+| `equity-investments/` | Equity Investments |
+| `ethics/` | Ethics |
+| `fsa/` | Financial Statement Analysis（FSA） |
+| `fixed-income/` | Fixed Income |
+| `portfolio-management/` | Portfolio Management |
+| `quant-methods/` | Quantitative Methods |
 | `quantitative-methods/` | 原站"量化方法"另一栏目页 |
 
 每个栏目下按知识点分子目录（如 `economics-study-notes/understanding-business-cycles/`），层级与原站
@@ -69,12 +69,12 @@
 | | **多页站点版**（大文件夹） | **单文件版**（1 个 html） |
 |---|---|---|
 | 位置 | `site_2026/` | `notes_all_in_one_2026.html` |
-| 体积 | 309 MB | 129.0 MB 原始 / 99.9 MB 压缩 |
+| 体积 | 309 MB | 129.0 MB 原始 / 99.8 MB 压缩 |
 | 翻页方式 | 真实多页面跳转（相对路径） | hash 路由（`#/economics-study-notes/` 等） |
 | 首次加载 | ~0.1–1.0 s | ~1.2 s（一次性解析数据块） |
 | 页面切换 | < 0.2 s | ~1–1.5 s |
 | 图片 | 全分辨率多尺寸（srcset 响应式） | 原图字节无损内嵌（注册表去重，单尺寸取最大档） |
-| 迁移性 | 拷整个文件夹（309 MB） | 拷 1 个文件（128.9 或 99.9 MB） |
+| 迁移性 | 拷整个文件夹（309 MB） | 拷 1 个文件（128.9 或 99.8 MB） |
 | 适用 | 电脑/平板/手机常规使用，推荐 | 微信传一次就能全站带走；传网盘/备份选压缩版（<100 MB） |
 
 两版渲染样式一致（自定义 CSS、图标字体、KaTeX 均验证一致：站点品牌 120px、导航大写等）。
@@ -103,14 +103,23 @@ cfa_l1_notes/                        ← 项目根（本仓库）
     └── build_single_file.py                 ← 多页站点版 → 单文件版
 ```
 
-**命名说明**（2026-09-07 二次缩短：降低 Windows 最长路径 260 字符风险，旧名 → 新名）：
+**命名说明**（两次改名史：2026-09 应要求定名；2026-09-07 内部压缩——外壳名保持不动）：
+
+第一轮（2026-09 应要求重命名，旧名 → 新名）：
 
 | 旧名 | 新名 | 含义 |
 |---|---|---|
-| `CFA_Notes` | `cfa_l1_notes` | CFA Level 1 离线笔记（项目根） |
-| `offline_prepnuggets` | `raw_mirror` | 原始镜像（raw mirror，构建输入） |
-| `study_notes_site` | `site_2026` | 成品①：多页离线站点，2026 版 |
-| `full_site_single_file.html` | `notes_all_in_one_2026.html` | 成品②：全站合一单文件，2026 版 |
+| `CFA_Notes` | `cfa_l1_offline_notes` | CFA Level 1 离线笔记（项目根） |
+| `offline_prepnuggets` | `prepnuggets_raw_mirror` | 原始镜像（raw mirror，构建输入） |
+| `study_notes_site` | `cfa_l1_offline_notes_site_2026` | 成品①：多页离线站点，2026 版 |
+| `full_site_single_file.html` | `cfa_l1_offline_notes_all_in_one_2026.html` | 成品②：全站合一单文件，2026 版 |
+
+第二轮（2026-09-07 内部压缩，仅改"多文件版内的子目录"，**外壳名全部保持第一轮不变**）：
+
+| 旧名 | 新名 | 说明 |
+|---|---|---|
+| `<栏目>-study-notes/`（11 个） | `economics/`、`fsa/`、`quant-methods/` 等 | 仅栏目层去掉 `-study-notes` 后缀；`quant-methods` 是为避让原有 `quantitative-methods/` 目录；文章级 slug 目录一律不动 |
+| `wp-content/uploads/` | `wp-content/up/` | 纯资源链压缩（与原文 URL 无对照价值）；镜内部保持 `uploads/` 原样 |
 
 旧名对应的旧脚本（`fix_links.py`、`mirror_site.py`、`mirror_prepnuggets.py`）已被 `tools/` 新管线取代并删除
 （git 历史中仍可查）。
@@ -121,7 +130,7 @@ cfa_l1_notes/                        ← 项目根（本仓库）
 
 所有产物来自 `raw_mirror/`——**2026-08-02 对原站的全量抓取快照**（镜像工具逐页抓取
 `https://prepnuggets.com/cfa-level-1-study-notes/` 及所引用资源）。镜像保留了 WordPress 站点形态：
-`wp-content/`（主题/插件/上传图）、`wp-includes/`、`wp-json/`（REST API 快照），外加
+`wp-content/`（主题/插件/上传图；`uploads/` 在产品树中缩写为 `up/`）、`wp-includes/`、`wp-json/`（REST API 快照），外加
 `cdn.jsdelivr.net`（KaTeX）、`fonts.googleapis.com` / `fonts.gstatic.com`（Google 字体）三个跨域资源树。
 镜像里 `uploads/2017…2024` 等年份目录只是原站图片上传时的年份，**不是抓取年份**。
 
@@ -199,9 +208,9 @@ YouTube/Vimeo **观看页**（到网址即播放，最稳路径）；② **http(
 自托管）：点击内嵌播放（已实测 127.0.0.1 页面下 YouTube/Vimeo 均正常出播放器）。
 播放框左下角常驻 “Open on YouTube / Open on Vimeo” 外链保底；离线时零网络请求（不会卡页面）。
 
-**Q3 单文件版为什么 129.0 MB？**
+**Q3 单文件版为什么 128.8 MB？**
 原图无损内嵌（用户选定方案）：全部图片去重后约 89 MB 的 base64 去重注册表（1504 张）+ 388 页正文 + 30.9 MB 字体/CSS。
-若希望更小，可对图片重压缩增量替换（需在 `build_single_file.py` 增改图片处理策略）；压缩版（99.9 MB，<100 MB）已同时生成。
+若希望更小，可对图片重压缩增量替换（需在 `build_single_file.py` 增改图片处理策略）；压缩版（99.8 MB，<100 MB）已同时生成。
 
 **Q5 图片曾经每张显示两遍，现在修好了吗？**
 修好了（2026-09-06）。根因：原始站点快照里每张图都带了第二份副本（页面

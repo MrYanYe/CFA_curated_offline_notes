@@ -22,7 +22,7 @@ from fetch_missing import rewrite_refs_to_existing  # noqa: E402
 from fetch_new_pages import download  # noqa: E402
 
 REPO = Path(__file__).resolve().parent.parent
-SITE = (REPO / "site_2026").resolve()
+SITE = (REPO / "cfa_l1_offline_notes_site_2026").resolve()
 
 
 def collect_broken():

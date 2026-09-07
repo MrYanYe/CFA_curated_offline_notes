@@ -17,7 +17,7 @@ from playwright.sync_api import sync_playwright
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 REPO = Path(__file__).resolve().parent.parent
-SITE = REPO / "site_2026"
+SITE = REPO / "cfa_l1_offline_notes_site_2026"
 OUT = REPO / "tools" / ".build" / "shots_nojs"
 OUT.mkdir(parents=True, exist_ok=True)
 

@@ -21,7 +21,7 @@ from scrapling.fetchers import Fetcher
 
 REPO = Path(__file__).resolve().parent.parent
 MIRROR = REPO / "raw_mirror"
-SITE = REPO / "site_2026"
+SITE = REPO / "cfa_l1_offline_notes_site_2026"
 BUILD = REPO / "tools" / ".build"
 
 CROSS_DOMAINS = ("cdn.jsdelivr.net", "fonts.googleapis.com", "fonts.gstatic.com")

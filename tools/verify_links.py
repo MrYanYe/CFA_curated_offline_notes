@@ -19,7 +19,7 @@ import urllib.parse
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
-SITE = REPO / "site_2026"
+SITE = REPO / "cfa_l1_offline_notes_site_2026"
 
 # Images the LIVE site refuses to serve (verified HTTP 403 via clean browser
 # requests on 2026-09-06) - the origin anti-bot rules block these exact files,

@@ -13,7 +13,7 @@ import urllib.request
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
-SITE = (REPO / "site_2026").resolve()
+SITE = (REPO / "cfa_l1_offline_notes_site_2026").resolve()
 MIRROR = (REPO / "raw_mirror").resolve()
 
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "

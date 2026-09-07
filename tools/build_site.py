@@ -26,9 +26,30 @@ import urllib.parse
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
-MIRROR = REPO / "raw_mirror"
-SITE = REPO / "site_2026"
+MIRROR = REPO / "prepnuggets_raw_mirror"
+SITE = REPO / "cfa_l1_offline_notes_site_2026"
 BUILD = REPO / "tools" / ".build"
+
+# Internal path compression (user choice 2026-09-07): topic dirs drop their
+# "-study-notes" suffix (the NOTES site itself is the content, URLs stay
+# recognizable), fsa gets its canonical abbreviation, quant-methods evades a
+# clash with the existing "quantitative-methods/" dir, and wp-content/uploads
+# shortens to wp-content/up (pure asset chain, no meaning to preserve).
+# Article-level slugs are NOT renamed (URLs must stay recognizable vs the
+# original site). Apply BEFORE writing to SITE; raw-mirror paths unchanged.
+PATH_RENAMES = {
+    "/wp-content/uploads/": "/wp-content/up/",
+    "/alternative-investments-study-notes/": "/alternative-investments/",
+    "/corporate-issuers-study-notes/": "/corporate-issuers/",
+    "/derivatives-study-notes/": "/derivatives/",
+    "/economics-study-notes/": "/economics/",
+    "/equity-investments-study-notes/": "/equity-investments/",
+    "/ethics-study-notes/": "/ethics/",
+    "/financial-statement-analysis-fsa-study-notes/": "/fsa/",
+    "/fixed-income-study-notes/": "/fixed-income/",
+    "/portfolio-management-study-notes/": "/portfolio-management/",
+    "/quantitative-methods-study-notes/": "/quant-methods/",
+}
 
 LOCAL_HOSTS = ("prepnuggets.com", "cdn.jsdelivr.net", "fonts.googleapis.com", "fonts.gstatic.com")
 
@@ -67,6 +88,24 @@ def local_url_candidates(full: str):
         yield host, v
 
 
+def apply_path_renames(rel: str) -> str:
+    """Apply PATH_RENAMES to a site-relative path ('a/b/c' or '/a/b/c').
+
+    Never assume the caller's leading slash: new_path keeps the URL's '/'
+    while page-placement parents do not (that asymmetry silently matched
+    one site of the pair, leaving in-page refs pointing at renamed-away
+    topic dirs).
+    """
+    lead = rel.startswith("/")
+    bare = rel.lstrip("/")
+    for old_prefix, new_prefix in PATH_RENAMES.items():
+        old = old_prefix.lstrip("/")
+        if bare == old.rstrip("/") or bare.startswith(old):
+            out = new_prefix.lstrip("/") + bare[len(old):]
+            return "/" + out if lead else out
+    return rel
+
+
 def map_url_to_local(full: str, rename_css: dict):
     """Map absolute URL -> (site_path, raw_mirror_path_exists).
 
@@ -88,6 +127,7 @@ def map_url_to_local(full: str, rename_css: dict):
             raw_candidates = (MIRROR / host / path.lstrip("/"),)
         if new_path in rename_css:
             new_path = rename_css[new_path]
+        new_path = apply_path_renames(new_path)
         if host == "prepnuggets.com":
             local = SITE / new_path.lstrip("/")
         else:
@@ -466,6 +506,13 @@ def main():
             copy_tree(src, SITE / host)
             log(f"copied {host}/")
 
+    # PATH_RENAMES for the physical asset tree: wp-content/uploads -> up
+    # (SITE was wiped above, so new_dir cannot pre-exist)
+    old_dir, new_dir = SITE / "wp-content/uploads", SITE / "wp-content/up"
+    if old_dir.exists():
+        old_dir.rename(new_dir)
+        log("renamed wp-content/uploads/ -> wp-content/up/")
+
     for p in sorted(SITE.rglob("*"), key=lambda p: len(p.parts), reverse=True):
         if "%" not in p.name:
             continue
@@ -522,6 +569,7 @@ def main():
             if parent.as_posix() == "." and rel.name == "index.html":
                 new_page = SITE / "index.html"
             else:
+                parent = Path(apply_path_renames(parent.as_posix()))
                 new_page = SITE / parent / "index.html"
             base_url = "https://prepnuggets.com/cfa-level-1-study-notes/" + parent.as_posix() + "/"
         new_rel = new_page.relative_to(SITE).as_posix()
