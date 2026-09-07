@@ -13,8 +13,8 @@
 | | 形态①：**多文件夹网站版** | 形态②：**单文件版** |
 |---|---|---|
 | 是什么 | 一个文件夹，内含 `index.html` + 各栏目子目录 + 资源目录（图片/字体/CSS），即整个"静态网站" | 一个 `.html` 文件，网站全部内容（页面正文+图片）都内嵌在里面 |
-| 入口 | 打开 `cfa_l1_offline_notes_site_2026/index.html` | 打开 `cfa_l1_offline_notes_all_in_one_2026.html`（**原始未压缩版**）或 `notes_all_in_one_2026_compressed.html`（**压缩版，<100 MB**） |
-| 体积 | 309 MB（1 个文件夹） | **128.8 MB**（原始未压缩）/ **99.8 MB**（压缩版 <100MB） |
+| 入口 | 打开 `cfa_l1_offline_notes_site_2026/index.html` | 打开 `cfa_l1_offline_notes_all_in_one_2026.html`（**原始未压缩版**）或 `cfa_l1_offline_notes_all_in_one_2026_compressed.html`（**压缩版，<100 MB**） |
+| 体积 | 309 MB（1 个文件夹） | **128.8 MB**（原始未压缩）/ **99.6 MB**（压缩版 <100MB） |
 | 页面间跳转 | 真实文件跳转（新页面新 URL） | hash 路由（同页切换，地址栏出现 `#/栏目/文章/`） |
 | 首次加载 | ~0.1–1 秒 | ~1.2 秒 |
 | 切页速度 | < 0.2 秒 | ~1–1.5 秒 |
@@ -69,12 +69,12 @@
 | | **多页站点版**（大文件夹） | **单文件版**（1 个 html） |
 |---|---|---|
 | 位置 | `cfa_l1_offline_notes_site_2026/` | `cfa_l1_offline_notes_all_in_one_2026.html` |
-| 体积 | 309 MB | 129.0 MB 原始 / 99.8 MB 压缩 |
-| 翻页方式 | 真实多页面跳转（相对路径） | hash 路由（`#/economics-study-notes/` 等） |
+| 体积 | 309 MB | 128.6 MB 原始 / 99.6 MB 压缩 |
+| 翻页方式 | 真实多页面跳转（相对路径） | hash 路由（`#/economics/` 等） |
 | 首次加载 | ~0.1–1.0 s | ~1.2 s（一次性解析数据块） |
 | 页面切换 | < 0.2 s | ~1–1.5 s |
 | 图片 | 全分辨率多尺寸（srcset 响应式） | 原图字节无损内嵌（注册表去重，单尺寸取最大档） |
-| 迁移性 | 拷整个文件夹（309 MB） | 拷 1 个文件（128.9 或 99.8 MB） |
+| 迁移性 | 拷整个文件夹（309 MB） | 拷 1 个文件（128.6 或 99.6 MB） |
 | 适用 | 电脑/平板/手机常规使用，推荐 | 微信传一次就能全站带走；传网盘/备份选压缩版（<100 MB） |
 
 两版渲染样式一致（自定义 CSS、图标字体、KaTeX 均验证一致：站点品牌 120px、导航大写等）。
@@ -89,7 +89,7 @@ cfa_l1_offline_notes/                        ← 项目根（本仓库）
 ├── docs/
 │   ├── readme_images/                       ← 本 README 配图（验证时的真实截图）
 │   └── superpowers/specs/                   ← 设计文档（历史）
-├── prepnuggets_raw_mirror/                  ← 原始镜像（唯一源，构建输入，309 MB，不拷贝分发）
+├── （主分支不保留镜像；镜像只在 mirror-archive 分支）
 ├── cfa_l1_offline_notes_site_2026/          ← 成品①：多页站点版（拷手机用这个）
 │   ├── index.html                           ← 主页（最外层，双击即读）
 │   ├── README.md                            ← 站点内使用说明（简短版）
@@ -110,7 +110,7 @@ cfa_l1_offline_notes/                        ← 项目根（本仓库）
 | 旧名 | 新名 | 含义 |
 |---|---|---|
 | `CFA_Notes` | `cfa_l1_offline_notes` | CFA Level 1 离线笔记（项目根） |
-| `offline_prepnuggets` | `prepnuggets_raw_mirror` | 原始镜像（raw mirror，构建输入） |
+| `offline_prepnuggets` | `prepnuggets_raw_mirror` | 原始镜像（raw mirror，构建输入；仅存于 `mirror-archive` 分支） |
 | `study_notes_site` | `cfa_l1_offline_notes_site_2026` | 成品①：多页离线站点，2026 版 |
 | `full_site_single_file.html` | `cfa_l1_offline_notes_all_in_one_2026.html` | 成品②：全站合一单文件，2026 版 |
 
@@ -129,7 +129,7 @@ cfa_l1_offline_notes/                        ← 项目根（本仓库）
 
 ## 五、 来源与克隆方法
 
-所有产物来自 `prepnuggets_raw_mirror/`——**2026-08-02 对原站的全量抓取快照**（镜像工具逐页抓取
+所有产物来自镜像 `prepnuggets_raw_mirror/`（**在 `mirror-archive` 分支上**；主分支不含）——**2026-08-02 对原站的全量抓取快照**（镜像工具逐页抓取
 `https://prepnuggets.com/cfa-level-1-study-notes/` 及所引用资源）。镜像保留了 WordPress 站点形态：
 `wp-content/`（主题/插件/上传图；`uploads/` 在产品树中缩写为 `up/`）、`wp-includes/`、`wp-json/`（REST API 快照），外加
 `cdn.jsdelivr.net`（KaTeX）、`fonts.googleapis.com` / `fonts.gstatic.com`（Google 字体）三个跨域资源树。
@@ -149,7 +149,7 @@ python tools/build_site.py          # 重新构建（见第六节）
 
 ```mermaid
 flowchart LR
-    A[prepnuggets_raw_mirror<br/>原始镜像 309MB] --> B[build_site.py<br/>清洗+重排]
+    A[prepnuggets_raw_mirror<br/>原始镜像 309MB]（branch: mirror-archive） --> B[build_site.py<br/>清洗+重排]
     B --> C[cfa_l1_offline_notes_site_2026/<br/>多页站点版]
     C --> D[fetch_missing.py<br/>按需补抓缺失资源]
     D --> E[verify_links.py<br/>链接机检]
@@ -211,7 +211,7 @@ configuration error”，2026-09-07 实测确定；观看页无此限制，打�
 
 **Q3 单文件版为什么 128.8 MB？**
 原图无损内嵌（用户选定方案）：全部图片去重后约 89 MB 的 base64 去重注册表（1504 张）+ 388 页正文 + 30.9 MB 字体/CSS。
-若希望更小，可对图片重压缩增量替换（需在 `build_single_file.py` 增改图片处理策略）；压缩版（99.8 MB，<100 MB）已同时生成。
+若希望更小，可对图片重压缩增量替换（需在 `build_single_file.py` 增改图片处理策略）；压缩版（99.6 MB，<100 MB）已同时生成。
 
 **Q5 图片曾经每张显示两遍，现在修好了吗？**
 修好了（2026-09-06）。根因：原始站点快照里每张图都带了第二份副本（页面
