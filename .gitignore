@@ -2,3 +2,4 @@ __pycache__/
 *.pyc
 tools/.build/
 tools/output/
+/prepnuggets_raw_mirror/

@@ -20,7 +20,7 @@ from pathlib import Path
 from scrapling.fetchers import Fetcher
 
 REPO = Path(__file__).resolve().parent.parent
-MIRROR = REPO / "raw_mirror"
+MIRROR = REPO / "prepnuggets_raw_mirror"
 SITE = REPO / "cfa_l1_offline_notes_site_2026"
 BUILD = REPO / "tools" / ".build"
 

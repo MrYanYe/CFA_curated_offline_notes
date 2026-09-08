@@ -14,9 +14,9 @@ references to the closest existing file, so no image stays grey.
 import json
 import os
 import re
+import subprocess
 import sys
 import urllib.parse
-import urllib.request
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
@@ -26,17 +26,24 @@ BUILD = REPO / "tools" / ".build"
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36"
 
 
-def fetch(url: str, dest: Path, timeout=30) -> str:
-    """Download url into dest. Returns 'ok' | 'http-<code>' | 'error'."""
+def fetch(url: str, dest: Path, timeout=25) -> str:
+    """Download url into dest via curl.exe. Returns 'ok' | 'http-<code>' | 'error-msg'.
+
+    urllib's timeout does NOT cover DNS resolution — on some networks a
+    hanging DNS stalls urlopen forever (observed: 4h with zero output).
+    curl's --connect-timeout bounds DNS + connect, --max-time bounds the
+    whole transfer, so every entry finishes in bounded time.
+    """
     dest.parent.mkdir(parents=True, exist_ok=True)
-    req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "*/*"})
     try:
-        with urllib.request.urlopen(req, timeout=timeout) as resp:
-            data = resp.read()
-            if resp.status != 200:
-                return f"http-{resp.status}"
-            dest.write_bytes(data)
+        proc = subprocess.run(
+            ["curl", "-sL", "--connect-timeout", "6", "--max-time", str(timeout),
+             "-A", UA, "-o", str(dest), "--write-out", "%{http_code}", url],
+            capture_output=True, text=True, timeout=timeout + 15)
+        code = proc.stdout.strip()
+        if code == "200" and dest.is_file() and dest.stat().st_size > 0:
             return "ok"
+        return f"http-{code or 'no-code'}"
     except Exception as e:  # noqa: BLE001 - report any failure verbatim
         return f"error {type(e).__name__}"
 
@@ -70,6 +77,12 @@ def rewrite_refs_to_existing(local: Path, full: str) -> bool:
     pattern = f"{base}*{ext or os.path.splitext(missing_name)[1]}"
     siblings = [p for p in local.parent.glob(pattern) if p.is_file()] if local.parent.exists() \
         else [p for p in SITE.rglob(pattern) if p.is_file()]
+    if not siblings and local.parent.exists():
+        # no same-stem file at all (e.g. the base upload is gone everywhere):
+        # fall back to the largest image in the same folder - a same-topic
+        # approximation beats a grey/broken box anywhere
+        siblings = [p for p in local.parent.glob("*") if p.is_file() and
+                    p.suffix.lower() in (".jpg", ".jpeg", ".png", ".webp")]
     if not siblings:
         return False
     fallback = max(siblings, key=lambda p: p.stat().st_size)
@@ -85,6 +98,15 @@ def rewrite_refs_to_existing(local: Path, full: str) -> bool:
     return True
 
 
+# Only real asset files are fetched. The build report also carries page-like
+# URL aliases (e.g. /…/alternative-investments/index.html whose raw-mirror
+# counterpart lives under a differently named dir): fetching those would hit
+# the live site for 6000+ HTML pages and flood the site tree with junk.
+ASSET_EXTENSIONS = {".jpg", ".jpeg", ".png", ".gif", ".webp", ".svg",
+                    ".woff2", ".woff", ".ttf", ".otf", ".eot", ".css", ".js",
+                    ".mp4", ".mp3", ".ico", ".json"}
+
+
 def main():
     report_path = Path(sys.argv[sys.argv.index("--report") + 1]) if "--report" in sys.argv \
         else BUILD / "build_report.json"
@@ -94,9 +116,12 @@ def main():
         print("no missing assets to fetch")
         return
 
-    ok = failed = rewrite_used = 0
+    ok = failed = rewrite_used = skipped = 0
     for local, full in missing:
         dest = Path(local)
+        if dest.suffix.lower() not in ASSET_EXTENSIONS:
+            skipped += 1  # page-like alias entry: nothing to download
+            continue
         attempts = size_candidates(full) if dest.suffix.lower() in (".jpg", ".jpeg", ".png", ".webp") \
             else [full]
         status = None
@@ -113,7 +138,7 @@ def main():
                 failed += 1
                 print(f"fetch FAIL {full} ({status})  ->  {local}")
 
-    print(f"fetched ok: {ok}, ref-rewrite: {rewrite_used}, failed: {failed}")
+    print(f"fetched ok: {ok}, ref-rewrite: {rewrite_used}, failed: {failed}, skipped page-like: {skipped}")
 
 
 if __name__ == "__main__":
