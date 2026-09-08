@@ -77,7 +77,7 @@ Both render identically (custom CSS, icon fonts, KaTeX verified): site brand 120
 ### 4. Repository layout & naming
 
 ```
-cfa_l1_offline_notes/                        ← repo root
+cfa_curated_offline_notes/                        ← repo root
 ├── README.md                                ← this file
 ├── docs/
 │   ├── engineering_guide.md                 ← bilingual engineering guide (reproduce/modify)
@@ -96,7 +96,7 @@ cfa_l1_offline_notes/                        ← repo root
 
 | Old | New | Meaning |
 |---|---|---|
-| Round 1 (2026-09): `CFA_Notes` / `offline_prepnuggets` / `study_notes_site` / `full_site_single_file.html` | `cfa_l1_offline_notes` / `prepnuggets_raw_mirror` / `cfa_l1_offline_notes_site_2026` / `cfa_l1_offline_notes_all_in_one_2026.html` | project root / raw mirror (build input, branch `mirror-archive`) / deliverable ① / deliverable ② |
+| Round 1 (2026-09): `CFA_Notes` / `offline_prepnuggets` / `study_notes_site` / `full_site_single_file.html` | `cfa_curated_offline_notes` / `prepnuggets_raw_mirror` / `cfa_l1_offline_notes_site_2026` / `cfa_l1_offline_notes_all_in_one_2026.html` | project root / raw mirror (build input, branch `mirror-archive`) / deliverable ① / deliverable ② |
 | Round 2: `<topic>-study-notes/` (11 dirs) | `economics/`, `fsa/`, `quant-methods/` etc. | topic layer drops `-study-notes`; `quant-methods` avoids the existing `quantitative-methods/`; article-level slugs untouched |
 | Round 2b: `wp-content/uploads/` | `wp-content/up/` | pure asset chain (no meaning to preserve); mirror keeps `uploads/` |
 | Round 3 (recursive): deep folder segments | first-word + last-word (`external-influences-on-industry-growth-profitability-and-risk` → `external-risk`) | ≤2 words kept; ≥3 words keep head+tail semantic; colliding groups keep their full names; 286 segments — full map in `docs/slug_rename_map.md` |
@@ -108,7 +108,7 @@ Design goal: every shipped path stays under the Windows 260-char MAX_PATH even w
 All artifacts come from the raw mirror (branch **`mirror-archive`** — master does not carry it), a full snapshot of the live site taken 2026-08-02. To refresh:
 
 ```bash
-cd cfa_l1_offline_notes
+cd cfa_curated_offline_notes
 git checkout mirror-archive          # mirror lives on this branch only
 python tools/fetch_new_pages.py      # REST diff: re-fetch new/changed pages
 python tools/build_site.py           # mirror → multi-file site
@@ -220,7 +220,7 @@ Screenshots under `docs/readme_images/`.
 ### 四、 目录结构与命名
 
 ```
-cfa_l1_offline_notes/                        ← 项目根（本仓库）
+cfa_curated_offline_notes/                        ← 项目根（本仓库）
 ├── README.md                                ← 本说明
 ├── docs/
 │   ├── engineering_guide.md                 ← 中英双语工程指南（复现/改动参考）
@@ -238,7 +238,7 @@ cfa_l1_offline_notes/                        ← 项目根（本仓库）
 
 | 旧名 | 新名 | 说明 |
 |---|---|---|
-| 第一轮（2026-09）：`CFA_Notes` / `offline_prepnuggets` / `study_notes_site` / `full_site_single_file.html` | `cfa_l1_offline_notes` / `prepnuggets_raw_mirror` / `cfa_l1_offline_notes_site_2026` / `cfa_l1_offline_notes_all_in_one_2026.html` | 项目根 / 原始镜像（构建输入，分支 `mirror-archive`）/ 成品① / 成品② |
+| 第一轮（2026-09）：`CFA_Notes` / `offline_prepnuggets` / `study_notes_site` / `full_site_single_file.html` | `cfa_l1_offline_notes` / `prepnuggets_raw_mirror` / `cfa_l1_offline_notes_site_2026` / `cfa_l1_offline_notes_all_in_one_2026.html` | 项目根（**2026-09-08 更名为 `cfa_curated_offline_notes`**：curated=整理自外部权威来源（非自创笔记），不锁单一网站，未来可扩展容纳多个来源）/ 原始镜像（构建输入，分支 `mirror-archive`）/ 成品① / 成品② |
 | 第二轮：`<栏目>-study-notes/`（11 个） | `economics/`、`fsa/`、`quant-methods/` 等 | 栏目层去 `-study-notes`；`quant-methods` 避让既有 `quantitative-methods/`；文章级 slug 不动 |
 | 第二轮：`wp-content/uploads/` | `wp-content/up/` | 纯资源链压缩；镜像内保持 `uploads/` |
 | 第三轮（递归层全压）：深层目录段 | 首词-尾词（`external-influences-on-industry-growth-profitability-and-risk` → `external-risk`） | ≤2 词保持原名；≥3 词取首词+末语义词；冲突组全部保持原名；286 段，全表见 [docs/slug_rename_map.md](docs/slug_rename_map.md) |
@@ -250,7 +250,7 @@ cfa_l1_offline_notes/                        ← 项目根（本仓库）
 所有产物来自原始镜像（分支 **`mirror-archive`**——master 分支不携带镜像），2026-08-02 对原站的全量快照。刷新流程：
 
 ```bash
-cd cfa_l1_offline_notes
+cd cfa_curated_offline_notes
 git checkout mirror-archive          # 镜像只在这个分支
 python tools/fetch_new_pages.py      # 对照 REST 清单重抓新增/变化页
 python tools/build_site.py           # 镜像 → 多页站点版

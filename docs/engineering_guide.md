@@ -39,7 +39,7 @@ CFA Level 1 study notes site (2026 curriculum, 387 article pages + homepage,
 ## 1. Repository layout
 
 ```
-cfa_l1_offline_notes/                     ← repo root
+cfa_curated_offline_notes/                     ← repo root
 ├── README.md                             ← user docs (bilingual, EN first)
 ├── docs/
 │   ├── engineering_guide.md              ← this file
@@ -85,7 +85,7 @@ fetch_new_pages.py / fetch_missing.py / repair_broken_refs.py
 ### 2.1 Full reproduce sequence
 
 ```bash
-cd cfa_l1_offline_notes
+cd cfa_curated_offline_notes
 
 # 0) get the mirror (only on the archive branch)
 git checkout mirror-archive          # or: git checkout mirror-archive -- prepnuggets_raw_mirror
@@ -359,7 +359,7 @@ silently disables the filter and pulls in 700+ wp-json snapshot pages.
 ### 2.1 完整复现序列
 
 ```bash
-cd cfa_l1_offline_notes
+cd cfa_curated_offline_notes
 git checkout mirror-archive            # 取镜像（或只取目录）
 python tools/build_site.py             # 1) 镜像→多文件站（确定性，清空重建）
 python tools/fetch_new_pages.py        # 2) REST 对照补页+资产
