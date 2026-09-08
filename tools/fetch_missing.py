@@ -33,12 +33,18 @@ def fetch(url: str, dest: Path, timeout=25) -> str:
     hanging DNS stalls urlopen forever (observed: 4h with zero output).
     curl's --connect-timeout bounds DNS + connect, --max-time bounds the
     whole transfer, so every entry finishes in bounded time.
+
+    Referer is MANDATORY: the uploads CDN is hotlink-protected (curl and
+    bare request contexts get 403 even for URLs the site's own <img> loads
+    in a browser). With the Referer the exact byte stream the live site
+    serves comes back 200.
     """
     dest.parent.mkdir(parents=True, exist_ok=True)
     try:
         proc = subprocess.run(
             ["curl", "-sL", "--connect-timeout", "6", "--max-time", str(timeout),
-             "-A", UA, "-o", str(dest), "--write-out", "%{http_code}", url],
+             "-A", UA, "-H", "Referer: https://prepnuggets.com/cfa-level-1-study-notes/",
+             "-o", str(dest), "--write-out", "%{http_code}", url],
             capture_output=True, text=True, timeout=timeout + 15)
         code = proc.stdout.strip()
         if code == "200" and dest.is_file() and dest.stat().st_size > 0:

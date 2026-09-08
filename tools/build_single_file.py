@@ -34,8 +34,8 @@ CHUNK_BYTES = 4_000_000
 
 COMPRESS_MODE = "--compress" in sys.argv  # module-level: b64() is used widely
 
-COMPRESS_THRESHOLD = 80_000  # bytes; smaller images stay untouched
-COMPRESS_QUALITY = 64  # visually lossless for diagrams; original kept too
+COMPRESS_THRESHOLD = 50_000  # bytes; smaller images stay untouched
+COMPRESS_QUALITY = 60  # visually lossless for diagrams; original kept too
 
 FONT_MIMES = {"woff2": "font/woff2", "woff": "font/woff", "ttf": "font/ttf",
               "otf": "font/otf", "eot": "application/vnd.ms-fontobject"}
@@ -541,5 +541,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
