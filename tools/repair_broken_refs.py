@@ -12,6 +12,7 @@ Idempotent, offline, ~2-4 min run over the whole site. Usage:
 """
 
 import io
+import os
 import re
 from collections import defaultdict
 from pathlib import Path
@@ -68,17 +69,42 @@ def by_stem_index():
     return index
 
 
+# Brand/marketing artwork must never stand in for content figures (the
+# earlier "largest file" heuristic picked the big PREP logo and put it inside
+# articles). Same-stem candidates stay whitelisted (they are the figure's own
+# size variants); folder fallback filters brand artwork out.
+BRAND_RE = re.compile(r"logo|brand|banner|notes-for-cfa|best-seller|udemy|glossary|cropped|square-600|spinner|badge|icon|high-ratings|high_ratings", re.I)
+
+
+def brand_blacklisted(p: Path) -> bool:
+    return bool(BRAND_RE.search(p.name))
+
+
 def candidates_for(url: str, index: dict) -> list:
     name = url.split("/")[-1].split("?")[0]
     stem = name.rsplit(".", 1)[0] if "." in name else name
     base = re.sub(r"-\d+x\d+$", "", stem).lower()
-    cands = [f for k, v in index.items() if k.startswith(base) for f in v]
-    if not cands and "/" in url:
-        for p in SITE.rglob(url.split("/")[-2]):
+    cands = [f for k, v in index.items() if k.startswith(base) for f in v
+             if f.name.lower() != name.lower()]
+    # same-stem family: allowed regardless of brand terms (it IS the figure)
+    if cands:
+        return cands
+    dirs = []
+    m = re.search(r"up/(\d{4}/\d{2})/", url)
+    if m:
+        d = SITE / "wp-content/up" / m.group(1)
+        if d.is_dir():
+            dirs.append(d)
+    if not dirs:
+        dn = url.rsplit("/", 1)[0].rsplit("/", 1)[1]
+        for p in SITE.rglob(dn):
             if p.is_dir():
-                cands = [f for f in p.glob("*") if f.suffix.lower() in IMAGE_EXT]
-                if cands:
-                    break
+                dirs.append(p)
+    for d in dirs:
+        cands = [f for f in d.glob("*") if f.suffix.lower() in IMAGE_EXT
+                 and not brand_blacklisted(f)]
+        if cands:
+            return cands
     return cands
 
 
@@ -86,22 +112,50 @@ def rewrite_once(bad: dict, index: dict) -> int:
     fixed = 0
     for url, _n in bad.items():
         name = url.split("/")[-1].split("?")[0]
+        # brand/decorative badges (High-Ratings, Best-Seller, logo, Glossary...)
+        # have no content meaning: drop their tags instead of substituting a
+        # different brand image in an arbitrary spot
+        if brand_blacklisted(Path(name + ".x")):
+            pages = 0
+            for p in SITE.rglob("*.html"):
+                if p.parts[0] in SKIP_DIRS:
+                    continue
+                t = p.read_text(encoding="utf-8", errors="ignore")
+                if name in t:
+                    # remove whole img/source tags referencing this badge
+                    t = re.sub(r"<(?:img|source)\b[^>]*" + re.escape(name) + r"[^>]*>",
+                               "", t)
+                    p.write_text(t, encoding="utf-8")
+                    pages += 1
+            fixed += 1
+            if pages:
+                print(f"  drop badge {name} in {pages} pages")
+            continue
         cands = [c for c in candidates_for(url, index) if not is_corrupt(c) and c.name != name]
         if not cands:
             continue
         fallback = max(cands, key=lambda p: p.stat().st_size)
-        fname = fallback.name
         pages = 0
         for p in SITE.rglob("*.html"):
             if p.parts[0] in SKIP_DIRS:
                 continue
             t = p.read_text(encoding="utf-8", errors="ignore")
+            # replace the WHOLE ref (same-stem names live in several date dirs;
+            # swapping the bare name kept the wrong directory and stayed broken).
+            # prefer the exact original url string when still present: bare-name
+            # substitution re-matches inside previously rewritten relpaths
+            # (../../../wp-content/up/2022/08/../../../...) and nests them.
             if name in t:
-                p.write_text(t.replace(name, fname), encoding="utf-8")
+                rel = os.path.relpath(fallback, p.parent).replace("\\", "/")
+                if url in t:
+                    t = t.replace(url, rel)
+                else:
+                    t = re.sub(re.escape(name) + r"(?=[\"'\s,]|$)", rel, t)
+                p.write_text(t, encoding="utf-8")
                 pages += 1
         fixed += 1
         if pages:
-            print(f"  fix {name} -> {fname} in {pages} pages")
+            print(f"  fix {name} -> {fallback.name} (relpath) in {pages} pages")
     return fixed
 
 

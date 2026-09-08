@@ -174,7 +174,9 @@ KNOWN_ORIGIN_UNREACHABLE = (
     "securities-Fixed-Income-and-Equity",
     "z-table-usage",)
 
-URL_ATTR_RE = re.compile(r'\b(href|src|srcset|poster)\s*=\s*"([^"]*)"')
+# both quote styles: single-quoted attrs (X theme emits href='//prepnuggets.com/...')
+# slipped through the double-quote rule and stayed protocol-relative
+URL_ATTR_RE = re.compile(r"\b(href|src|srcset|poster)\s*=\s*([\"'])([^\"']*)\2")
 TAG_OPEN_RE = re.compile(r"<[a-zA-Z][a-zA-Z0-9-]*\b[^>]*>")
 
 paths_for_check = sorted((SITE / p).as_posix()
@@ -201,10 +203,10 @@ def main():
                 if not rel_m or "alternate" in rel_m.group(1).lower() \
                         or "canonical" in rel_m.group(1).lower():
                     continue
-            url_m = re.search(r'(?:src|href)\s*=\s*"([^"]*)"', tag)
+            url_m = re.search(r'(?:src|href)\s*=\s*(["\'])([^"\']*)\1', tag)
             if not url_m:
                 continue
-            v = url_m.group(1)
+            v = url_m.group(2)
             if v.startswith(("data:", "mailto:")):
                 continue
             full = v if v.startswith(("http://", "https://")) else None
@@ -225,8 +227,8 @@ def main():
             problems.append(f"{rel}: lazyload placeholder {m.group(1)[:40]}")
 
         # 1. resolvability (relative refs)
-        for m in re.finditer(r'\b(href|src|srcset|poster)\s*=\s*"([^"]*)"', html):
-            attr, value = m.group(1), m.group(2)
+        for m in re.finditer(r'\b(href|src|srcset|poster)\s*=\s*(["\'])([^"\']*)\2', html):
+            attr, value = m.group(1), m.group(3)
             # only srcset values are comma-separated url lists
             pieces = value.split(",") if attr == "srcset" else [value]
             for part in pieces:

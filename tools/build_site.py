@@ -103,7 +103,10 @@ SEG_RENAMES = compute_seg_renames(MIRROR / "prepnuggets.com" / "cfa-level-1-stud
 
 LOCAL_HOSTS = ("prepnuggets.com", "cdn.jsdelivr.net", "fonts.googleapis.com", "fonts.gstatic.com")
 
-ATTR_URL_RE = re.compile(r'([a-zA-Z][a-zA-Z0-9-]*)\s*=\s*"([^"]*)"')
+# both quote styles: the X theme emits href='//prepnuggets.com/...' (single
+# quotes) - double-quote-only rules silently skipped those, leaving
+# protocol-relative urls that file:// browsers resolve to file://prepnuggets.com/
+ATTR_URL_RE = re.compile(r"([a-zA-Z][a-zA-Z0-9-]*)\s*=\s*([\"'])([^\"']*)\2")
 PLACEHOLDER_RE = re.compile(r"^data:image/svg\+xml")
 
 
@@ -237,10 +240,10 @@ def rewrite_attr_urls(html: str, base_url: str, abs_page_dir: Path, renames: dic
 
     def sub_tag(m):
         def sub_attr(am):
-            name, value = am.group(1), am.group(2)
+            name, value, quote = am.group(1), am.group(3), am.group(2)
             if name not in ("href", "src", "srcset", "poster", "ping"):
                 return am.group(0)
-            return f'{name}="{rewrite_srcset_or_url(value, base_url, abs_page_dir, renames, report)}"'
+            return f'{name}={quote}{rewrite_srcset_or_url(value, base_url, abs_page_dir, renames, report)}{quote}'
         return ATTR_URL_RE.sub(sub_attr, m.group(0))
 
     return tag_re.sub(sub_tag, html)
@@ -307,7 +310,7 @@ def replace_video_iframes(html: str) -> str:
         re.S | re.I)
 
     def has_remote_video(attrs: str):
-        src = re.search(r'src="([^"]*)"', attrs, flags=re.I)
+        src = re.search(r"src=([\"'])([^\"']*)\1", attrs, flags=re.I)
         return bool(src and re.search(
             r"(?:youtube\.com|youtube-nocookie\.com|youtu\.be|vimeo\.com|bilibili\.com|mp4\b)",
             re.search(r'(?:https?://)?//?[^"]*', src.group(1), flags=re.I).group(0) if src.group(1) else ""))
@@ -316,7 +319,7 @@ def replace_video_iframes(html: str) -> str:
         attrs = m.group(1) or m.group(2) or ""
         if not has_remote_video(attrs):
             return m.group(0)
-        src = re.search(r'src="([^"]*)"', attrs, flags=re.I)
+        src = re.search(r"src=([\"'])([^\"']*)\1", attrs, flags=re.I)
         width = re.search(r'width="(\d+)"', attrs, flags=re.I)
         height = re.search(r'height="(\d+)"', attrs, flags=re.I)
         w = width.group(1) if width else "560"
