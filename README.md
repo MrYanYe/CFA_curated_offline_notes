@@ -84,7 +84,8 @@ cfa_l1_offline_notes/                        ← repo root
 │   ├── slug_rename_map.md                   ← old→new compressed segment names
 │   └── readme_images/                       ← verification screenshots
 ├── cfa_l1_offline_notes_site_2026/          ← deliverable ① (multi-file site)
-├── cfa_l1_offline_notes_all_in_one_2026.html                ← deliverable ② (single file)
+├── cfa_l1_offline_notes_all_in_one_2026.html← 成品②：单文件版（143.8 MB；已 gitignore，工作树保留）
+├── cfa_l1_offline_notes_all_in_one_2026/     ← 成品②压缩分卷（.zip.001，96.8 MB）                ← deliverable ② (single file)
 ├── cfa_l1_offline_notes_all_in_one_2026_compressed.html
 ├── serve_local.cmd                          ← Windows double-click local viewer
 ├── tools/                                   ← all scripts (build/fetch/verify)
@@ -162,9 +163,9 @@ Screenshots under `docs/readme_images/`.
 | 页面间跳转 | 真实文件跳转（新页面新 URL） | hash 路由（同页切换，地址栏出现 `#/栏目/文章/`） |
 | 首次加载 | ~0.1–1 秒 | ~1.2 秒 |
 | 切页速度 | < 0.2 秒 | ~1–1.5 秒 |
-| 推荐场景 | **日常阅读主力**：电脑、平板、手机浏览器均可 | **单文件走天下**：微信/网盘传一次就能全站带走 |
+| 推荐场景 | 备用：**目前仅在电脑端正常显示** | **首选**：兼容性最好（手机/平板/电脑全可用），最方便使用与复制，微信/网盘一次即可全站带走 |
 
-**选择建议**：手机/平板/电脑常规学习直接用**形态①**（跟原站体验一致）；只有需要"只拷一个文件"（如跨设备秒传、备份到网盘、贴到某些只能传文件的应用里）时才用**形态②**。
+**选择建议**：**优先使用形态②（单文件版）**——兼容性最好，一处拷贝即全站可用，跨手机/平板/电脑无障碍；形态①（多文件夹版）目前仅在电脑端正常显示，仅作为桌面端备用。
 
 ### 一、 秒上手
 
@@ -173,7 +174,8 @@ Screenshots under `docs/readme_images/`.
 | **电脑** | 双击 `cfa_l1_offline_notes_site_2026/index.html`（Chrome / Edge / Safari） |
 | **安卓手机 / 平板** | 整个 `cfa_l1_offline_notes_site_2026/` 文件夹拷进设备 → 用 Chrome 打开其 `index.html` |
 | **iPhone / iPad** | 拷进「文件」App → Safari 打开 `index.html`（可「分享 → 添加到主屏幕」全屏阅读） |
-| **只用单文件** | 打开/分享 `cfa_l1_offline_notes_all_in_one_2026.html`（全站合一，点击站内链接即切换页面） |
+| **只用单文件（首选）** | 打开/分享 `cfa_l1_offline_notes_all_in_one_2026.html`（全站合一，点击站内链接即切换页面） |
+| **传不动 143 MB？** | 用压缩分卷：`cfa_l1_offline_notes_all_in_one_2026/` 目录下的 `.zip.001` 分卷包（单卷 96.8 MB，解压方法见 Q8）；或用自带压缩版 `cfa_l1_offline_notes_all_in_one_2026_compressed.html`（93.3 MB，一个文件直接传） |
 
 上手实测：桌面与手机视口首屏 **0.1–1.2 秒**，图片 100% 加载，0 控制台错误。
 
@@ -211,7 +213,7 @@ Screenshots under `docs/readme_images/`.
 | 页面切换 | < 0.2 s | ~1–1.5 s |
 | 图片 | 全分辨率多尺寸（srcset 响应式） | 原图字节无损内嵌（注册表去重，单尺寸取最大档） |
 | 迁移性 | 拷整个文件夹（309 MB） | 拷 1 个文件（128.6 或 99.6 MB） |
-| 适用 | 电脑/平板/手机常规使用，推荐 | 微信传一次就能全站带走；传网盘/备份选压缩版（<100 MB） |
+| 适用 | 备用（目前仅电脑端正常显示） | **首选**：兼容性最好、最方便复制；传不动用压缩分卷（96.8 MB）或压缩版（93.3 MB） |
 
 两版渲染样式一致（自定义 CSS、图标字体、KaTeX 均验证一致：站点品牌 120px、导航大写等）。
 
@@ -290,3 +292,13 @@ python tools/build_single_file.py    # 单文件版（+ --compress 出 <100MB �
 ---
 
 *维护：2026-09-07 全量整理；git 多次提交（基线 → 设计 → 文件夹版 → 单文件版 → 重命名 → 压缩 → 视频 → 分支 → 界面修复 → 双语文档）。*
+
+**Q8 单文件分卷压缩包怎么解压？**
+分卷包位于 `cfa_l1_offline_notes_all_in_one_2026/`，当前为单卷 `cfa_l1_offline_notes_all_in_one_2026.html.zip.001`（96.8 MB）。
+解压方法（任选）：
+- **7-Zip / WinRAR**：直接打开 `.zip.001` 即可解出 html（自动关联分卷；若将来出现多卷 .002 等也放在同一目录，自动合并）。
+- **命令行合并法**（任意系统）：先把所有卷放同一目录，再合并——Windows：`copy /b cfa_l1_offline_notes_all_in_one_2026.html.zip.001+…+.002 合并.zip`；macOS/Linux：`cat cfa_l1_offline_notes_all_in_one_2026.html.zip.* > 合并.zip`；然后用任意解压工具解压 `合并.zip`。
+- **Python**：`import zipfile; zipfile.ZipFile("cfa_l1_offline_notes_all_in_one_2026.html.zip.001").extractall()`
+解压校验：原文件与解压结果 sha256 一致（已验证通过）。
+
+---

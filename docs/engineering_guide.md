@@ -261,7 +261,25 @@ Screenshots land in `tools/.build/shots/`.
 - **Serve locally**: `python tools/serve.py` (optionally `--port`, `--dir`);
   prints phone URL; serves deliverable ①.
 
+
+### 7.x Distribution & delivery notes
+
+- **Deliverable to prefer for users: the single file.** Its compatibility is
+  the best of all forms and it is the easiest to copy (one file, phone/tablet/
+  desktop). The multi-file folder version currently renders correctly on
+  desktop only (verified), so README recommends Form ② first.
+- The >100MB original single file is gitignored (tracked removal) and shipped
+  as split-volume zip (`cfa_l1_offline_notes_all_in_one_2026/` folder,
+  `.zip.001` + optional .002...). Un-/re-created by
+  `tools/.build/make_split_zip.py` style logic; volumes are plain zip byte
+  slices: 7-Zip/WinRAR open .001 directly, or `copy /b`/`cat` merge then
+  unzip. sha256 round-trip verified.
+- Single-file sizes: original 143.78 MB; split zip single volume 96.8 MB.
 ---
+
+**分发与交付说明**：单文件版优先推荐（兼容性最好、复制最方便；多文件版目前仅电脑端正常显示）。
+原始单文件（>100MB）已从 git 剔除，以分卷 zip 交付（`cfa_l1_offline_notes_all_in_one_2026/` 下
+`.zip.001`；解压：7-Zip/WinRAR 直开，或 `copy /b`/`cat` 合并后解压，sha256 已验证）。
 
 # 中文版（Engineering Guide）
 
