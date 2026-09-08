@@ -1,6 +1,6 @@
 # CFA Level 1 Study Notes — PrepNuggets Offline Site (2026)
 
-<p align="center"><a href="#english" style="color:#0969da;">English</a><span style="color:#999999;"> &nbsp;|&nbsp; </span><a href="#chinese" style="color:#0969da;">中文</a></p>
+<p align="center"><a href="#english" style="color:#0969da;">English</a><span style="color:#999999;"> &nbsp;|&nbsp; </span><a href="#中文" style="color:#0969da;">中文</a></p>
 
 This project is a fully-offline mirror of **https://prepnuggets.com/cfa-level-1-study-notes/** — the CFA Level 1 study-notes site (2026 curriculum, 387 article pages + homepage, ~4000 images) — turned into deliverables you can browse with zero network requests: double-click and read, on any device.
 
