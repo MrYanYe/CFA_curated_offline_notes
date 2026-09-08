@@ -85,7 +85,7 @@ cfa_l1_offline_notes/                        ← repo root
 │   └── readme_images/                       ← verification screenshots
 ├── cfa_l1_offline_notes_site_2026/          ← deliverable ① (multi-file site)
 ├── cfa_l1_offline_notes_all_in_one_2026.html← 成品②：单文件版（143.8 MB；已 gitignore，工作树保留）
-├── cfa_l1_offline_notes_all_in_one_2026/     ← 成品②压缩分卷（.zip.001，96.8 MB）                ← deliverable ② (single file)
+├── cfa_l1_offline_notes_all_in_one_2026.html.zip ← 成品②整站 zip（96.8 MB，<100MB 无需分卷）                ← deliverable ② (single file)
 ├── cfa_l1_offline_notes_all_in_one_2026_compressed.html
 ├── serve_local.cmd                          ← Windows double-click local viewer
 ├── tools/                                   ← all scripts (build/fetch/verify)
@@ -158,7 +158,7 @@ Screenshots under `docs/readme_images/`.
 | | 形态①：**多文件夹网站版** | 形态②：**单文件版** |
 |---|---|---|
 | 是什么 | 一个文件夹，内含 `index.html` + 各栏目子目录 + 资源目录（图片/字体/CSS），即整个"静态网站" | 一个 `.html` 文件，网站全部内容（页面正文+图片）都内嵌在里面 |
-| 入口 | 打开 `cfa_l1_offline_notes_site_2026/index.html` | 打开 `cfa_l1_offline_notes_all_in_one_2026.html`（**原始未压缩版**）或 `cfa_l1_offline_notes_all_in_one_2026_compressed.html`（**压缩版，<100 MB**） |
+| 入口 | 打开 `cfa_l1_offline_notes_site_2026/index.html` | 打开 `cfa_l1_offline_notes_all_in_one_2026.html`（**原始**）或 `cfa_l1_offline_notes_all_in_one_2026_compressed.html`（**压缩版 <100MB**）或 `cfa_l1_offline_notes_all_in_one_2026.html.zip`（**整站单 zip 96.8MB**) |
 | 体积 | 309 MB（1 个文件夹） | **128.6 MB**（原始未压缩）/ **99.6 MB**（压缩版 <100MB） |
 | 页面间跳转 | 真实文件跳转（新页面新 URL） | hash 路由（同页切换，地址栏出现 `#/栏目/文章/`） |
 | 首次加载 | ~0.1–1 秒 | ~1.2 秒 |
@@ -175,7 +175,7 @@ Screenshots under `docs/readme_images/`.
 | **安卓手机 / 平板** | 整个 `cfa_l1_offline_notes_site_2026/` 文件夹拷进设备 → 用 Chrome 打开其 `index.html` |
 | **iPhone / iPad** | 拷进「文件」App → Safari 打开 `index.html`（可「分享 → 添加到主屏幕」全屏阅读） |
 | **只用单文件（首选）** | 打开/分享 `cfa_l1_offline_notes_all_in_one_2026.html`（全站合一，点击站内链接即切换页面） |
-| **传不动 143 MB？** | 用压缩分卷：`cfa_l1_offline_notes_all_in_one_2026/` 目录下的 `.zip.001` 分卷包（单卷 96.8 MB，解压方法见 Q8）；或用自带压缩版 `cfa_l1_offline_notes_all_in_one_2026_compressed.html`（93.3 MB，一个文件直接传） |
+| **传不动 143.8 MB？** | 用 `cfa_l1_offline_notes_all_in_one_2026.html.zip`（**整站单 zip，96.8 MB**，解压即得后原 html）；或压缩版 `cfa_l1_offline_notes_all_in_one_2026_compressed.html`（93.3 MB 单文件直接传） |
 
 上手实测：桌面与手机视口首屏 **0.1–1.2 秒**，图片 100% 加载，0 控制台错误。
 
@@ -293,12 +293,12 @@ python tools/build_single_file.py    # 单文件版（+ --compress 出 <100MB �
 
 *维护：2026-09-07 全量整理；git 多次提交（基线 → 设计 → 文件夹版 → 单文件版 → 重命名 → 压缩 → 视频 → 分支 → 界面修复 → 双语文档）。*
 
-**Q8 单文件分卷压缩包怎么解压？**
-分卷包位于 `cfa_l1_offline_notes_all_in_one_2026/`，当前为单卷 `cfa_l1_offline_notes_all_in_one_2026.html.zip.001`（96.8 MB）。
-解压方法（任选）：
-- **7-Zip / WinRAR**：直接打开 `.zip.001` 即可解出 html（自动关联分卷；若将来出现多卷 .002 等也放在同一目录，自动合并）。
-- **命令行合并法**（任意系统）：先把所有卷放同一目录，再合并——Windows：`copy /b cfa_l1_offline_notes_all_in_one_2026.html.zip.001+…+.002 合并.zip`；macOS/Linux：`cat cfa_l1_offline_notes_all_in_one_2026.html.zip.* > 合并.zip`；然后用任意解压工具解压 `合并.zip`。
-- **Python**：`import zipfile; zipfile.ZipFile("cfa_l1_offline_notes_all_in_one_2026.html.zip.001").extractall()`
-解压校验：原文件与解压结果 sha256 一致（已验证通过）。
+**Q8 大文件的打包与解压（两级规则）**
+如果 `cfa_l1_offline_notes_all_in_one_2026.html` 大于 100 MB：先做普通 zip 压缩——若压缩后仍大于 100 MB，则分卷（每卷 ≤100 MB），卷放在新建的 `cfa_l1_offline_notes_all_in_one_2026/` 文件夹内（如 425 MB → .001/.002/.003/.004/.005 五卷）。
+**当前情况**：原始文件 143.8 MB → zip 后仅 **96.8 MB（<100 MB）→ 无需分卷**，交付物为根目录单个 `cfa_l1_offline_notes_all_in_one_2026.html.zip`（解压 sha256 与原文件一致，已验证）。
+解压方法：
+- **普通 zip**（当前）：7-Zip/WinRAR/Windows 自带“全部解压缩”直接打开，得到原 html。
+- **若将来出现分卷**（`.zip.001/.002…`，放在同一文件夹）：7-Zip/WinRAR 直接打开 `.zip.001`（自动合并分卷）；或命令行合并——Windows：`copy /b 文件.zip.001+…+.002 合并.zip`；macOS/Linux：`cat 文件.zip.* > 合并.zip`；或 Python：`zipfile.ZipFile("文件.zip.001").extractall()`——随后解压任意合并产物。
+（原始 html 文件始终保留；压缩产物由脚本按标准重建，不入 git。）
 
 ---

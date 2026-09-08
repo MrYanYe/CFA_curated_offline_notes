@@ -17,7 +17,7 @@ CFA Level 1 study notes site (2026 curriculum, 387 article pages + homepage,
 | `cfa_l1_offline_notes_site_2026/` | multi-file static site | `…/index.html` (309 MB) — desktop-only rendering guaranteed |
 | `cfa_l1_offline_notes_all_in_one_2026.html` | single file (hash routing) | the file (143.8 MB) — **preferred, best compatibility** |
 | `cfa_l1_offline_notes_all_in_one_2026_compressed.html` | single file, JPEG q60 | the file (93.3 MB, <100 MB) |
-| `cfa_l1_offline_notes_all_in_one_2026/` | split-volume zip of the 143.8 MB file | `.zip.001` (96.8 MB) |
+| `cfa_l1_offline_notes_all_in_one_2026.html.zip` | plain zip (96.8 MB; compression got below 100 MB, so no volumes) | repo root |
 
 ### Git branches
 
@@ -307,10 +307,10 @@ silently disables the filter and pulls in 700+ wp-json snapshot pages.
 - **Add a device context** — CONTEXTS in
   `tools/.build/verify_single_file_cross_device.py` (engine, viewport, UA,
   is_mobile); keep per-context checks identical.
-- **Regenerate split volumes** — zip the >100 MB html, slice into ≤100 MiB
-  `.zip.001…parts`, drop the combined zip; place in
-  `cfa_l1_offline_notes_all_in_one_2026/`. Both the >100MB html and the
-  folder are gitignored by design.
+- **Regenerate delivery zip** — zip the >100 MB html (deflate 6); if the zip
+  exceeds 100 MB, slice into ≤100 MiB `.zip.001…parts` in the
+  `cfa_l1_offline_notes_all_in_one_2026/` folder instead. The html, the zip
+  and the potential volume folder are all gitignored by design.
 - **Serve locally** — `python tools/serve.py` (`--port`, `--dir`); prints the
   LAN URL for phones; inline videos work there.
 
@@ -336,7 +336,7 @@ silently disables the filter and pulls in 700+ wp-json snapshot pages.
 | `cfa_l1_offline_notes_site_2026/` | 多文件夹静态站 | `…/index.html`（309 MB）——**目前仅保证电脑端显示正常** |
 | `cfa_l1_offline_notes_all_in_one_2026.html` | 单文件（hash 路由） | 该文件（143.8 MB）——**首选，兼容性最好** |
 | `cfa_l1_offline_notes_all_in_one_2026_compressed.html` | 单文件，JPEG q60 | 该文件（93.3 MB，<100 MB） |
-| `cfa_l1_offline_notes_all_in_one_2026/` | 分卷 zip（143.8 MB 的打包） | `.zip.001`（96.8 MB） |
+| `cfa_l1_offline_notes_all_in_one_2026.html.zip` | 整站单 zip（96.8 MB；压缩后 <100MB，无需分卷） | 项目根 |
 
 ### Git 分支约定
 
