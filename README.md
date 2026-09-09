@@ -14,7 +14,7 @@ This project is a fully-offline mirror of **https://prepnuggets.com/cfa-level-1-
 
 The offline site has **two forms** — identical content, identical styling, only the carrier differs:
 
-| | Form ①: **Multi-folder site** | Form ②: **Single file** |
+| | Form ①: **Multi-folder site** | Form ②: **Single file (Recommended)** |
 |---|---|---|
 | What it is | A folder: `index.html` + topic subfolders + asset folders (images/fonts/CSS) — the whole static site | One `.html` file with the entire site (page content + images) embedded |
 | Entry | `cfa_l1_offline_notes_site_2026/index.html` | `cfa_l1_offline_notes_all_in_one_2026.html` (**original, lossless**) or `cfa_l1_offline_notes_all_in_one_2026_compressed.html` (**<100 MB**) |
@@ -22,9 +22,9 @@ The offline site has **two forms** — identical content, identical styling, onl
 | Page navigation | Real file navigation (new URL per page) | Hash routing (`#/topic/article/` in the address bar) |
 | First load | ~0.1–1 s | ~1.2 s (parses embedded data chunks once) |
 | Page switch | < 0.2 s | ~1–1.5 s |
-| Recommendation | **Daily reading**: computer, tablet, phone browsers | **One-file portability**: send once via WeChat/cloud drive and carry the whole site |
+| Recommendation | Backup: **desktop-only rendering for now** | **Preferred (form ②)**: best compatibility (phone/tablet/computer), easiest to copy; WeChat/cloud drive once carries the whole site |
 
-**Choosing**: use **Form ①** for regular study on phone/tablet/computer (identical to the live site); use **Form ②** only when you need exactly one file (cross-device transfer, cloud backup, apps that only accept single files).
+**Choosing**: **prefer Form ② (the single file)** — best compatibility, easiest to copy, works on phone/tablet/computer; Form ① (the multi-file folder) currently renders correctly on desktop only and serves as a backup.
 
 ### 1. Quick start
 
@@ -33,7 +33,7 @@ The offline site has **two forms** — identical content, identical styling, onl
 | **Computer** | Double-click `cfa_l1_offline_notes_site_2026/index.html` (Chrome / Edge / Safari) |
 | **Android phone / tablet** | Copy the whole `cfa_l1_offline_notes_site_2026/` folder to the device → open its `index.html` with Chrome |
 | **iPhone / iPad** | Copy into the Files app → open `index.html` with Safari (or "Share → Add to Home Screen" for full-screen reading) |
-| **Single file only** | Open/share `cfa_l1_offline_notes_all_in_one_2026.html` (whole site in one file; links switch pages in place) |
+| **Single file only (preferred)** | Open/share `cfa_l1_offline_notes_all_in_one_2026.html` (whole site in one file; links switch pages in place) |
 
 Measured: desktop & mobile first screens 0.1–1.2 s, 100% images loaded, 0 console errors.
 
@@ -70,7 +70,7 @@ Each topic holds article folders by knowledge point (e.g. `economics/understandi
 | Page switch | < 0.2 s | ~1–1.5 s |
 | Images | Full-resolution multi-size (responsive srcset) | Lossless embed (deduped registry, single largest variant) |
 | Portability | Copy the whole folder (309 MB) | Copy 1 file (128.6 or 99.6 MB) |
-| Best for | Regular use on computer/tablet/phone — recommended | One-file portability; compressed variant for cloud/backup (<100 MB) |
+| Best for | Backup (desktop-only at the moment) | **Preferred**: best compatibility, easiest to copy; use the 96.8 MB zip or 93.3 MB compressed variant when the 143.8 MB file is too large |
 
 Both render identically (custom CSS, icon fonts, KaTeX verified): site brand 120px, uppercase nav, etc.
 
@@ -155,7 +155,7 @@ Screenshots under `docs/readme_images/`.
 
 离线网页有**两种形态**，内容完全一致、样式一致，区别在于"装载体"：
 
-| | 形态①：**多文件夹网站版** | 形态②：**单文件版** |
+| | 形态①：**多文件夹网站版** | 形态②：**单文件版（推荐）** |
 |---|---|---|
 | 是什么 | 一个文件夹，内含 `index.html` + 各栏目子目录 + 资源目录（图片/字体/CSS），即整个"静态网站" | 一个 `.html` 文件，网站全部内容（页面正文+图片）都内嵌在里面 |
 | 入口 | 打开 `cfa_l1_offline_notes_site_2026/index.html` | 打开 `cfa_l1_offline_notes_all_in_one_2026.html`（**原始**）或 `cfa_l1_offline_notes_all_in_one_2026_compressed.html`（**压缩版 <100MB**）或 `cfa_l1_offline_notes_all_in_one_2026.html.zip`（**整站单 zip 96.8MB**) |
