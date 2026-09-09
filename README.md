@@ -79,6 +79,7 @@ Both render identically (custom CSS, icon fonts, KaTeX verified): site brand 120
 ```
 cfa_curated_offline_notes/                        ← repo root
 ├── README.md                                ← this file
+├── AI_Prompts.txt                        ← prompt/requirements archive (user requests verbatim; do not edit)
 ├── docs/
 │   ├── engineering_guide.md                 ← bilingual engineering guide (reproduce/modify)
 │   ├── slug_rename_map.md                   ← old→new compressed segment names
@@ -222,6 +223,7 @@ Screenshots under `docs/readme_images/`.
 ```
 cfa_curated_offline_notes/                        ← 项目根（本仓库）
 ├── README.md                                ← 本说明
+├── AI_Prompts.txt                         ← 需求与提示词档案（历次需求原文，供追溯；AI 勿改动）
 ├── docs/
 │   ├── engineering_guide.md                 ← 中英双语工程指南（复现/改动参考）
 │   ├── slug_rename_map.md                   ← 压缩段名新旧对照表

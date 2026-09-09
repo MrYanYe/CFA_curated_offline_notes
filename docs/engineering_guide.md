@@ -41,6 +41,7 @@ CFA Level 1 study notes site (2026 curriculum, 387 article pages + homepage,
 ```
 cfa_curated_offline_notes/                     ← repo root
 ├── README.md                             ← user docs (bilingual, EN first)
+├── AI_Prompts.txt                        ← prompt/requirements archive (user requests verbatim; do not edit)
 ├── docs/
 │   ├── engineering_guide.md              ← this file
 │   ├── slug_rename_map.md                ← old→new compressed segment names
