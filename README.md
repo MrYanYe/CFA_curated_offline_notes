@@ -4,7 +4,7 @@
 
 This project is a fully-offline mirror of **https://prepnuggets.com/cfa-level-1-study-notes/** — the CFA Level 1 study-notes site (2026 curriculum, 387 article pages + homepage, ~4000 images) — turned into deliverables you can browse with zero network requests: double-click and read, on any device.
 
-本项目是 **https://prepnuggets.com/cfa-level-1-study-notes/**（CFA Level 1 学习笔记，2026 考纲，387 篇正文页 + 主页，约 4000 张图）的完整离线镜像，加工成两种可直接使用的成品：零网络请求、双击即读、跨设备可用。
+本项目是 **https://prepnuggets.com/cfa-level-1-study-notes/** （CFA Level 1 学习笔记，2026 考纲，387 篇正文页 + 主页，约 4000 张图）的完整离线镜像，加工成两种可直接使用的成品：零网络请求、双击即读、跨设备可用。
 
 ---
 
